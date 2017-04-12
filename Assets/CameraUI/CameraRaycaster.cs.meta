@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: d02853f5d34bd8f429969ac34c466d07
+labels:
+- Ray
+timeCreated: 1488914150
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - gameCanvasPrefab: {fileID: 1653876244793134, guid: 75a43cca039264395b99698681e52275,
+      type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

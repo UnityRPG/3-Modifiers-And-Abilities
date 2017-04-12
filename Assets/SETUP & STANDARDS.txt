@@ -1,0 +1,22 @@
+# Setup and Standards Doc
+The purpose of this short doc is to get us all on the same page regarding
+a few important things such as world scale, layers, prefab setups, etc.
+
+## World Scale & Origin
+We will be using Unity's default 1 m = 1 Unity Unit. Note animations don't
+scale well. Y=100m is the deepest water bottom. All terrains at Y=-100, flatten land to +100.
+
+## Layers
+So far the layers of note are `Walkable` and `Enemy`, and are self-explanatory in their use.
+Note it is the collider that receives the raycast, so do apply layers to children.
+
+## Labels
+The SceneSetup label contains prefabs that must be added to new scenes.
+
+## Ramp angles
+Maximum ramp Z value = 15
+For a longer ramp = 10
+
+Our full best practices template can be found here...
+
+https://docs.google.com/document/d/15aciUmlgSkA83O83J5L_-Fk1pHAMjQ5cjmx6ALw_yio/edit

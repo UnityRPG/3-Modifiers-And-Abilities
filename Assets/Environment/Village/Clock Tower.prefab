@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1863178381051504}
+  m_IsPrefabParent: 1
+--- !u!1 &1863178381051504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4554463871782332}
+  - component: {fileID: 33229939520836526}
+  - component: {fileID: 23511885319667690}
+  m_Layer: 0
+  m_Name: Clock Tower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4554463871782332
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863178381051504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 189.23552, y: 0, z: 152.48874}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23511885319667690
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863178381051504}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 0d0bb8c3be28b6c448da0922cbe5a90a, type: 2}
+  - {fileID: 2100000, guid: 3ec457e18fef38941bf39d7efa41130d, type: 2}
+  - {fileID: 2100000, guid: 0d0bb8c3be28b6c448da0922cbe5a90a, type: 2}
+  - {fileID: 2100000, guid: 997649aabe06a844c845c4d5f207b717, type: 2}
+  - {fileID: 2100000, guid: afddeaf8571171144b1e15b9271f0262, type: 2}
+  - {fileID: 2100000, guid: 30e2181e568e4b14c9fdc72d674262af, type: 2}
+  - {fileID: 2100000, guid: 309fab19ddae5994fa211b74b4e986cd, type: 2}
+  - {fileID: 2100000, guid: 0d0bb8c3be28b6c448da0922cbe5a90a, type: 2}
+  - {fileID: 2100000, guid: 0d0bb8c3be28b6c448da0922cbe5a90a, type: 2}
+  - {fileID: 2100000, guid: 3ec457e18fef38941bf39d7efa41130d, type: 2}
+  - {fileID: 2100000, guid: 30e2181e568e4b14c9fdc72d674262af, type: 2}
+  - {fileID: 2100000, guid: dbde29452ac28854f87984513957d3be, type: 2}
+  - {fileID: 2100000, guid: 997649aabe06a844c845c4d5f207b717, type: 2}
+  - {fileID: 2100000, guid: 997649aabe06a844c845c4d5f207b717, type: 2}
+  - {fileID: 2100000, guid: 3ec457e18fef38941bf39d7efa41130d, type: 2}
+  - {fileID: 2100000, guid: 3ec457e18fef38941bf39d7efa41130d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &33229939520836526
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1863178381051504}
+  m_Mesh: {fileID: 4300000, guid: 263e1846f4575cf44a4eb486427f548e, type: 3}
