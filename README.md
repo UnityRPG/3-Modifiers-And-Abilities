@@ -1,5 +1,5 @@
-# Unity RPG Course - Section 3 - Modifiers And Abilities
-Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. see our course list [here](https://www.udemy.com/u/bentristem/). The full course is part of [this ](https://www.udemy.com/draft/1110626/?instructorPreviewMode=guest&password=earlyaccess) Kickstarter campaign which was over 200% funded.
+﻿# Unity RPG Course - Section 3 - Modifiers And Abilities
+Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. see our course list [here](https://www.udemy.com/u/bentristem/). The full course is part of [this ](https://www.udemy.com/draft/1110626/?instructorPreviewMode=guest&password=earlyaccess) Kickstarter campaign which was over 200% funded. 
 
 You're welcome to download, fork or do whatever else legal with all the files!
 
