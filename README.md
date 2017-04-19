@@ -1,5 +1,6 @@
-﻿# Unity RPG Course - Section 3 - Modifiers And Abilities
-Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. See our course list [here](https://www.udemy.com/u/bentristem/). The full course is part of [this ](https://www.udemy.com/draft/1110626/?instructorPreviewMode=guest&password=earlyaccess) Kickstarter campaign which was over 200% funded. 
+# Unity RPG Course - Section 3 - Modifiers And Abilities
+
+Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. The full course is [on Udemy here](https://www.udemy.com/unityrpg).
 
 You're welcome to download, fork or do whatever else legal with all the files!
 
@@ -11,22 +12,22 @@ This branch is the course branch, each commit corresponds to a lecture in the co
 ## Lecture List
 Here are the lectures of the course for this section...
 
-### Section 3 Introduction ###
+### 1_MA_RPG Section 3 Introduction
 
 + What’s coming in this section.
 
-(Unique Video Reference: 1_MA_RPG)
+
+### 2_MA_RPG Design Planning And Decisions
+
++ Review and update your WBS
++ CHALLENGE
++ Decide on next priorities
 
 
-### Design Planning And Decisions ###
+### 3_MA_RPG Your Game Design Document
+
++ GDD Template And Our GDD
++ CHALLENGE
 
 
-
-### Your Game Design Document ###
-
-
-
-### More Content Coming Soon... ###
-
----
-Find out more about our [Unity RPG Creator Course Series](https://www.udemy.com/unityrpg/?couponCode=GitHubDiscount).
+### 4_MA_RPG Unity 5.6 And VS Community 2017
