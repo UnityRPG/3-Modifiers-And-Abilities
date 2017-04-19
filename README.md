@@ -33,3 +33,8 @@ Here are the lectures of the course for this section...
 ### 4_MA_RPG Unity 5.6 And VS Community 2017
 + My chosen options for upgrading to Unity 5.6
 + Review Unity's release notes
+
+
+### 5_MA_RPG Using Namespaces In C#
++ What a namespace is and why it's useful
++ How to use namespaces in C#
