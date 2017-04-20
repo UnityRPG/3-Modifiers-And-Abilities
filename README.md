@@ -38,3 +38,9 @@ Here are the lectures of the course for this section...
 ### 5_MA_RPG Using Namespaces In C#
 + What a namespace is and why it's useful
 + How to use namespaces in C#
+
+
+### 6_MA_RPG The Animator Override Controller
++ Fixing a possible projectile bug
++ What is an Animator Override Controller?
++ How to override animations at runtime

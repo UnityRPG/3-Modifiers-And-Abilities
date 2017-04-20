@@ -740,6 +740,8 @@ MonoBehaviour:
   minTimeBetweenHits: 1
   maxAttackRange: 2
   weaponInUse: {fileID: 11400000, guid: ce7775877fb709346bbf849923cc4dde, type: 2}
+  animatorOverrideController: {fileID: 22100000, guid: e92f24f13a6764b40bb121d6a2e3d168,
+    type: 2}
 --- !u!114 &114978401065010746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -786,6 +788,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -824,6 +827,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149790}
   m_Enabled: 1
+  m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 1
   m_Acceleration: 8

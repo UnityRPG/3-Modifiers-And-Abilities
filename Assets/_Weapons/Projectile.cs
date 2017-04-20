@@ -9,7 +9,6 @@ namespace RPG.Weapons
 {
     public class Projectile : MonoBehaviour
     {
-
         [SerializeField] float projectileSpeed;
         [SerializeField] GameObject shooter; // So can inspected when paused
 
@@ -34,7 +33,7 @@ namespace RPG.Weapons
         void OnCollisionEnter(Collision collision)
         {
             var layerCollidedWith = collision.gameObject.layer;
-            if (layerCollidedWith != shooter.layer)
+            if (shooter && layerCollidedWith != shooter.layer)
             {
                 DamageIfDamageable(collision);
             }
