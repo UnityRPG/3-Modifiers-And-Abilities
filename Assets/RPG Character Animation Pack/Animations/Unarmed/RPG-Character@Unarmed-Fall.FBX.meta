@@ -257,27 +257,27 @@ ModelImporter:
 
 
       MuscleClip ''RPG-Character@Unarmed-Fall''conversion warning: LeftLowerArm average
-      position error 3.3 mm and maximum position error 4.6 mm at 25%
+      position error 3.5 mm and maximum position error 5.0 mm at 25%
 
 
       MuscleClip ''RPG-Character@Unarmed-Fall''conversion warning: LeftHand average
-      position error 4.1 mm and maximum position error 5.6 mm at 25%
+      position error 4.1 mm and maximum position error 5.9 mm at 25%
 
 
       MuscleClip ''RPG-Character@Unarmed-Fall''conversion warning: RightUpperArm average
-      position error 3.5 mm and maximum position error 5.1 mm at 25%
+      position error 3.6 mm and maximum position error 5.1 mm at 25%
 
 
       MuscleClip ''RPG-Character@Unarmed-Fall''conversion warning: RightLowerArm average
-      position error 3.6 mm and maximum position error 5.6 mm at 25%
-
-
-      MuscleClip ''RPG-Character@Unarmed-Fall''conversion warning: RightHand average
       position error 3.6 mm and maximum position error 5.3 mm at 25%
 
 
+      MuscleClip ''RPG-Character@Unarmed-Fall''conversion warning: RightHand average
+      position error 3.3 mm and maximum position error 5.2 mm at 22%
+
+
       MuscleClip ''RPG-Character@Unarmed-Fall''conversion warning: Head average position
-      error 6.0 mm and maximum position error 9.4 mm at 25%
+      error 5.9 mm and maximum position error 9.4 mm at 25%
 
 
 '
@@ -306,7 +306,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 1
+      keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000

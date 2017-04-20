@@ -312,15 +312,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
-        functionName: FootR
+      - time: .537039757
+        functionName: FootL
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: .540084779
-        functionName: FootL
+      - time: 0
+        functionName: FootR
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

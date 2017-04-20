@@ -44,3 +44,9 @@ Here are the lectures of the course for this section...
 + Fixing a possible projectile bug
 + What is an Animator Override Controller?
 + How to override animations at runtime
+
+
+### 7_MA_RPG Protecting Our Interfaces
++ The hidden dependency in our asset pack
++ How to prevent animation events breaking code
++ Challenge: Apply animations to weapons.
