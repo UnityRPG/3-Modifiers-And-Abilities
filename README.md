@@ -50,3 +50,9 @@ Here are the lectures of the course for this section...
 + The hidden dependency in our asset pack
 + How to prevent animation events breaking code
 + Challenge: Apply animations to weapons.
+
+
+### 8_MA_RPG Untangling Standard Assets
++ Taking control of our animations
++ Drawing out our dependencies
++ Taking control of Standard Assets
