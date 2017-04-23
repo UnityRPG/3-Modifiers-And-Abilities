@@ -56,3 +56,8 @@ Here are the lectures of the course for this section...
 + Taking control of our animations
 + Drawing out our dependencies
 + Taking control of Standard Assets
+
+
+### 9_MA_RPG Trigger Animations From Code
++ Refactor our Player class
++ Move properties from Player to Weapon

@@ -929,7 +929,7 @@ Prefab:
         type: 2}
       propertyPath: weaponInUse
       value: 
-      objectReference: {fileID: 11400000, guid: 34ab0c72d9a69d447bfdb07b7a6d8ded,
+      objectReference: {fileID: 11400000, guid: ce7775877fb709346bbf849923cc4dde,
         type: 2}
     - target: {fileID: 195367535995020892, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
