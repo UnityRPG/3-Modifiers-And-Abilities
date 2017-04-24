@@ -61,3 +61,9 @@ Here are the lectures of the course for this section...
 ### 9_MA_RPG Trigger Animations From Code
 + Refactor our Player class
 + Move properties from Player to Weapon
+
+
+### 10_MA_RPG Triggering Audio On Radius
+1. Review AudioTrigger.cs from Gist
+2. Set-up and test sound trigger prefab
+3. How to source your audio clips
