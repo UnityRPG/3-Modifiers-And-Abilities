@@ -72,3 +72,9 @@ Here are the lectures of the course for this section...
 ### 11_MA_RPG Terrain Optimization
 1. Performance issues from terrain
 2. Challenge: Tune terrain settings
+
+
+### 12_MA_RPG Our First Dialogue
+1. Our level's requirements
+2. Pitch shifting a character
+3. Challenge: create your dialogue
