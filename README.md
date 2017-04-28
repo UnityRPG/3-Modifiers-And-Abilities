@@ -78,3 +78,10 @@ Here are the lectures of the course for this section...
 1. Our level's requirements
 2. Pitch shifting a character
 3. Challenge: create your dialogue
+
+
+### 13_MA_RPG Tasks And Bugs
+1. Our bug fixing workflow
+2. Bug tracking and task scheduling
+3. Challenge
+4. Lets fix some issues

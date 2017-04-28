@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4159277622895012}
   - component: {fileID: 65150110129219566}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Medium Rectangular Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4364402351495318}
   - component: {fileID: 33668147530961948}
   - component: {fileID: 23393213928503506}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,6 +101,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33668147530961948
 MeshFilter:
