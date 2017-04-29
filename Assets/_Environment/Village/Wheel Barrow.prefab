@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33903713017729104}
   - component: {fileID: 23449544071258568}
   - component: {fileID: 65721363969717050}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Wheel Barrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4722223415748676
 Transform:
@@ -73,6 +73,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33903713017729104
 MeshFilter:
@@ -80,7 +81,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177285574596056}
-  m_Mesh: {fileID: 4300000, guid: d61959bcfe70dd147a4adbaa1dba205f, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b60702034a13ed74d83f528780a909be, type: 3}
 --- !u!65 &65721363969717050
 BoxCollider:
   m_ObjectHideFlags: 1

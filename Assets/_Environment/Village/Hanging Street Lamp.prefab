@@ -26,7 +26,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1895625930017230
 GameObject:
@@ -44,7 +44,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4505919641394052
 Transform:
@@ -107,6 +107,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33216136154943142
 MeshFilter:
@@ -114,7 +115,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1842711371680984}
-  m_Mesh: {fileID: 4300000, guid: a85e374cc66f19f4ab56ea47d9f329ab, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 7ed1ac2a222764d44aae869031dc47b1, type: 3}
 --- !u!65 &65151952454030738
 BoxCollider:
   m_ObjectHideFlags: 1

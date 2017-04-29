@@ -25,7 +25,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1844195484970028
 GameObject:
@@ -38,11 +38,11 @@ GameObject:
   - component: {fileID: 33233128623177396}
   - component: {fileID: 23894725129553062}
   m_Layer: 0
-  m_Name: Bridge
+  m_Name: Stone Bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4117486393850804
 Transform:
@@ -85,7 +85,10 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: eecf793f1e041cf42a425108ff9edb7d, type: 2}
+  - {fileID: 2100000, guid: 46602ba8a17caeb49b5d02076744225f, type: 2}
   - {fileID: 2100000, guid: 9c4dd8c3a96f5be4f8e459b7d207a008, type: 2}
+  - {fileID: 2100000, guid: b1881f86f4f83514dbc8889a015749b4, type: 2}
+  - {fileID: 2100000, guid: c66a2ecb5c7cb18428c22dbc2400f03b, type: 2}
   - {fileID: 2100000, guid: 1e0a6130f8bffe346aed528c12e8eda0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -103,6 +106,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33233128623177396
 MeshFilter:
@@ -110,7 +114,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1844195484970028}
-  m_Mesh: {fileID: 4300000, guid: 1e39bbbe72f68244dafd6404452bbcec, type: 3}
+  m_Mesh: {fileID: 4300002, guid: b918e7f2b4b88814faa9de13f5bda206, type: 3}
 --- !u!64 &64087219811110432
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -124,4 +128,4 @@ MeshCollider:
   m_Convex: 0
   m_InflateMesh: 0
   m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 1e39bbbe72f68244dafd6404452bbcec, type: 3}
+  m_Mesh: {fileID: 4300002, guid: b918e7f2b4b88814faa9de13f5bda206, type: 3}

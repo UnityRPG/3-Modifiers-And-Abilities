@@ -25,31 +25,31 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1388322038052678
+--- !u!1 &1378306201552136
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4123298129011102}
-  - component: {fileID: 33756078019313346}
-  - component: {fileID: 23444593298264518}
+  - component: {fileID: 4283663820795938}
+  - component: {fileID: 33212641771989858}
+  - component: {fileID: 23447564718197186}
   m_Layer: 0
-  m_Name: WATCH_TOWER
+  m_Name: Watch Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4123298129011102
+--- !u!4 &4283663820795938
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388322038052678}
+  m_GameObject: {fileID: 1378306201552136}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -63,20 +63,20 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1040321284760140}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18, y: 0, z: -15}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 23, y: 0, z: 42}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4123298129011102}
+  - {fileID: 4283663820795938}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23444593298264518
+--- !u!23 &23447564718197186
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388322038052678}
+  m_GameObject: {fileID: 1378306201552136}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -101,14 +101,15 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33756078019313346
+--- !u!33 &33212641771989858
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1388322038052678}
-  m_Mesh: {fileID: 4300002, guid: 7f95b6b55f9b7bd41aad647af54ff23d, type: 3}
+  m_GameObject: {fileID: 1378306201552136}
+  m_Mesh: {fileID: 4300000, guid: 2d6d837a78637aa449838c8f13e8e138, type: 3}
 --- !u!65 &65875042441268146
 BoxCollider:
   m_ObjectHideFlags: 1

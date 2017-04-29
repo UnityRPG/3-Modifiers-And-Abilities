@@ -85,3 +85,8 @@ Here are the lectures of the course for this section...
 2. Bug tracking and task scheduling
 3. Challenge
 4. Lets fix some issues
+
+
+### 14_MA_RPG Placing Props
+1. Tidy up scene and import new assets
+2. Challenge: Place props in your scene

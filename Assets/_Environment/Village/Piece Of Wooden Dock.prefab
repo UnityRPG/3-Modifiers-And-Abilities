@@ -25,7 +25,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1989555099973206
 GameObject:
@@ -42,7 +42,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4449663648426590
 Transform:
@@ -50,14 +50,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1825687015004514}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 49}
+  m_LocalRotation: {x: -0, y: 0.49682128, z: -0, w: 0.86785287}
+  m_LocalPosition: {x: 30.68, y: -1.66, z: -12.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4726460226465624}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 59.58, z: 0}
 --- !u!4 &4726460226465624
 Transform:
   m_ObjectHideFlags: 1
@@ -102,6 +102,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33165794462313058
 MeshFilter:
@@ -109,7 +110,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989555099973206}
-  m_Mesh: {fileID: 4300000, guid: 30da8285034496843a3e2b86a0e12109, type: 3}
+  m_Mesh: {fileID: 4300000, guid: ca5d717bb89049648b66a9f1531501a8, type: 3}
 --- !u!65 &65959527502122944
 BoxCollider:
   m_ObjectHideFlags: 1

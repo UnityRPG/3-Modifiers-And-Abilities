@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1346352419076870}
-  m_LocalRotation: {x: 0.007037599, y: 0.08251423, z: 0.06940056, w: 0.99414563}
-  m_LocalPosition: {x: 24.4, y: 2, z: 88.6}
-  m_LocalScale: {x: 17.670069, y: 0.19970997, z: 4.1121106}
+  m_LocalRotation: {x: 0.051480286, y: -0.65502, z: 0.0406133, w: 0.752761}
+  m_LocalPosition: {x: 51.2, y: 1.8, z: -19.2}
+  m_LocalScale: {x: 3.01758, y: 0.19970997, z: 17.034258}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.14600001, y: 9.5, z: 7.9990005}
+  m_LocalEulerAnglesHint: {x: 7.511, y: -82.081, z: -0.36400002}
 --- !u!23 &23756495805555730
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -55,7 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: dc8858c31f569014cb9198b58427d5ad, type: 2}
+  - {fileID: 2100000, guid: 04bce92008d7ac04bbc523ebdd52c83e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -72,6 +72,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33348850428911068
 MeshFilter:

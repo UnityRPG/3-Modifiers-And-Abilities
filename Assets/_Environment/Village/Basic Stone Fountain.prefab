@@ -22,12 +22,12 @@ GameObject:
   - component: {fileID: 33048291192122642}
   - component: {fileID: 23817050299364250}
   - component: {fileID: 114075942452982472}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: Fountain Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1193903229290518
 GameObject:
@@ -39,12 +39,12 @@ GameObject:
   - component: {fileID: 4694927652658366}
   - component: {fileID: 33416549167279442}
   - component: {fileID: 23886136854574962}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Fountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1948523959653056
 GameObject:
@@ -55,12 +55,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4247680524476220}
   - component: {fileID: 136942943197975036}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Basic Stone Fountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4247680524476220
 Transform:
@@ -68,8 +68,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1948523959653056}
-  m_LocalRotation: {x: 0, y: -0.8870109, z: -0, w: 0.46174863}
-  m_LocalPosition: {x: 14, y: 0, z: 35}
+  m_LocalRotation: {x: -0, y: -0.8870109, z: -0, w: 0.46174863}
+  m_LocalPosition: {x: 14.6, y: 0, z: 35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4694927652658366}
@@ -116,7 +116,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7350b65a6431f604a8496c39db1ac9c5, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133,6 +133,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23886136854574962
 MeshRenderer:
@@ -164,6 +165,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33048291192122642
 MeshFilter:
@@ -178,7 +180,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1193903229290518}
-  m_Mesh: {fileID: 4300000, guid: 56b094dd4c1a9ee4b95d99a14d007eb5, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 957c0a3c89fb8754f971a71efdb937eb, type: 3}
 --- !u!114 &114075942452982472
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,7 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterMode: 2
   disablePixelLights: 1
-  textureSize: 64
+  textureSize: 256
   clipPlaneOffset: 0.07
   reflectLayers:
     serializedVersion: 2

@@ -36,7 +36,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344007212325368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11, y: 0, z: 13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -57,7 +57,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: a0180036c51785f47830548f43980d3a, type: 2}
-  - {fileID: 2100000, guid: a0180036c51785f47830548f43980d3a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -74,6 +73,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33754282192359072
 MeshFilter:
@@ -81,7 +81,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344007212325368}
-  m_Mesh: {fileID: 4300006, guid: 51733532d11105c4bb2863a58c13c603, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b6049de51dd726744ba1cee548ab42c5, type: 3}
 --- !u!136 &136782049014872944
 CapsuleCollider:
   m_ObjectHideFlags: 1

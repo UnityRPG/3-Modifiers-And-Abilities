@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 4594844553736632}
   - component: {fileID: 193227612443295780}
   - component: {fileID: 33754282192359072}
-  - component: {fileID: 23052470802389174}
   - component: {fileID: 136782049014872944}
+  - component: {fileID: 23713183619270152}
   m_Layer: 2
   m_Name: Tall Thin Pine Tree Green
   m_TagString: Untagged
@@ -36,14 +36,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344007212325368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -11, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23052470802389174
+--- !u!23 &23713183619270152
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -56,7 +56,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 34e60df3c75b6ea468556fbb1dfeeece, type: 2}
   - {fileID: 2100000, guid: 34e60df3c75b6ea468556fbb1dfeeece, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -74,6 +73,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33754282192359072
 MeshFilter:
@@ -81,7 +81,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1344007212325368}
-  m_Mesh: {fileID: 4300006, guid: 51733532d11105c4bb2863a58c13c603, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b6049de51dd726744ba1cee548ab42c5, type: 3}
 --- !u!136 &136782049014872944
 CapsuleCollider:
   m_ObjectHideFlags: 1
