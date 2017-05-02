@@ -90,3 +90,10 @@ Here are the lectures of the course for this section...
 ### 14_MA_RPG Placing Props
 1. Tidy up scene and import new assets
 2. Challenge: Place props in your scene
+
+
+### 15_MA_RPG Weapon Design
+1. Quick look at visual improvements
+2. Weapon damage design
+3. Prototype requirements for weapons
+4. Adding a third weapon and tuning all three
