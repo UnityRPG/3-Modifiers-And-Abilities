@@ -1,4 +1,7 @@
-﻿# Unity RPG Course - Section 3 - Modifiers And Abilities
+﻿Lets investigate our scene lighting
+Import and set up a new skybox
+
+# Unity RPG Course - Section 3 - Modifiers And Abilities
 
 Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. The full course is [on Udemy here](https://www.udemy.com/unityrpg).
 
@@ -97,3 +100,8 @@ Here are the lectures of the course for this section...
 2. Weapon damage design
 3. Prototype requirements for weapons
 4. Adding a third weapon and tuning all three
+
+
+### 15_MA_RPG Changing Your Skybox
+1. Lets investigate our scene lighting
+2. Import and set up a new skybox

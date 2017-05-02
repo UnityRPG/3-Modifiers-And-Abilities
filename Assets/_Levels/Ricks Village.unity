@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.85640144, g: 0.69420415, b: 0.876, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 1.12
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e7471c7bc3e48f8408ba34ff15fec1e5, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657785, g: 0.49641365, b: 0.57481784, a: 1}
+  m_Sun: {fileID: 754867268}
+  m_IndirectSpecularColor: {r: 0.13179135, g: 0.1896446, b: 0.3888434, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5266,17 +5266,17 @@ Prefab:
     - target: {fileID: 108352998470649636, guid: 9397ab81e99634240ac05b446dc6b9ec,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.7489183
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108352998470649636, guid: 9397ab81e99634240ac05b446dc6b9ec,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.53100914
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108352998470649636, guid: 9397ab81e99634240ac05b446dc6b9ec,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.8602941
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 108352998470649636, guid: 9397ab81e99634240ac05b446dc6b9ec,
         type: 2}
@@ -5286,6 +5286,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9397ab81e99634240ac05b446dc6b9ec, type: 2}
   m_IsPrefabParent: 0
+--- !u!108 &754867268 stripped
+Light:
+  m_PrefabParentObject: {fileID: 108352998470649636, guid: 9397ab81e99634240ac05b446dc6b9ec,
+    type: 2}
+  m_PrefabInternal: {fileID: 754867267}
 --- !u!1001 &769915333
 Prefab:
   m_ObjectHideFlags: 0
