@@ -21,13 +21,12 @@ GameObject:
   - component: {fileID: 4952349072324676}
   - component: {fileID: 33348850428911068}
   - component: {fileID: 65761382518757528}
-  - component: {fileID: 23756495805555730}
   m_Layer: 8
   m_Name: Ramp Leading To Village 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4952349072324676
 Transform:
@@ -35,45 +34,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1346352419076870}
-  m_LocalRotation: {x: 0.051480286, y: -0.65502, z: 0.0406133, w: 0.752761}
-  m_LocalPosition: {x: 51.2, y: 1.8, z: -19.2}
-  m_LocalScale: {x: 3.01758, y: 0.19970997, z: 17.034258}
+  m_LocalRotation: {x: 0.47745267, y: -0.51646, z: -0.5020567, w: 0.5032367}
+  m_LocalPosition: {x: -23.558996, y: 3.3612473, z: 1.0557884}
+  m_LocalScale: {x: 7.076955, y: 0.84252733, z: 58.7174}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 7.511, y: -82.081, z: -0.36400002}
---- !u!23 &23756495805555730
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1346352419076870}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 04bce92008d7ac04bbc523ebdd52c83e, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!33 &33348850428911068
 MeshFilter:
   m_ObjectHideFlags: 1
