@@ -107,3 +107,7 @@ Here are the lectures of the course for this section...
 ### 17_MA_RPG Bridges And Navmesh
 1. Desired bridge look and navmesh issue
 2. Create your bridge
+
+
+### 18_MA_RPG Enemy Mesh Antics
+1. Import and set up new character meshes
