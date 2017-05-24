@@ -1,4 +1,4 @@
-﻿# Unity RPG Course - Section 3 - Modifiers And Abilities
+# Unity RPG Course - Section 3 - Modifiers And Abilities
 
 Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. The full course is [on Udemy here](https://www.udemy.com/unityrpg).
 
@@ -111,3 +111,7 @@ Here are the lectures of the course for this section...
 
 ### 18_MA_RPG Enemy Mesh Antics
 1. Import and set up new character meshes
+
+### 19_MA_RPG Adding An Energy Mechanic
+1. Unity 5.6.1 upgrade, Mac differences
+2. Extending the player by composition
