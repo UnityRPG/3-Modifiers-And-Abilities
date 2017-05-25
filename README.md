@@ -112,6 +112,15 @@ Here are the lectures of the course for this section...
 ### 18_MA_RPG Enemy Mesh Antics
 1. Import and set up new character meshes
 
+
 ### 19_MA_RPG Adding An Energy Mechanic
 1. Unity 5.6.1 upgrade, Mac differences
 2. Extending the player by composition
+
+
+### 20_MA_RPG Extension By Composition
+1. Setup a new delegate in CameraRaycaster
+2. De-bounce the right-click button with `GetButtonDown`
+3. Subscribe to event in new `Energy.cs` class
+4. Reduce energy on each right click
+5. Update the energy bar.
