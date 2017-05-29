@@ -863,7 +863,13 @@ Prefab:
       propertyPath: walkCursor
       value: 
       objectReference: {fileID: 2800000, guid: 343650ca3dfb2134691998d5e632a729, type: 3}
-    m_RemovedComponents: []
+    - target: {fileID: 114743370744071042, guid: ef5f0307231176944ab46cd8697a6417,
+        type: 2}
+      propertyPath: enemyCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: a8a7e0e914bfc074790c9249c7e8f2dd, type: 3}
+    m_RemovedComponents:
+    - {fileID: 114318075902677882, guid: ef5f0307231176944ab46cd8697a6417, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ef5f0307231176944ab46cd8697a6417, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &71279043 stripped

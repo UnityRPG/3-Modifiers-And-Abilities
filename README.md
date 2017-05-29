@@ -135,3 +135,10 @@ Here are the lectures of the course for this section...
 1. Adding `onMouseOverPotentiallyWalkable` event
 2. Removing our custom editor script
 3. Ensuring click to move still works.
+
+
+### 23 Simplifying Click To Attack
+1. Remove `CursorAffordance.cs` altogether!
+2. Remove the `CameraRaycasterEditor` editor script
+3. Implement move to enemy on power attack
+4. Simplify the `CameraRaycaster`, `Energy` and `PlayerMovement`
