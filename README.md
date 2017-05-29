@@ -124,3 +124,9 @@ Here are the lectures of the course for this section...
 3. Subscribe to event in new `Energy.cs` class
 4. Reduce energy on each right click
 5. Update the energy bar.
+
+
+### 21_MA_RPG Detecting By Layer In 3D
+1. How to use source control to keep refactors honest
+2. Our new CameraRaycaster architecture
+
