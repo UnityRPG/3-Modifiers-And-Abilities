@@ -858,6 +858,11 @@ Prefab:
       propertyPath: field of view
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 114743370744071042, guid: ef5f0307231176944ab46cd8697a6417,
+        type: 2}
+      propertyPath: walkCursor
+      value: 
+      objectReference: {fileID: 2800000, guid: 343650ca3dfb2134691998d5e632a729, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef5f0307231176944ab46cd8697a6417, type: 2}
   m_IsPrefabParent: 0
@@ -9777,6 +9782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyBar: {fileID: 212126598}
   maxEnergyPoints: 100
+  pointsPerHit: 10
 --- !u!1 &1189259678
 GameObject:
   m_ObjectHideFlags: 0

@@ -128,5 +128,10 @@ Here are the lectures of the course for this section...
 
 ### 21 Detecting By Layer In 3D
 1. How to use source control to keep refactors honest
-2. Our new CameraRaycaster architecture
+2. Our new `CameraRaycaster` architecture
 
+
+### 22 Simplifying Click To Move
+1. Adding `onMouseOverPotentiallyWalkable` event
+2. Removing our custom editor script
+3. Ensuring click to move still works.
