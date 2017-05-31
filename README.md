@@ -148,3 +148,14 @@ Here are the lectures of the course for this section...
 1. What are the choices the player can make in your combat?
 2. Types of Special Abilities
 3. Where to start with implementation
+
+
+### 25 RPG Special Abilities System Overview
+1. Abilities require serialisable data AND behaviour
+2. We can only serialise MonoBehaviours via prefab or scene
+3. This causes more contention on those files, and is wrong place
+4. A ScriptableObject moves ability config data to a .asset file
+5. ... but SOs cannot interact with the world
+6. so the Ability also needs a MonoBehaviour
+7. One ability can have multiple configs
+8. Therefore make the config add the behaviour component at runtime.
