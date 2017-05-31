@@ -1,4 +1,4 @@
-# Unity RPG Course - Section 3 - Modifiers And Abilities
+﻿# Unity RPG Course - Section 3 - Modifiers And Abilities
 
 Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. The full course is [on Udemy here](https://www.udemy.com/unityrpg).
 
@@ -142,3 +142,9 @@ Here are the lectures of the course for this section...
 2. Remove the `CameraRaycasterEditor` editor script
 3. Implement move to enemy on power attack
 4. Simplify the `CameraRaycaster`, `Energy` and `PlayerMovement`
+
+
+### 24 Player Choice In Combat
+1. What are the choices the player can make in your combat?
+2. Types of Special Abilities
+3. Where to start with implementation
