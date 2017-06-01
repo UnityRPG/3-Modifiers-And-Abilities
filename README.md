@@ -159,3 +159,10 @@ Here are the lectures of the course for this section...
 6. so the Ability also needs a MonoBehaviour
 7. One ability can have multiple configs
 8. Therefore make the config add the behaviour component at runtime.
+
+
+### 26 Storing Special Ability Config data
+1. Setup an 'ISpecialAbilty' interface
+2. Use an abstract class to create `SpecialAbilityConfig`
+3. Inherit 'PowerAttackConfig' from this new abstract class
+4. Provide right-click asset menu to create new special ability.
