@@ -19,13 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4099343665849888}
-  - component: {fileID: 65624362023036494}
   m_Layer: 0
   m_Name: PickettFence (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1034197304531406
 GameObject:
@@ -35,13 +34,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4424386157946862}
-  - component: {fileID: 65902386603412802}
   m_Layer: 0
   m_Name: PickettFence (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1039959776928350
 GameObject:
@@ -58,7 +56,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1120315342839772
 GameObject:
@@ -75,7 +73,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1121550680861678
 GameObject:
@@ -92,7 +90,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1145296369470400
 GameObject:
@@ -102,13 +100,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4997785198960978}
-  - component: {fileID: 65334972724094972}
   m_Layer: 0
   m_Name: PickettFence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1154161819381264
 GameObject:
@@ -118,13 +115,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4572701914749414}
-  - component: {fileID: 65272145467512620}
   m_Layer: 0
   m_Name: PickettFence (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1173194954614082
 GameObject:
@@ -141,7 +137,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1175096351796946
 GameObject:
@@ -151,13 +147,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4485179864098016}
-  - component: {fileID: 65225901938206132}
   m_Layer: 0
   m_Name: PickettFence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1187167327374902
 GameObject:
@@ -174,7 +169,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1201344572943606
 GameObject:
@@ -189,7 +184,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1229648207575422
 GameObject:
@@ -199,13 +194,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4576137865993702}
-  - component: {fileID: 65865193273566314}
   m_Layer: 0
   m_Name: PickettFence (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1234221835938372
 GameObject:
@@ -220,7 +214,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1241226982508062
 GameObject:
@@ -237,7 +231,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1334833935395376
 GameObject:
@@ -254,7 +248,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1336241409224010
 GameObject:
@@ -271,7 +265,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1337010691703546
 GameObject:
@@ -288,7 +282,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1418121991813558
 GameObject:
@@ -305,7 +299,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1440912825043202
 GameObject:
@@ -322,7 +316,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1471631179236502
 GameObject:
@@ -339,7 +333,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1511482356441188
 GameObject:
@@ -356,7 +350,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1545768236203832
 GameObject:
@@ -373,7 +367,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1562119437622432
 GameObject:
@@ -389,7 +383,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1593580753059478
 GameObject:
@@ -399,13 +393,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4513623606354574}
-  - component: {fileID: 65628261893657522}
   m_Layer: 0
   m_Name: PickettFence (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1602166079741258
 GameObject:
@@ -422,7 +415,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1673072714105380
 GameObject:
@@ -432,13 +425,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4893961378844458}
-  - component: {fileID: 65651695221200996}
   m_Layer: 0
   m_Name: PickettFence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1690106723350132
 GameObject:
@@ -448,13 +440,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4488496536878088}
-  - component: {fileID: 65713396558002540}
   m_Layer: 0
   m_Name: PickettFence (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1701443449635696
 GameObject:
@@ -471,7 +462,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1708238638698354
 GameObject:
@@ -488,7 +479,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1739758749086078
 GameObject:
@@ -505,7 +496,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1755654457035008
 GameObject:
@@ -515,13 +506,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4979645551597908}
-  - component: {fileID: 65431246994231436}
   m_Layer: 0
   m_Name: PickettFence (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1766867969728576
 GameObject:
@@ -531,13 +521,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4473570403177530}
-  - component: {fileID: 65453341585122018}
   m_Layer: 0
   m_Name: PickettFence (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1864669679768772
 GameObject:
@@ -547,13 +536,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4621820167711736}
-  - component: {fileID: 65949762768806470}
   m_Layer: 0
   m_Name: PickettFence (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1870446331781824
 GameObject:
@@ -570,7 +558,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1872446608436274
 GameObject:
@@ -580,13 +568,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4262321395193068}
-  - component: {fileID: 65983622790524048}
   m_Layer: 0
   m_Name: PickettFence (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1880052870829482
 GameObject:
@@ -603,7 +590,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1945723269421322
 GameObject:
@@ -620,7 +607,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1963127744099692
 GameObject:
@@ -637,7 +624,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1967760636746058
 GameObject:
@@ -647,13 +634,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4772622566446818}
-  - component: {fileID: 65343845083789264}
   m_Layer: 0
   m_Name: PickettFence (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1975473642398140
 GameObject:
@@ -663,13 +649,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4714234463198796}
-  - component: {fileID: 65702639517964838}
   m_Layer: 0
   m_Name: PickettFence (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1980311771743952
 GameObject:
@@ -679,13 +664,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4029977937832784}
-  - component: {fileID: 65577231427061808}
   m_Layer: 0
   m_Name: PickettFence (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1984016997415066
 GameObject:
@@ -702,7 +686,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1996704970096532
 GameObject:
@@ -719,7 +703,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4029977937832784
 Transform:
@@ -2289,197 +2273,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.883138, y: 5.173362, z: 5.6626368}
-  m_Center: {x: 2.0624719, y: 2.516664, z: -1.4143066}
---- !u!65 &65225901938206132
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1175096351796946}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65272145467512620
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1154161819381264}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65334972724094972
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1145296369470400}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65343845083789264
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1967760636746058}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65431246994231436
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1755654457035008}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65453341585122018
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1766867969728576}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65577231427061808
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1980311771743952}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65624362023036494
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1010758765840456}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65628261893657522
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1593580753059478}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65651695221200996
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1673072714105380}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65702639517964838
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1975473642398140}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65713396558002540
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1690106723350132}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65865193273566314
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1229648207575422}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65902386603412802
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1034197304531406}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65949762768806470
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1864669679768772}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
---- !u!65 &65983622790524048
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1872446608436274}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.3956437, y: 1.3882725, z: 0.23418275}
-  m_Center: {x: -0.0196352, y: 0.6541363, z: 0.029457092}
+  m_Size: {x: 17.1, y: 3.05, z: 10.2}
+  m_Center: {x: 1.1, y: 0.96, z: -1.62}
