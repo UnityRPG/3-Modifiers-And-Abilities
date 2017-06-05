@@ -7423,7 +7423,7 @@ Prefab:
     - target: {fileID: 114633348878164724, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
       propertyPath: abilities.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7467,13 +7467,19 @@ Prefab:
         type: 2}
       propertyPath: abilities.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 8ca914442b46540d1b48580b2599b2e4,
+      objectReference: {fileID: 11400000, guid: 87b1244f6029d4a0f850297a5dfedd7a,
         type: 2}
     - target: {fileID: 114633348878164724, guid: 7737647c22c1fc64a88d5cd030c352ce,
         type: 2}
       propertyPath: baseDamage
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114633348878164724, guid: 7737647c22c1fc64a88d5cd030c352ce,
+        type: 2}
+      propertyPath: abilities.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ca914442b46540d1b48580b2599b2e4,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_IsPrefabParent: 0

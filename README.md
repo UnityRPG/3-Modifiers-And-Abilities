@@ -185,3 +185,8 @@ Here are the lectures of the course for this section...
 1. Combine top-level special ability code into one file
 2. Create a struct to pass ability use parameters
 3. Finish Power Attack behaviour inc energy cost.
+
+### 30 Create An Area Of Effect Ability
+1. Describe your challenge
+2. Introduce `Physics.ShpereCastAll()' API
+3. Demonstrate my Area Of Effect solution.
