@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,11 +11,11 @@ namespace RPG.Characters
         [SerializeField]
         float extraDamage = 10f;
 
-        public override ISpecialAbility AddComponent(GameObject gameObjectToattachTo)
+        public override void AttachComponentTo(GameObject gameObjectToattachTo)
         {
             var behviourComponent = gameObjectToattachTo.AddComponent<PowerAttackBehaviour>();
             behviourComponent.SetConfig(this);
-            return behviourComponent;
+            behaviour = behviourComponent;
         }
     }
 }

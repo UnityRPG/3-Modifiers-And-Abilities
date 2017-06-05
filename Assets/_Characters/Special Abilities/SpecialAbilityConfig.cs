@@ -9,6 +9,13 @@ namespace RPG.Characters
         [Header("Spcial Ability General")]
         [SerializeField] float energyCost = 10f;
 
-        abstract public ISpecialAbility AddComponent(GameObject gameObjectToattachTo);
+        protected ISpecialAbility behaviour;
+
+        abstract public void AttachComponentTo(GameObject gameObjectToattachTo);
+
+        public void Use()
+        {
+            behaviour.Use();
+        }
     }
 }
