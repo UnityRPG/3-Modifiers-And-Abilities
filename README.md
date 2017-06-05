@@ -166,3 +166,9 @@ Here are the lectures of the course for this section...
 2. Use an abstract class to create `SpecialAbilityConfig`
 3. Inherit 'PowerAttackConfig' from this new abstract class
 4. Provide right-click asset menu to create new special ability.
+
+
+### 27 Making A Class Single Purpose
+1. Remove `pointsPerHit` from our `Energy` component
+2. Move right-click handling to the `Player`
+3. Prepare to read energy cost from special ability.

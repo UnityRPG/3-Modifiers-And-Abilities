@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ namespace RPG.Characters
         // Use this for initialization
         void Start()
         {
-            
+            print("Power Attack behaviour attached to " + gameObject.name);
         }
 
         // Update is called once per frame
