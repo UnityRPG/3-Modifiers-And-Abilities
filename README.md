@@ -172,3 +172,16 @@ Here are the lectures of the course for this section...
 1. Remove `pointsPerHit` from our `Energy` component
 2. Move right-click handling to the `Player`
 3. Prepare to read energy cost from special ability.
+
+
+### 28 Implementing Power Attack Behaviour
+1. Fix a bug with our AudioTrigger component
+2. Make it possible for the player to equip several abilities
+3. Use a protected property to reference `behaviour` component
+4. Use this property to forward calls to `Use()` to the component.
+
+
+### 29 Using Structs For Parameter Sets
+1. Combine top-level special ability code into one file
+2. Create a struct to pass ability use parameters
+3. Finish Power Attack behaviour inc energy cost.
