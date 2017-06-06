@@ -190,3 +190,9 @@ Here are the lectures of the course for this section...
 1. Describe your challenge
 2. Introduce `Physics.ShpereCastAll()' API
 3. Demonstrate my Area Of Effect solution.
+
+
+### 31 Regenerating Energy Over Time
+1. Why we're not using coroutines yet
+2. Challenge: make energy regenerate over time
+3. Fix enemy sliding bug (and extra animator).
