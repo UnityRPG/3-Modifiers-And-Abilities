@@ -259,6 +259,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1531456856554094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4578807740300252}
+  - component: {fileID: 114215450393176590}
+  m_Layer: 0
+  m_Name: Audio Trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1631665954011580
 GameObject:
   m_ObjectHideFlags: 1
@@ -594,13 +610,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1047003344575756}
-  m_LocalRotation: {x: -0, y: -0.7421823, z: -0, w: 0.670198}
-  m_LocalPosition: {x: -11.087973, y: 0, z: -21.003214}
+  m_LocalRotation: {x: -0, y: 0.94037, z: -0, w: 0.34015328}
+  m_LocalPosition: {x: -3.3268127, y: 3.2633057, z: -23.223465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4249505491923438}
   - {fileID: 4768758493313984}
   - {fileID: 4362141914477424}
+  - {fileID: 4578807740300252}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -95.83501, z: 0}
@@ -619,6 +636,19 @@ Transform:
   - {fileID: 4629453929353884}
   m_Father: {fileID: 4438878859580890}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4578807740300252
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531456856554094}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4472708331571896}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4629453929353884
 Transform:
@@ -765,6 +795,22 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114215450393176590
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531456856554094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a666aa700f10b141b648b69dd714a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 00c60427363233e488fc75eac34a8c67, type: 3}
+  layerFilter: 11
+  triggerRadius: 5
+  isOneTimeOnly: 1
+  hasPlayed: 0
 --- !u!114 &114257132399700626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -800,9 +846,9 @@ MonoBehaviour:
   m_StationaryTurnSpeed: 900
   m_JumpPower: 6
   m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 2.04
+  m_RunCycleLegOffset: 1.5
   m_MoveSpeedMultiplier: 0.5
-  m_AnimSpeedMultiplier: 1
+  m_AnimSpeedMultiplier: 0.75
   m_GroundCheckDistance: 1
 --- !u!114 &114610631342128040
 MonoBehaviour:
@@ -838,7 +884,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
+  m_Radius: 0.2
   m_Height: 1.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.8, z: 0}
@@ -915,9 +961,9 @@ NavMeshAgent:
   m_GameObject: {fileID: 1047003344575756}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Speed: 2
-  m_Acceleration: 8
+  m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 50
   m_StoppingDistance: 1.5

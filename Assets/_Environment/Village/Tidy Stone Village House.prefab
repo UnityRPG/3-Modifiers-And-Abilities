@@ -58,7 +58,7 @@ GameObject:
   m_Name: Main_Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1578999660111262
@@ -243,8 +243,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1036626295635812}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.6, y: 0, z: 24.4}
+  m_LocalRotation: {x: -0, y: 0.70571244, z: -0, w: 0.7084984}
+  m_LocalPosition: {x: 21.22, y: -0.26999998, z: 0.46}
   m_LocalScale: {x: 1.0000007, y: 1, z: 1.0000007}
   m_Children:
   - {fileID: 4276256989903152}
@@ -465,7 +465,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8b1b34972d7f3a1418df168c050196c7, type: 2}
+  - {fileID: 2100000, guid: 4094719bb086d30479d839d119740b41, type: 2}
   - {fileID: 2100000, guid: 174d36b9b41501243a80a0300916226b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0

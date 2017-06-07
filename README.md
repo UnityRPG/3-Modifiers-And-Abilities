@@ -196,3 +196,14 @@ Here are the lectures of the course for this section...
 1. Why we're not using coroutines yet
 2. Challenge: make energy regenerate over time
 3. Fix enemy sliding bug (and extra animator).
+
+
+### 32 Game Feel Intro
+1. The importance of game feel
+2. What things to look for with your audit
+
+
+### 33 Game Feel Audit
+1. Words to describe your game feel
+2. Examples of poor game feel
+3. Tuning of player to enemy collision
