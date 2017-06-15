@@ -207,3 +207,14 @@ Here are the lectures of the course for this section...
 1. Words to describe your game feel
 2. Examples of poor game feel
 3. Tuning of player to enemy collision
+
+
+### 34 Spreadsheet Strategy
+1. A structure for approaching your spreadsheet design
+2. Specific implementation of some "Soul" aspects
+
+
+### 35 Spreadsheet Spine
+1. Different options for progression
+2. Progression theory and preferences
+3. Populating our spreadsheet's spine
