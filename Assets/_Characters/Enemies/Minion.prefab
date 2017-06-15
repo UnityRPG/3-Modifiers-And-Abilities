@@ -584,7 +584,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1790980194355674}
   m_LocalRotation: {x: -0, y: 0.94037, z: -0, w: 0.34015328}
-  m_LocalPosition: {x: -5.187195, y: 0.10105896, z: -1.7755585}
+  m_LocalPosition: {x: -47.23, y: 0.57, z: 35.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4784043903188306}
@@ -789,11 +789,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac46da830b7bf0443b928b3e59950ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 40
-  chaseRadius: 8
-  attackRadius: 2
+  maxHealthPoints: 20
+  chaseRadius: 5
+  attackRadius: 1
   damagePerShot: 5
-  secondsBetweenShots: 0.5
+  secondsBetweenShots: 1
   projectileToUse: {fileID: 1093317976226508, guid: 6a06fb702074ae148a357b0f74ef672d,
     type: 2}
   projectileSocket: {fileID: 1498179412983324}
@@ -916,7 +916,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.4
-  m_Speed: 5
+  m_Speed: 3
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 50

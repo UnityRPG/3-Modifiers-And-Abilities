@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: Power Attack L2
   m_EditorClassIdentifier: 
   energyCost: 20
-  extraDamage: 15
+  extraDamage: 10
