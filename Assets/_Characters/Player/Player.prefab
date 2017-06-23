@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 114978401065010746}
   - component: {fileID: 114633348878164724}
   - component: {fileID: 114401487052103182}
+  - component: {fileID: 82071768402052042}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -702,6 +703,86 @@ Transform:
   m_Father: {fileID: 4940583674747420}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &82071768402052042
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149790}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114086308653622768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -737,7 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   energyBar: {fileID: 0}
   maxEnergyPoints: 100
-  regenPointsPerSecond: 4
+  regenPointsPerSecond: 3
 --- !u!114 &114633348878164724
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -754,6 +835,17 @@ MonoBehaviour:
   weaponInUse: {fileID: 11400000, guid: 34ab0c72d9a69d447bfdb07b7a6d8ded, type: 2}
   animatorOverrideController: {fileID: 22100000, guid: e92f24f13a6764b40bb121d6a2e3d168,
     type: 2}
+  damageSounds:
+  - {fileID: 8300000, guid: 22818e08f6642497f9843a1054f57dc6, type: 3}
+  - {fileID: 8300000, guid: 83187cd1d87724988a9ba4b6750d7059, type: 3}
+  - {fileID: 8300000, guid: 2df7999f3ea05434cb8ef4ce1d9e833a, type: 3}
+  - {fileID: 8300000, guid: d3068cb76bc4c4688be2311be4c664db, type: 3}
+  - {fileID: 8300000, guid: 7395d3d62e8e34af1beda2def5890620, type: 3}
+  - {fileID: 8300000, guid: ce6a5898b24ca4d4a95d6cb0a5cdd7be, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 05830414ee39c488b98fcbaed6b3bc74, type: 3}
+  - {fileID: 8300000, guid: 2f541dbcdbefd40bf8cf99f78a4ed0ae, type: 3}
+  - {fileID: 8300000, guid: a05274881dba546269d71ee2fcfcfbe8, type: 3}
   abilities:
   - {fileID: 11400000, guid: 8ca914442b46540d1b48580b2599b2e4, type: 2}
   - {fileID: 11400000, guid: 8ca914442b46540d1b48580b2599b2e4, type: 2}

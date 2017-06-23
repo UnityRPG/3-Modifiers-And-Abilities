@@ -229,3 +229,8 @@ Here are the lectures of the course for this section...
 1. How to test if the player is dead
 2. Use an `IEnumerator` coroutine for timing
 3. Use `WaitForSecondsRealtime()` method.
+
+
+## 38 Player Damage & Death Sounds
+1. Add an array of damage sounds
+2. Add a single death sound (for now).
