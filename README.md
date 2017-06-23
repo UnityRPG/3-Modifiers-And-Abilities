@@ -223,3 +223,9 @@ Here are the lectures of the course for this section...
 ### 36 When Mouse Leaves Game Window
 1. Detect when the mouse is in the game rectangle
 2. Stop raycasting when the mouse is over Unity editor UI.
+
+
+### 37 Coroutine For Death Sequence
+1. How to test if the player is dead
+2. Use an `IEnumerator` coroutine for timing
+3. Use `WaitForSecondsRealtime()` method.
