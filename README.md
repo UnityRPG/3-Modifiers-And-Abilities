@@ -218,3 +218,8 @@ Here are the lectures of the course for this section...
 1. Different options for progression
 2. Progression theory and preferences
 3. Populating our spreadsheet's spine
+
+
+### 36 When Mouse Leaves Game Window
+1. Detect when the mouse is in the game rectangle
+2. Stop raycasting when the mouse is over Unity editor UI.
