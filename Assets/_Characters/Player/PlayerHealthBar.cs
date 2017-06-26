@@ -5,24 +5,23 @@ using UnityEngine.UI;
 
 namespace RPG.Characters
 {
-    [RequireComponent(typeof(RawImage))]
+    [RequireComponent(typeof(Image))]
     public class PlayerHealthBar : MonoBehaviour
     {
-        RawImage healthBarRawImage;
+        Image healthOrb;
         Player player;
 
         // Use this for initialization
         void Start()
         {
             player = FindObjectOfType<Player>();
-            healthBarRawImage = GetComponent<RawImage>();
+            healthOrb = GetComponent<Image>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            float xValue = -(player.healthAsPercentage / 2f) - 0.5f;
-            healthBarRawImage.uvRect = new Rect(xValue, 0f, 0.5f, 1f);
+            healthOrb.fillAmount = player.healthAsPercentage;
         }
     }
 }

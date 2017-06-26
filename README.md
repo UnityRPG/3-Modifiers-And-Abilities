@@ -188,7 +188,7 @@ Here are the lectures of the course for this section...
 
 ### 30 Create An Area Of Effect Ability
 1. Describe your challenge
-2. Introduce `Physics.ShpereCastAll()' API
+2. Introduce `Physics.ShpereCastAll()` API
 3. Demonstrate my Area Of Effect solution.
 
 
@@ -236,7 +236,14 @@ Here are the lectures of the course for this section...
 2. Add a single death sound (for now).
 
 
-## 39 Player Death Animation
+### 39 Player Death Animation
 1. Fix health bug
 2. Implement death animation
 3. Projectile firing rate variation?
+
+
+### 40 Using Image Fill In UI
+1. Import brand-new HUD graphics
+2. Make liquid effect health and energy
+3. How a "Filled" image works
+3. Use "Fill Amount" property to animate UI.
