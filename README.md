@@ -234,3 +234,9 @@ Here are the lectures of the course for this section...
 ## 38 Player Damage & Death Sounds
 1. Add an array of damage sounds
 2. Add a single death sound (for now).
+
+
+## 39 Player Death Animation
+1. Fix health bug
+2. Implement death animation
+3. Projectile firing rate variation?
