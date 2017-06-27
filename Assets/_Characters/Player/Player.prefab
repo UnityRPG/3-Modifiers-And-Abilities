@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 335a0c914fde040e68b13a253c2afdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  energyBar: {fileID: 0}
+  energyOrb: {fileID: 0}
   maxEnergyPoints: 100
   regenPointsPerSecond: 3
 --- !u!114 &114633348878164724
@@ -848,7 +848,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a05274881dba546269d71ee2fcfcfbe8, type: 3}
   abilities:
   - {fileID: 11400000, guid: 8ca914442b46540d1b48580b2599b2e4, type: 2}
-  - {fileID: 11400000, guid: 8ca914442b46540d1b48580b2599b2e4, type: 2}
+  - {fileID: 11400000, guid: 87b1244f6029d4a0f850297a5dfedd7a, type: 2}
 --- !u!114 &114978401065010746
 MonoBehaviour:
   m_ObjectHideFlags: 1

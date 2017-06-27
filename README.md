@@ -231,7 +231,7 @@ Here are the lectures of the course for this section...
 3. Use `WaitForSecondsRealtime()` method.
 
 
-## 38 Player Damage & Death Sounds
+### 38 Player Damage & Death Sounds
 1. Add an array of damage sounds
 2. Add a single death sound (for now).
 
@@ -247,3 +247,8 @@ Here are the lectures of the course for this section...
 2. Make liquid effect health and energy
 3. How a "Filled" image works
 3. Use "Fill Amount" property to animate UI.
+
+
+### 41 Adding Special Ability UI
+1. Adding special ability icons to slots
+2. Fixing bug with game window resizing.
