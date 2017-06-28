@@ -257,3 +257,8 @@ Here are the lectures of the course for this section...
 ### 42 Level Design Paradigms
 1. Discussing our current Linear approach
 2. Introducing a range of level design paradigms and what they could mean for your game.
+
+
+### 43 Level Design Choice
+1. Challenge: add choice to your level
+2. Review our current level for ideas on how to add more choice.
