@@ -252,3 +252,8 @@ Here are the lectures of the course for this section...
 ### 41 Adding Special Ability UI
 1. Adding special ability icons to slots
 2. Fixing bug with game window resizing.
+
+
+### 42 Level Design Paradigms
+1. Discussing our current Linear approach
+2. Introducing a range of level design paradigms and what they could mean for your game.
