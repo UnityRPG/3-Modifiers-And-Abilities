@@ -67,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1093317976226508}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.8, y: 1.15, z: -24.5}
-  m_LocalScale: {x: 0.36257517, y: 0.36257517, z: 0.36257517}
+  m_LocalPosition: {x: 10.810638, y: 0.44, z: 7.857483}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children:
   - {fileID: 4230775063793106}
   m_Father: {fileID: 0}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1259fd4d21b427d418cd929a763f9a83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 100
+  projectileSpeed: 40
   shooter: {fileID: 0}
 --- !u!135 &135751444114828454
 SphereCollider:

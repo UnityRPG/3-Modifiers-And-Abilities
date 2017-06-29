@@ -423,7 +423,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4632268522742348}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4052601281650040
 Transform:
@@ -611,12 +611,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1681371794382524}
   m_LocalRotation: {x: -0, y: 0.94037, z: -0, w: 0.34015328}
-  m_LocalPosition: {x: 7.934, y: 0.19480133, z: -4.517}
+  m_LocalPosition: {x: 3.97, y: 0.19480133, z: 13.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4689258151647740}
   - {fileID: 4860135466338500}
   - {fileID: 4052226120564950}
-  - {fileID: 4689258151647740}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.040000003, y: -85.548004, z: 0.509}
@@ -677,7 +677,7 @@ Transform:
   - {fileID: 4352359660738128}
   - {fileID: 4221750906153316}
   m_Father: {fileID: 4632268522742348}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4703391194752554
 Transform:
@@ -731,7 +731,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4632268522742348}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4991819199106162
 Transform:
@@ -865,11 +865,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac46da830b7bf0443b928b3e59950ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealthPoints: 100
+  maxHealthPoints: 30
   chaseRadius: 2.54
   attackRadius: 11.08
-  damagePerShot: 50
-  secondsBetweenShots: 1.5
+  damagePerShot: 10
+  firingPeriodInS: 1
+  firingPeriodVariation: 0.1
   projectileToUse: {fileID: 1093317976226508, guid: 6a06fb702074ae148a357b0f74ef672d,
     type: 2}
   projectileSocket: {fileID: 1354157026031836}
