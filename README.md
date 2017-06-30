@@ -270,5 +270,12 @@ Here are the lectures of the course for this section...
 3. Synty particle pack
 
 
-### 45 Particle Effects
-1. 
+### 45 Particle Effects Intro
+1. Particle effects overview
+2. Where to use particles - a review of Torchlight 2
+3. Where we will add particles to our game
+
+
+### 46 Glowing Dust Effect
+1. Create an ambient particle effect in the world
+2. Have the particle effect follow the character
