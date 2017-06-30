@@ -262,3 +262,13 @@ Here are the lectures of the course for this section...
 ### 43 Level Design Choice
 1. Challenge: add choice to your level
 2. Review our current level for ideas on how to add more choice.
+
+
+### 44 Assets And Improvements
+1. Updated grass textures
+2. New free assets as part of student pack from Synty
+3. Synty particle pack
+
+
+### 45 Particle Effects
+1. 
