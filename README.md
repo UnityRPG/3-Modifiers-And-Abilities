@@ -279,3 +279,10 @@ Here are the lectures of the course for this section...
 ### 46 Glowing Dust Effect
 1. Create an ambient particle effect in the world
 2. Have the particle effect follow the character
+
+
+### 47 Spawning Particles At runtime
+1. Create particle system prefabs for special abilities
+2. Access prefabs from our scriptable objects
+3. Trigger particle systems at runtime in C#
+4. How to destroy a particle when it has finished playing.
