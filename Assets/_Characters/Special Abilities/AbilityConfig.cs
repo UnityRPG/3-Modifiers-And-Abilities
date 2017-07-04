@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Core;
@@ -17,13 +17,13 @@ namespace RPG.Characters
         }
     }
 
-    public abstract class SpecialAbility : ScriptableObject
+    public abstract class AbilityConfig : ScriptableObject
     {
         [Header("Spcial Ability General")]
         [SerializeField] float energyCost = 10f;
         [SerializeField] GameObject particlePrefab = null;
 
-        protected ISpecialAbility behaviour;
+        protected AbilityBehaviour behaviour;
 
         abstract public void AttachComponentTo(GameObject gameObjectToattachTo);
 
@@ -42,9 +42,4 @@ namespace RPG.Characters
             return particlePrefab;
         }
     }
-
-	public interface ISpecialAbility
-	{
-		void Use(AbilityUseParams useParams);
-	}
 }

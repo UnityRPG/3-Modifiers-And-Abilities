@@ -5,7 +5,7 @@ using RPG.Characters;
 using RPG.Core;
 using System;
 
-public class AreaEffectBehaviour : MonoBehaviour, ISpecialAbility {
+public class AreaEffectBehaviour : AbilityBehaviour {
 
     AreaEffectConfig config;
 
@@ -20,7 +20,7 @@ public class AreaEffectBehaviour : MonoBehaviour, ISpecialAbility {
 	}
 	
 
-    public void Use(AbilityUseParams useParams)
+    public override void Use(AbilityUseParams useParams)
     {
         DealRadialDamage(useParams);
         PlayParticleEffect();

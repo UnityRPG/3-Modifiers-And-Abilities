@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG.Characters
 {
-    public class PowerAttackBehaviour : MonoBehaviour, ISpecialAbility
+    public class PowerAttackBehaviour : AbilityBehaviour
     {
         PowerAttackConfig config;
 
@@ -25,7 +25,7 @@ namespace RPG.Characters
 
         }
 
-        public void Use(AbilityUseParams useParams)
+        public override void Use(AbilityUseParams useParams)
         {
             print("Power attack used by: " + gameObject.name);
             DealDamage(useParams);
