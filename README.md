@@ -281,8 +281,12 @@ Here are the lectures of the course for this section...
 2. Have the particle effect follow the character
 
 
-### 47 Spawning Particles At runtime
+### 47 Spawning Particles At Runtime
 1. Create particle system prefabs for special abilities
 2. Access prefabs from our scriptable objects
 3. Trigger particle systems at runtime in C#
 4. How to destroy a particle when it has finished playing.
+
+
+### 48 Self Heal Special Ability Challenge
+1. Create a self-heal special ability yourself.
