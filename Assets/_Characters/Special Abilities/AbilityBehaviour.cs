@@ -14,5 +14,24 @@ namespace RPG.Characters
 		{
 			this.config = configToSet;
 		}
+
+		protected void PlayParticleInWorldSpace()
+        {
+            SetupParticleEffect();
+        }
+
+		protected void PlayParticleInPlayerSpace()
+		{
+            SetupParticleEffect();
+            // Attach to player
+		}
+
+        private void SetupParticleEffect()
+        {
+            var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
+            ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
+            myParticleSystem.Play();
+            Destroy(prefab, myParticleSystem.main.duration);
+        }
     }
 }

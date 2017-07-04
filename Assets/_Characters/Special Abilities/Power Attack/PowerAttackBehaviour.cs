@@ -22,17 +22,8 @@ namespace RPG.Characters
         {
             print("Power attack used by: " + gameObject.name);
             DealDamage(useParams);
-            PlayParticleEffect();
+            PlayParticleInWorldSpace();
         }
-
-		private void PlayParticleEffect()
-		{
-			var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
-			// TODO decide if particle system attaches to player
-            ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
-			myParticleSystem.Play();
-			Destroy(prefab, myParticleSystem.main.duration);
-		}
 
         private void DealDamage(AbilityUseParams useParams)
         {

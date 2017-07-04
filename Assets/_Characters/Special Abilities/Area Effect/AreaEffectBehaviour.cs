@@ -17,16 +17,7 @@ public class AreaEffectBehaviour : AbilityBehaviour {
     public override void Use(AbilityUseParams useParams)
     {
         DealRadialDamage(useParams);
-        PlayParticleEffect();
-    }
-
-    private void PlayParticleEffect()
-    {
-        var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
-        // TODO decide if particle system attaches to player
-        ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
-        myParticleSystem.Play();
-        Destroy(prefab, myParticleSystem.main.duration);
+        PlayParticleInWorldSpace();
     }
 
     private void DealRadialDamage(AbilityUseParams useParams)
