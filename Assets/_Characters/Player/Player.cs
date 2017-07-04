@@ -1,4 +1,4 @@
-﻿﻿﻿using System;
+﻿﻿﻿﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,22 +27,51 @@ namespace RPG.Characters
         const string DEATH_TRIGGER = "Death";
         const string ATTACK_TRIGGER = "Attack";
 
-        AudioSource audioSource;
-        Animator animator;
-        float currentHealthPoints;
-        CameraRaycaster cameraRaycaster;
-        float lastHitTime = 0f;
+        Enemy enemy = null;
+        AudioSource audioSource = null;
+        Animator animator = null;
+        float currentHealthPoints = 0;
+        CameraRaycaster cameraRaycaster = null;
+        float lastHitTime = 0;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
         void Start()
         {
+			audioSource = GetComponent<AudioSource>();
+
             RegisterForMouseClick();
             SetCurrentMaxHealth();
             PutWeaponInHand();
             SetupRuntimeAnimator();
-            abilities[0].AttachComponentTo(gameObject);
-            audioSource = GetComponent<AudioSource>();
+            AttachInitialAbilities();
+        }
+
+        private void AttachInitialAbilities()
+        {
+            for (int abilityIndex = 0; abilityIndex < abilities.Length; abilityIndex++)
+            {
+                abilities[abilityIndex].AttachComponentTo(gameObject);
+            }
+        }
+
+        void Update()
+        {
+            if (healthAsPercentage > Mathf.Epsilon)
+            {
+                ScanForAbilityKeyDown();
+            }
+        }
+
+        private void ScanForAbilityKeyDown()
+        {
+            for (int keyIndex = 1; keyIndex < abilities.Length; keyIndex++)
+            {
+                if (Input.GetKeyDown(keyIndex.ToString()))
+                {
+                    AttemptSpecialAbility(keyIndex);
+                }
+            }
         }
 
         public void AdjustHealth(float changePoints)
@@ -109,19 +138,20 @@ namespace RPG.Characters
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
-        void OnMouseOverEnemy(Enemy enemy)
+        void OnMouseOverEnemy(Enemy enemyToSet)
         {
+            this.enemy = enemyToSet;
             if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
             {
-                AttackTarget(enemy);
+                AttackTarget();
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                AttemptSpecialAbility(0, enemy);
+                AttemptSpecialAbility(0);
             }
         }
 
-        private void AttemptSpecialAbility(int abilityIndex, Enemy enemy)
+        private void AttemptSpecialAbility(int abilityIndex)
         {
             var energyComponent = GetComponent<Energy>();
             var energyCost = abilities[abilityIndex].GetEnergyCost();
@@ -134,7 +164,7 @@ namespace RPG.Characters
             }
         }
 
-        private void AttackTarget(Enemy enemy)
+        private void AttackTarget()
         {
             if (Time.time - lastHitTime > weaponInUse.GetMinTimeBetweenHits())
             {

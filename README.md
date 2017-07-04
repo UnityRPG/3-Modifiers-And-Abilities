@@ -290,3 +290,9 @@ Here are the lectures of the course for this section...
 
 ### 48 Self Heal Special Ability Challenge
 1. Create a self-heal special ability yourself.
+
+
+### 49 Triggering Special Abilities From Keys
+1. Adding key affordances to the UI
+2. Scanning for number key presses
+3. Triggering and tweaking special abilities.
