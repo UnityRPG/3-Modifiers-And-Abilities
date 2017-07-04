@@ -6,13 +6,6 @@ namespace RPG.Characters
 {
     public class PowerAttackBehaviour : AbilityBehaviour
     {
-        PowerAttackConfig config;
-
-        public void SetConfig(PowerAttackConfig configToSet)
-        {
-            this.config = configToSet;
-        }
-
         // Use this for initialization
         void Start()
         {
@@ -43,7 +36,7 @@ namespace RPG.Characters
 
         private void DealDamage(AbilityUseParams useParams)
         {
-            float damageToDeal = useParams.baseDamage + config.GetExtraDamage();
+            float damageToDeal = useParams.baseDamage + (config as PowerAttackConfig).GetExtraDamage();
             useParams.target.AdjustHealth(damageToDeal);
         }
     }

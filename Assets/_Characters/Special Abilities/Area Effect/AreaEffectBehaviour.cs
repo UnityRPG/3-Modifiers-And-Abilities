@@ -7,18 +7,12 @@ using System;
 
 public class AreaEffectBehaviour : AbilityBehaviour {
 
-    AreaEffectConfig config;
 
-    public void SetConfig(AreaEffectConfig configToSet)
-    {
-        this.config = configToSet;
-    }
 
 	// Use this for initialization
 	void Start () {
 		print("Area Effect behaviour attached to " + gameObject.name);
 	}
-	
 
     public override void Use(AbilityUseParams useParams)
     {
@@ -41,9 +35,9 @@ public class AreaEffectBehaviour : AbilityBehaviour {
         // Static sphere cast for targets
         RaycastHit[] hits = Physics.SphereCastAll(
             transform.position,
-            config.GetRadius(),
+            (config as AreaEffectConfig).GetRadius(),
             Vector3.up,
-            config.GetRadius()
+            (config as AreaEffectConfig).GetRadius()
         );
 
         foreach (RaycastHit hit in hits)
@@ -51,7 +45,7 @@ public class AreaEffectBehaviour : AbilityBehaviour {
             var damageable = hit.collider.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                float damageToDeal = useParams.baseDamage + config.GetDamageToEachTarget(); // TODO ok Rick?
+                float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget(); // TODO ok Rick?
                 damageable.AdjustHealth(damageToDeal);
             }
         }

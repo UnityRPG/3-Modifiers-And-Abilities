@@ -6,7 +6,6 @@ namespace RPG.Characters
 {
     public class SelfHealBehaviour : AbilityBehaviour
     {
-        SelfHealConfig config;
         Player player;
 
         void Start()
@@ -22,7 +21,7 @@ namespace RPG.Characters
 		public override void Use(AbilityUseParams useParams)
 		{
 			print("Self heal used by: " + gameObject.name);
-            player.AdjustHealth(-config.GetExtraHealth()); // note -ve
+            player.AdjustHealth(-(config as SelfHealConfig).GetExtraHealth()); // note -ve
 		}
     }
 }
