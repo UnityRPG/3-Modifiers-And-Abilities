@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 198296991546070254}
   - component: {fileID: 199225232045092456}
   m_Layer: 0
-  m_Name: AOE L1 Particles
+  m_Name: AOE_L1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

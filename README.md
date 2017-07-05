@@ -296,3 +296,10 @@ Here are the lectures of the course for this section...
 1. Adding key affordances to the UI
 2. Scanning for number key presses
 3. Triggering and tweaking special abilities.
+
+
+### 50 Finishing The Self Heal Ability
+1. Separate damage and healing methods
+2. Add sound triggers to all abilities
+3. Tantalise idea of changing interface to inheritance
+4. Parent healing particle system to player.

@@ -8,6 +8,12 @@ using System;
 public class AreaEffectBehaviour : MonoBehaviour, ISpecialAbility {
 
     AreaEffectConfig config;
+	AudioSource audioSource = null;
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     public void SetConfig(AreaEffectConfig configToSet)
     {
@@ -18,6 +24,8 @@ public class AreaEffectBehaviour : MonoBehaviour, ISpecialAbility {
     {
         DealRadialDamage(useParams);
         PlayParticleEffect();
+		audioSource.clip = config.GetAudioClip();
+		audioSource.Play();
     }
 
     private void PlayParticleEffect()
@@ -46,7 +54,7 @@ public class AreaEffectBehaviour : MonoBehaviour, ISpecialAbility {
             if (damageable != null && !hitPlayer)
             {
                 float damageToDeal = useParams.baseDamage + config.GetDamageToEachTarget(); // TODO ok Rick?
-                damageable.AdjustHealth(damageToDeal);
+                damageable.TakeDamage(damageToDeal);
             }
         }
     }
