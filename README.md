@@ -303,3 +303,9 @@ Here are the lectures of the course for this section...
 2. Add sound triggers to all abilities
 3. Tantalise idea of changing interface to inheritance
 4. Parent healing particle system to player.
+
+
+### 51 Critical Hit And Weapon Bonus
+1. How to count lines of code added
+2. Adding additional weapon damage
+3. Adding critical hit calculation & particles.
