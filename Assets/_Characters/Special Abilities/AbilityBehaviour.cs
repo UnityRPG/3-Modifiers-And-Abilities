@@ -22,16 +22,17 @@ namespace RPG.Characters
 
 		protected void PlayParticleInPlayerSpace()
 		{
-            SetupParticleEffect();
-            // Attach to player
+            var effect = SetupParticleEffect();
+            effect.transform.parent = transform.parent;
 		}
 
-        private void SetupParticleEffect()
+        private GameObject SetupParticleEffect()
         {
             var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
             ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
             myParticleSystem.Play();
             Destroy(prefab, myParticleSystem.main.duration);
+            return prefab;
         }
     }
 }

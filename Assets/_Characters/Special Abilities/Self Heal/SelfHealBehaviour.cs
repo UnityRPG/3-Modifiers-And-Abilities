@@ -21,6 +21,7 @@ namespace RPG.Characters
 		public override void Use(AbilityUseParams useParams)
 		{
 			print("Self heal used by: " + gameObject.name);
+            PlayParticleInPlayerSpace();
             player.AdjustHealth(-(config as SelfHealConfig).GetExtraHealth()); // note -ve
 		}
     }
