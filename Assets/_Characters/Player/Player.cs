@@ -41,7 +41,8 @@ namespace RPG.Characters
             SetCurrentMaxHealth();
             PutWeaponInHand();
             SetupRuntimeAnimator();
-            abilities[0].AttachComponentTo(gameObject);
+
+            abilities[0].AttachAbilityToPlayer<AreaEffectConfig>();
             audioSource = GetComponent<AudioSource>();
         }
 
