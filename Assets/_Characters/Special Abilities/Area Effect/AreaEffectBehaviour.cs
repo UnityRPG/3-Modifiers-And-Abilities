@@ -7,13 +7,6 @@ using System;
 
 public class AreaEffectBehaviour : AbilityBehaviour {
 
-
-
-	// Use this for initialization
-	void Start () {
-		print("Area Effect behaviour attached to " + gameObject.name);
-	}
-
     public override void Use(AbilityUseParams useParams)
     {
         DealRadialDamage(useParams);

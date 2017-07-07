@@ -37,13 +37,22 @@ namespace RPG.Characters
 
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
+
             RegisterForMouseClick();
             SetCurrentMaxHealth();
             PutWeaponInHand();
             SetupRuntimeAnimator();
+            AttachInitialAbilities();
+        }
 
-            abilities[0].AttachAbilityToPlayer<AreaEffectConfig>();
-            audioSource = GetComponent<AudioSource>();
+        private void AttachInitialAbilities()
+        {
+            for (int abilityIndex = 0; abilityIndex < abilities.Length; abilityIndex++)
+            {
+                var typeName = abilities[abilityIndex].GetType().ToString();
+                abilities[abilityIndex].AttachAbilityToPlayer(typeName);
+            }
         }
 
         public void AdjustHealth(float changePoints)
