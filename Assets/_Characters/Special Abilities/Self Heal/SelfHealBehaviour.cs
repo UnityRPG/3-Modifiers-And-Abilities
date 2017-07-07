@@ -13,11 +13,6 @@ namespace RPG.Characters
             player = GetComponent<Player>();
         }
 
-        public void SetConfig(SelfHealConfig configToSet)
-		{
-			this.config = configToSet;
-		}
-
 		public override void Use(AbilityUseParams useParams)
 		{
 			print("Self heal used by: " + gameObject.name);
