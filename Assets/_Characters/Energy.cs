@@ -49,7 +49,10 @@ namespace RPG.Characters
 
         private void UpdateEnergyBar()
         {
-            energyOrb.fillAmount = EnergyAsPercent();
+            if (energyOrb) // Enemies may not have energy bars to update
+            {
+                energyOrb.fillAmount = EnergyAsPercent();
+            }
         }
 
         float EnergyAsPercent()
