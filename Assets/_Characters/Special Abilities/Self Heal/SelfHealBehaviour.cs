@@ -6,18 +6,18 @@ namespace RPG.Characters
 {
     public class SelfHealBehaviour : AbilityBehaviour
     {
-        PlayerControl player;
+        DamageSystem damageSystem;
 
         void Start()
         {
-            player = GetComponent<PlayerControl>();
+            damageSystem = GetComponent<DamageSystem>();
         }
 
 		public override void Use(AbilityUseParams useParams)
 		{
 			print("Self heal used by: " + gameObject.name);
             PlayParticleInPlayerSpace();
-            player.AdjustHealth(-(config as SelfHealConfig).GetExtraHealth()); // note -ve
+            damageSystem.AdjustHealth(-(config as SelfHealConfig).GetExtraHealth()); // note -ve
 		}
     }
 }

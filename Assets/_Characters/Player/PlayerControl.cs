@@ -11,12 +11,7 @@ namespace RPG.Characters
 {
     public class PlayerControl : MonoBehaviour
     {
-        [SerializeField] float maxHealthPoints = 100f;
-
-        [SerializeField] AudioClip[] damageSounds;
-        [SerializeField] AudioClip[] deathSounds;
-
-        const string DEATH_TRIGGER = "Death";
+      
         const string ATTACK_TRIGGER = "Attack";
 
         AudioSource audioSource;
@@ -27,9 +22,7 @@ namespace RPG.Characters
         CharacterMovement characterMovement = null;
         SpecialAbilities abilities = null;
         MainWeapon mainWeapon;
-
-
-        public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
+        DamageSystem damageSystem;
 
         void Start()
         {
@@ -37,14 +30,14 @@ namespace RPG.Characters
             characterMovement = GetComponent<CharacterMovement>();
             abilities = GetComponent<SpecialAbilities>();
             animator = GetComponent<Animator>();
+            damageSystem = GetComponent<DamageSystem>();
 
             RegisterForMouseEvents();
-            SetCurrentMaxHealth();
         }
 
 		void Update()
 		{
-			if (healthAsPercentage > Mathf.Epsilon)
+			if (damageSystem.healthAsPercentage > Mathf.Epsilon)
 			{
 				ScanForAbilityKeyDown();
 			}
@@ -60,39 +53,6 @@ namespace RPG.Characters
 				}
 			}
 		}
-
-        public void AdjustHealth(float changePoints)
-        {
-			bool playerDies = (currentHealthPoints - changePoints <= 0); // must ask before reducing health
-            ReduceHealth(changePoints);          
-            if (playerDies)
-            {
-                StartCoroutine(KillCharacter());
-            }
-        }
-
-        IEnumerator KillCharacter()
-        {
-			animator.SetTrigger(DEATH_TRIGGER);
-
-            audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
-			audioSource.Play();
-            yield return new WaitForSecondsRealtime(audioSource.clip.length);
-
-            SceneManager.LoadScene(0);
-		}
-
-        private void ReduceHealth(float damage)
-        {
-            currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
-			audioSource.clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
-			audioSource.Play();
-        }
-
-        private void SetCurrentMaxHealth()
-        {
-            currentHealthPoints = maxHealthPoints;
-        }
 
         private void RegisterForMouseEvents()
         {
@@ -121,7 +81,7 @@ namespace RPG.Characters
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                abilities.AttemptSpecialAbility(0, enemy);
+                abilities.AttemptSpecialAbility(0, enemy.GetComponent<DamageSystem>()); // todo consdier moving to start
             }
         }
 
@@ -130,7 +90,8 @@ namespace RPG.Characters
             if (Time.time - lastHitTime > mainWeapon.GetCurrentWeapon().GetMinTimeBetweenHits())
             {
                 animator.SetTrigger(ATTACK_TRIGGER);
-                enemy.AdjustHealth(mainWeapon.GetTotalDamagePerHit());
+                DamageSystem enemyDamageSystem = enemy.GetComponent<DamageSystem>();
+                enemyDamageSystem.AdjustHealth(mainWeapon.GetTotalDamagePerHit());
                 lastHitTime = Time.time;
             }
         }

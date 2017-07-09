@@ -1,17 +1,62 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using RPG.Core;
 
-public class DamageSystem : MonoBehaviour {
+public class DamageSystem : MonoBehaviour, IDamageable {
 
+	[SerializeField] float maxHealthPoints = 100f;
+
+	[SerializeField] AudioClip[] damageSounds;
+	[SerializeField] AudioClip[] deathSounds;
+
+	const string DEATH_TRIGGER = "Death";
+
+	float currentHealthPoints; // todo provide link to health bar
+    Animator animator;
+    AudioSource audioSource;
+
+	public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
 	// Use this for initialization
 	void Start () {
-		
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+
+        currentHealthPoints = maxHealthPoints;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public void AdjustHealth(float changePoints)
+	{
+		bool playerDies = (currentHealthPoints - changePoints <= 0); // must ask before reducing health
+		ReduceHealth(changePoints);
+		if (playerDies)
+		{
+			StartCoroutine(KillCharacter());
+		}
+	}
+
+	IEnumerator KillCharacter()
+	{
+		animator.SetTrigger(DEATH_TRIGGER);
+
+		audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
+		audioSource.Play();
+		yield return new WaitForSecondsRealtime(audioSource.clip.length);
+
+		SceneManager.LoadScene(0);
+	}
+
+	private void ReduceHealth(float damage)
+	{
+		currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+		audioSource.clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
+		audioSource.Play();
 	}
 }

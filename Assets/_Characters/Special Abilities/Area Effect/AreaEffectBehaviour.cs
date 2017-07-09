@@ -15,7 +15,6 @@ public class AreaEffectBehaviour : AbilityBehaviour {
 
     private void DealRadialDamage(AbilityUseParams useParams)
     {
-        print("Area Effect used by " + gameObject.name);
         // Static sphere cast for targets
         RaycastHit[] hits = Physics.SphereCastAll(
             transform.position,
@@ -26,12 +25,28 @@ public class AreaEffectBehaviour : AbilityBehaviour {
 
         foreach (RaycastHit hit in hits)
         {
-            var damageable = hit.collider.gameObject.GetComponent<IDamageable>();
-            if (damageable != null)
+            var gameObjectHit = hit.collider.gameObject;
+            var damageable = gameObjectHit.GetComponent<IDamageable>();
+
+            if (damageable != null && HasHitDifferentClass(gameObjectHit))
             {
-                float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget(); // TODO ok Rick?
+                float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget();
                 damageable.AdjustHealth(damageToDeal);
             }
+        }
+    }
+
+    bool HasHitDifferentClass(GameObject gameObjectHit)
+    {
+        bool playerHitEnemy = gameObject.GetComponent<PlayerControl>() && gameObjectHit.GetComponent<EnemyAI>();
+        bool enemyHitPlayer = gameObject.GetComponent<EnemyAI>() && gameObjectHit.GetComponent<PlayerControl>();
+        if (playerHitEnemy || enemyHitPlayer)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

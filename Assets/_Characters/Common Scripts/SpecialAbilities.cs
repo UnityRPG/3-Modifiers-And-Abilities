@@ -41,7 +41,7 @@ namespace RPG.Characters
 			}
 		}
 
-        public void AttemptSpecialAbility(int abilityIndex, EnemyAI target = null)
+        public void AttemptSpecialAbility(int abilityIndex, DamageSystem target = null)
 		{
 			var energyComponent = GetComponent<SpecialAbilities>();
 			var energyCost = abilities[abilityIndex].GetEnergyCost();
