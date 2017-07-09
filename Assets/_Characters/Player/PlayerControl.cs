@@ -67,11 +67,11 @@ namespace RPG.Characters
             ReduceHealth(changePoints);          
             if (playerDies)
             {
-                StartCoroutine(KillPlayer());
+                StartCoroutine(KillCharacter());
             }
         }
 
-        IEnumerator KillPlayer()
+        IEnumerator KillCharacter()
         {
 			animator.SetTrigger(DEATH_TRIGGER);
 

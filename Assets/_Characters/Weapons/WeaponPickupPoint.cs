@@ -8,7 +8,7 @@ namespace RPG.Characters
     [ExecuteInEditMode] [SelectionBase]
     public class WeaponPickupPoint : MonoBehaviour
     {
-        [SerializeField] Weapon weaponConfig;
+        [SerializeField] WeaponConfig weaponConfig;
 
         void Start()
         {

@@ -13,7 +13,7 @@ namespace RPG.Characters
 
 		public override AbilityBehaviour GetBehaviourComponent(GameObject objectToAttachTo)
 		{
-            return objectToAttachTo.AddComponent<PowerAttackBehaviour>();
+            return objectToAttachTo.AddComponent<AreaEffectBehaviour>();
 		}
 		
         public float GetDamageToEachTarget()

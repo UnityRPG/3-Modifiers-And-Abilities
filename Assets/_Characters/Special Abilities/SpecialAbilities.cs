@@ -13,10 +13,12 @@ namespace RPG.Characters
 
         float currentEnergyPoints;
         CameraUI.CameraRaycaster cameraRaycaster;
+        Weapons weapon;
 
         // Use this for initialization
         void Start()
         {
+            weapon = GetComponentInParent<Weapons>();
             currentEnergyPoints = maxEnergyPoints;
             AttachInitialAbilities();
             UpdateEnergyBar();
@@ -48,7 +50,7 @@ namespace RPG.Characters
 			if (energyComponent.IsEnergyAvailable(energyCost))
 			{
 				energyComponent.ConsumeEnergy(energyCost);
-				var abilityParams = new AbilityUseParams(target, 5f); //todo change back to , baseDamage
+				var abilityParams = new AbilityUseParams(target, weapon.GetTotalDamagePerHit());
 				abilities[abilityIndex].Use(abilityParams);
 			}
 		}

@@ -1559,7 +1559,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1503430242081246}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.86, y: 2.08, z: 22.11}
+  m_LocalPosition: {x: 23.59616, y: 1.9959717, z: 19.232956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4238911389272344}
@@ -2004,7 +2004,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 2
       time: 0
-      value: 0
+      value: 0.625
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2060,8 +2060,8 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1503430242081246}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
+  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2081,7 +2081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorOverrideController: {fileID: 0}
-  weaponConfig: {fileID: 0}
+  startingWeapon: {fileID: 11400000, guid: e351930f0ee884565a47ae26a4d2c906, type: 2}
 --- !u!114 &114456288513175502
 MonoBehaviour:
   m_ObjectHideFlags: 1
