@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 195615532702319552}
   - component: {fileID: 114456288513175502}
   - component: {fileID: 114676537064849780}
-  - component: {fileID: 114421202246709778}
+  - component: {fileID: 114939380165646312}
   - component: {fileID: 114106379509719030}
   m_Layer: 0
   m_Name: Base Character
@@ -2094,21 +2094,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 05830414ee39c488b98fcbaed6b3bc74, type: 3}
   - {fileID: 8300000, guid: 2f541dbcdbefd40bf8cf99f78a4ed0ae, type: 3}
   - {fileID: 8300000, guid: a05274881dba546269d71ee2fcfcfbe8, type: 3}
---- !u!114 &114421202246709778
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1503430242081246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 675aa296d18e94ea68890b8fd7f0fbc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animatorOverrideController: {fileID: 0}
-  startingWeapon: {fileID: 11400000, guid: e351930f0ee884565a47ae26a4d2c906, type: 2}
-  characterBaseDamage: 10
-  weaponDamageBonus: 5
 --- !u!114 &114456288513175502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2156,6 +2141,21 @@ MonoBehaviour:
   energyBar: {fileID: 0}
   maxEnergyPoints: 100
   regenPointsPerSecond: 3
+--- !u!114 &114939380165646312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1503430242081246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0726ab4a7eedf4e8dae3865ae191aaa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animatorOverrideController: {fileID: 0}
+  startingWeapon: {fileID: 0}
+  characterBaseDamage: 10
+  weaponDamageBonus: 5
 --- !u!136 &136326313286866612
 CapsuleCollider:
   m_ObjectHideFlags: 1

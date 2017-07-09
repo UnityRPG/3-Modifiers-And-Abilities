@@ -20,7 +20,7 @@ namespace RPG.Characters
         float lastHitTime = 0f;
         CharacterMovement characterMovement = null;
         SpecialAbilities abilities = null;
-        MainWeapon mainWeapon;
+        WeaponSystem mainWeapon;
         HealthSystem damageSystem;
 
         void Start()

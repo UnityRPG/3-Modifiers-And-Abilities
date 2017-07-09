@@ -15,13 +15,13 @@ namespace RPG.Characters
 		float lastHitTime = 0f;
         bool isAttacking = false;
         Animator animator;
-        MainWeapon mainWeapon;
+        WeaponSystem mainWeapon;
         PlayerControl player;
 
         void Start()
         {
             animator = GetComponent<Animator>();
-			mainWeapon = GetComponent<MainWeapon>();
+			mainWeapon = GetComponent<WeaponSystem>();
             player = FindObjectOfType<PlayerControl>();
         }
 

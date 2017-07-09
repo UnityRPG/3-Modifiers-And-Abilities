@@ -13,14 +13,14 @@ namespace RPG.Characters
 
         float currentEnergyPoints;
         CameraUI.CameraRaycaster cameraRaycaster;
-        MainWeapon weapon;
+        WeaponSystem weapon;
 
 		public float energyAsPercent { get { return currentEnergyPoints / maxEnergyPoints; } }
 
         // Use this for initialization
         void Start()
         {
-            weapon = GetComponentInParent<MainWeapon>();
+            weapon = GetComponentInParent<WeaponSystem>();
             currentEnergyPoints = maxEnergyPoints;
             AttachInitialAbilities();
             UpdateEnergyBar();
