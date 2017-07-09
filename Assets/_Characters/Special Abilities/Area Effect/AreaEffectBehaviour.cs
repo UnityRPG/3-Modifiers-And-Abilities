@@ -28,25 +28,11 @@ public class AreaEffectBehaviour : AbilityBehaviour {
             var gameObjectHit = hit.collider.gameObject;
             var damageable = gameObjectHit.GetComponent<IDamageable>();
 
-            if (damageable != null && HasHitDifferentClass(gameObjectHit))
+            if (damageable != null  && gameObjectHit.tag != "Player")
             {
                 float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget();
                 damageable.AdjustHealth(damageToDeal);
             }
-        }
-    }
-
-    bool HasHitDifferentClass(GameObject gameObjectHit)
-    {
-        bool playerHitEnemy = gameObject.GetComponent<PlayerControl>() && gameObjectHit.GetComponent<EnemyAI>();
-        bool enemyHitPlayer = gameObject.GetComponent<EnemyAI>() && gameObjectHit.GetComponent<PlayerControl>();
-        if (playerHitEnemy || enemyHitPlayer)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
         }
     }
 }
