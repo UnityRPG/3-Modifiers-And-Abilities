@@ -33,11 +33,11 @@ namespace RPG.Characters
         {
             if (agent.remainingDistance > agent.stoppingDistance)
             {
-                character.Move(agent.desiredVelocity, false, false);
+                character.Move(agent.desiredVelocity);
             }
             else
             {
-                character.Move(Vector3.zero, false, false);
+                character.Move(Vector3.zero);
             }
         }
 
@@ -67,7 +67,7 @@ namespace RPG.Characters
             Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
             Vector3 movement = v * cameraForward + h * Camera.main.transform.right;
 
-            character.Move(movement, false, false);
+            character.Move(movement);
         }
     }
 }
