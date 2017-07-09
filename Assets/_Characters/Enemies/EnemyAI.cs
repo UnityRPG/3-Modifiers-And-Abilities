@@ -11,15 +11,12 @@ namespace RPG.Characters
     {
 
         [SerializeField] float maxHealthPoints = 100f;
-        [SerializeField] float chaseRadius = 6f;
 
+        [SerializeField] float chaseRadius = 6f;
         [SerializeField] float attackRadius = 4f;
-        [SerializeField] float damagePerShot = 9f;
+
         [SerializeField] float firingPeriodInS = 0.5f;
         [SerializeField] float firingPeriodVariation = 0.1f;
-        [SerializeField] GameObject projectileToUse;
-        [SerializeField] GameObject projectileSocket;
-        [SerializeField] Vector3 aimOffset = new Vector3(0, 1f, 0);
 
         bool isAttacking = false;
         float currentHealthPoints;

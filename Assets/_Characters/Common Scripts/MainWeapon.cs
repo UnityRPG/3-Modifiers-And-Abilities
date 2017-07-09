@@ -8,7 +8,7 @@ using RPG.Core;
 
 namespace RPG.Characters
 {
-    public class Weapons : MonoBehaviour
+    public class MainWeapon : MonoBehaviour
     {
 
         [SerializeField] AnimatorOverrideController animatorOverrideController = null;

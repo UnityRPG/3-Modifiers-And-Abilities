@@ -423,7 +423,8 @@ GameObject:
   - component: {fileID: 195615532702319552}
   - component: {fileID: 114456288513175502}
   - component: {fileID: 114676537064849780}
-  - component: {fileID: 114319801344124794}
+  - component: {fileID: 114421202246709778}
+  - component: {fileID: 114114603396453252}
   m_Layer: 0
   m_Name: Base Character
   m_TagString: Untagged
@@ -2069,7 +2070,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114319801344124794
+--- !u!114 &114114603396453252
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2077,11 +2078,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503430242081246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b388efeb185f4256b3ed175e1435cbc, type: 3}
+  m_Script: {fileID: 11500000, guid: d1489722db6934ccca30e559510d53e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114421202246709778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1503430242081246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675aa296d18e94ea68890b8fd7f0fbc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animatorOverrideController: {fileID: 0}
   startingWeapon: {fileID: 11400000, guid: e351930f0ee884565a47ae26a4d2c906, type: 2}
+  characterBaseDamage: 10
+  weaponDamageBonus: 5
 --- !u!114 &114456288513175502
 MonoBehaviour:
   m_ObjectHideFlags: 1

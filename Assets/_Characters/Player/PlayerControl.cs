@@ -12,7 +12,6 @@ namespace RPG.Characters
     public class PlayerControl : MonoBehaviour
     {
         [SerializeField] float maxHealthPoints = 100f;
-        [SerializeField] float baseDamage = 10f;
 
         [SerializeField] AudioClip[] damageSounds;
         [SerializeField] AudioClip[] deathSounds;
@@ -27,7 +26,8 @@ namespace RPG.Characters
         float lastHitTime = 0f;
         CharacterMovement characterMovement = null;
         SpecialAbilities abilities = null;
-        Weapons weapons;
+        MainWeapon mainWeapon;
+
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
@@ -115,6 +115,10 @@ namespace RPG.Characters
             {
                 AttackTarget(enemy);
             }
+            else if (Input.GetMouseButton(0) && !IsTargetInRange(enemy.gameObject))
+            {
+                characterMovement.SetDestination(enemy.transform.position);
+            }
             else if (Input.GetMouseButtonDown(1))
             {
                 abilities.AttemptSpecialAbility(0, enemy);
@@ -123,10 +127,10 @@ namespace RPG.Characters
 
         private void AttackTarget(EnemyAI enemy)
         {
-            if (Time.time - lastHitTime > weapons.GetCurrentWeapon().GetMinTimeBetweenHits())
+            if (Time.time - lastHitTime > mainWeapon.GetCurrentWeapon().GetMinTimeBetweenHits())
             {
                 animator.SetTrigger(ATTACK_TRIGGER);
-                enemy.AdjustHealth(baseDamage);
+                enemy.AdjustHealth(mainWeapon.GetTotalDamagePerHit());
                 lastHitTime = Time.time;
             }
         }
@@ -134,7 +138,7 @@ namespace RPG.Characters
         private bool IsTargetInRange(GameObject target)
         {
             float distanceToTarget = (target.transform.position - transform.position).magnitude;
-            return distanceToTarget <= weapons.GetCurrentWeapon().GetMaxAttackRange();
+            return distanceToTarget <= mainWeapon.GetCurrentWeapon().GetMaxAttackRange();
         }
     }
 }

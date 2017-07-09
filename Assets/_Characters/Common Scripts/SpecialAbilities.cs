@@ -13,12 +13,12 @@ namespace RPG.Characters
 
         float currentEnergyPoints;
         CameraUI.CameraRaycaster cameraRaycaster;
-        Weapons weapon;
+        MainWeapon weapon;
 
         // Use this for initialization
         void Start()
         {
-            weapon = GetComponentInParent<Weapons>();
+            weapon = GetComponentInParent<MainWeapon>();
             currentEnergyPoints = maxEnergyPoints;
             AttachInitialAbilities();
             UpdateEnergyBar();
@@ -43,7 +43,6 @@ namespace RPG.Characters
 
         public void AttemptSpecialAbility(int abilityIndex, EnemyAI target = null)
 		{
-            print("Attempting ability " + abilityIndex); 
 			var energyComponent = GetComponent<SpecialAbilities>();
 			var energyCost = abilities[abilityIndex].GetEnergyCost();
 
