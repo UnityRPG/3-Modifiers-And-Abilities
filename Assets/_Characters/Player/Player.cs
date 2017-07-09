@@ -50,8 +50,7 @@ namespace RPG.Characters
         {
             for (int abilityIndex = 0; abilityIndex < abilities.Length; abilityIndex++)
             {
-                var typeName = abilities[abilityIndex].GetType().ToString();
-                abilities[abilityIndex].AttachAbilityToPlayer(typeName);
+                abilities[abilityIndex].AttachAbilityTo(gameObject);
             }
         }
 

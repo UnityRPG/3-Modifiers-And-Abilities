@@ -24,30 +24,12 @@ namespace RPG.Characters
         [SerializeField] GameObject particlePrefab = null;
 
         protected AbilityBehaviour behaviour;
-        const string NAMESPACE = "RPG.Characters.";
 
-        public void AttachAbilityToPlayer(string typeName)
+        public abstract AbilityBehaviour GetBehaviourComponent(GameObject objectToAttachTo);
+
+        public void AttachAbilityTo(GameObject objectToAttachTo)
         {
-            AbilityBehaviour behaviourComponent = null;
-
-            var player = GameObject.FindWithTag("Player");
-            if (typeName == NAMESPACE + "AreaEffectConfig")
-            {
-                behaviourComponent = player.AddComponent<AreaEffectBehaviour>();
-            }
-            else if (typeName == NAMESPACE + "SelfHealConfig")
-            {
-                behaviourComponent = player.AddComponent<SelfHealBehaviour>();
-            }
-            else if (typeName == NAMESPACE + "PowerAttackConfig")
-            {
-                behaviourComponent = player.AddComponent<PowerAttackBehaviour>();
-            }
-            else
-            {
-                Debug.LogAssertion("Ability type not known");
-                return;
-            }
+            AbilityBehaviour behaviourComponent = GetBehaviourComponent(objectToAttachTo);
             behaviourComponent.SetConfig(this); // ok or need to be child?
             behaviour = behaviourComponent;
         }
