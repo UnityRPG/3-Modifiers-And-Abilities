@@ -20,7 +20,7 @@ namespace RPG.Characters
         float lastHitTime = 0f;
         CharacterMovement characterMovement = null;
         SpecialAbilities abilities = null;
-        WeaponSystem mainWeapon;
+        WeaponSystem weaponSystem;
         HealthSystem damageSystem;
 
         void Start()
@@ -30,7 +30,7 @@ namespace RPG.Characters
             abilities = GetComponent<SpecialAbilities>();
             animator = GetComponent<Animator>();
             damageSystem = GetComponent<HealthSystem>();
-            // todo set main weapon?
+            weaponSystem = GetComponent<WeaponSystem>();
 
             RegisterForMouseEvents();
         }
@@ -87,11 +87,11 @@ namespace RPG.Characters
 
         private void AttackTarget(EnemyAI enemy)
         {
-            if (Time.time - lastHitTime > mainWeapon.GetCurrentWeapon().GetMinTimeBetweenHits())
+            if (Time.time - lastHitTime > weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits())
             {
                 animator.SetTrigger(ATTACK_TRIGGER);
                 HealthSystem enemyDamageSystem = enemy.GetComponent<HealthSystem>();
-                enemyDamageSystem.AdjustHealth(mainWeapon.GetTotalDamagePerHit());
+                enemyDamageSystem.AdjustHealth(weaponSystem.GetTotalDamagePerHit());
                 lastHitTime = Time.time;
             }
         }
@@ -99,7 +99,7 @@ namespace RPG.Characters
         private bool IsTargetInRange(GameObject target)
         {
             float distanceToTarget = (target.transform.position - transform.position).magnitude;
-            return distanceToTarget <= mainWeapon.GetCurrentWeapon().GetMaxAttackRange();
+            return distanceToTarget <= weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
         }
     }
 }

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8938686f2fec74834b463303abe56c16, type: 3}
   m_Name: SH_L1
   m_EditorClassIdentifier: 
-  energyCost: 50
-  particlePrefab: {fileID: 1029023599607184, guid: 248505e8adf9c493396fa9ee6da6089c,
+  energyCost: 10
+  particlePrefab: {fileID: 1029023599607184, guid: 59224fe9271c540758241f019aead244,
     type: 2}
   extraHealth: 50

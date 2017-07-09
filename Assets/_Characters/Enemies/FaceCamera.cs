@@ -5,18 +5,14 @@
 // Link to a canvas prefab
 namespace RPG.Characters
 {
-    public class EnemyUI : MonoBehaviour
+    public class FaceCamera : MonoBehaviour
     {
-        [Tooltip("The UI canvas prefab")]
-        [SerializeField] GameObject enemyCanvasPrefab = null;
-
         Camera cameraToLookAt;
 
         // Use this for initialization 
         void Start()
         {
             cameraToLookAt = Camera.main;
-            Instantiate(enemyCanvasPrefab, transform.position, Quaternion.identity, transform);
         }
 
         // Update is called once per frame 

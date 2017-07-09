@@ -51,15 +51,18 @@ public class HealthSystem : MonoBehaviour, IDamageable {
 		}
 	}
 
-	IEnumerator KillCharacter()
-	{
-		animator.SetTrigger(DEATH_TRIGGER);
+    IEnumerator KillCharacter()
+    {
+        animator.SetTrigger(DEATH_TRIGGER);
 
-		audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
-		audioSource.Play();
-		yield return new WaitForSecondsRealtime(audioSource.clip.length);
+        audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
+        audioSource.Play();
+        yield return new WaitForSecondsRealtime(audioSource.clip.length);
 
-		SceneManager.LoadScene(0);
+        if (gameObject.tag == "Player")
+        { 
+            SceneManager.LoadScene(0);
+        }
 	}
 
 	private void ReduceHealth(float damage)

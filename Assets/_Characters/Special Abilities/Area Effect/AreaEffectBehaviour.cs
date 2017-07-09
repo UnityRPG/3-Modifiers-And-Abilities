@@ -5,33 +5,37 @@ using RPG.Characters;
 using RPG.Core;
 using System;
 
-public class AreaEffectBehaviour : AbilityBehaviour {
-
-    public override void Use(AbilityUseParams useParams)
+namespace RPG.Characters
+{
+    class AreaEffectBehaviour : AbilityBehaviour
     {
-        DealRadialDamage(useParams);
-        PlayParticleInWorldSpace();
-    }
 
-    private void DealRadialDamage(AbilityUseParams useParams)
-    {
-        // Static sphere cast for targets
-        RaycastHit[] hits = Physics.SphereCastAll(
-            transform.position,
-            (config as AreaEffectConfig).GetRadius(),
-            Vector3.up,
-            (config as AreaEffectConfig).GetRadius()
-        );
-
-        foreach (RaycastHit hit in hits)
+        public override void Use(AbilityUseParams useParams)
         {
-            var gameObjectHit = hit.collider.gameObject;
-            var damageable = gameObjectHit.GetComponent<IDamageable>();
+            DealRadialDamage(useParams);
+            PlayParticleInWorldSpace();
+        }
 
-            if (damageable != null  && gameObjectHit.tag != "Player")
+        private void DealRadialDamage(AbilityUseParams useParams)
+        {
+            // Static sphere cast for targets
+            RaycastHit[] hits = Physics.SphereCastAll(
+                transform.position,
+                (config as AreaEffectConfig).GetRadius(),
+                Vector3.up,
+                (config as AreaEffectConfig).GetRadius()
+            );
+
+            foreach (RaycastHit hit in hits)
             {
-                float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget();
-                damageable.AdjustHealth(damageToDeal);
+                var gameObjectHit = hit.collider.gameObject;
+                var damageable = gameObjectHit.GetComponent<HealthSystem>();
+
+                if (damageable != null && gameObjectHit.tag != "Player")
+                {
+                    float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget();
+                    damageable.AdjustHealth(damageToDeal);
+                }
             }
         }
     }

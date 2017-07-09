@@ -163,10 +163,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1311539807392560}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1946e1c1bae1c34ba2666ebb3463952, type: 3}
+  m_Script: {fileID: 11500000, guid: bd6658e9c79dd4624bb2ca640b935fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyCanvasPrefab: {fileID: 0}
 --- !u!222 &222353064351798940
 CanvasRenderer:
   m_ObjectHideFlags: 1
