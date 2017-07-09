@@ -43,8 +43,9 @@ namespace RPG.Weapons
 
         private void OnTriggerEnter()
         {
-            print("Boom"); 
-            FindObjectOfType<Player>().PutWeaponInHand(weaponConfig); 
+            print("Boom");
+            FindObjectOfType<Player>().PutWeaponInHand(weaponConfig);
+            // TODO consider if enemies should be able to pick-up too
         }
     }
 }

@@ -6,9 +6,8 @@ using RPG.CameraUI; // TODO consider re-wiring
 namespace RPG.Characters
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    [RequireComponent(typeof(AICharacterControl))]
-    [RequireComponent(typeof(ThirdPersonCharacter))]
-    public class PlayerMovement : MonoBehaviour
+    [RequireComponent(typeof(ThirdPersonCharacter))] // consider removing too?
+    public class CharacterMovement : MonoBehaviour
     {
         ThirdPersonCharacter thirdPersonCharacter = null;   // A reference to the ThirdPersonCharacter on the object
         CameraUI.CameraRaycaster cameraRaycaster = null;
