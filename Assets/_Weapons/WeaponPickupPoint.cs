@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RPG.Characters;
 
 namespace RPG.Weapons
 {
@@ -38,6 +39,12 @@ namespace RPG.Weapons
             var weapon = weaponConfig.GetWeaponPrefab();
             weapon.transform.position = Vector3.zero;
 			Instantiate(weapon, gameObject.transform);
+        }
+
+        private void OnTriggerEnter()
+        {
+            print("Boom"); 
+            FindObjectOfType<Player>().PutWeaponInHand(weaponConfig); 
         }
     }
 }
