@@ -22,7 +22,7 @@ namespace RPG.Characters
         CharacterMovement characterMovement = null;
         SpecialAbilities abilities = null;
         MainWeapon mainWeapon;
-        DamageSystem damageSystem;
+        HealthSystem damageSystem;
 
         void Start()
         {
@@ -30,7 +30,7 @@ namespace RPG.Characters
             characterMovement = GetComponent<CharacterMovement>();
             abilities = GetComponent<SpecialAbilities>();
             animator = GetComponent<Animator>();
-            damageSystem = GetComponent<DamageSystem>();
+            damageSystem = GetComponent<HealthSystem>();
 
             RegisterForMouseEvents();
         }
@@ -81,7 +81,7 @@ namespace RPG.Characters
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                abilities.AttemptSpecialAbility(0, enemy.GetComponent<DamageSystem>()); // todo consdier moving to start
+                abilities.AttemptSpecialAbility(0, enemy.GetComponent<HealthSystem>()); // todo consdier moving to start
             }
         }
 
@@ -90,7 +90,7 @@ namespace RPG.Characters
             if (Time.time - lastHitTime > mainWeapon.GetCurrentWeapon().GetMinTimeBetweenHits())
             {
                 animator.SetTrigger(ATTACK_TRIGGER);
-                DamageSystem enemyDamageSystem = enemy.GetComponent<DamageSystem>();
+                HealthSystem enemyDamageSystem = enemy.GetComponent<HealthSystem>();
                 enemyDamageSystem.AdjustHealth(mainWeapon.GetTotalDamagePerHit());
                 lastHitTime = Time.time;
             }

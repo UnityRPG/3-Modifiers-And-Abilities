@@ -1,19 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using RPG.Core;
 
-public class DamageSystem : MonoBehaviour, IDamageable {
+public class HealthSystem : MonoBehaviour, IDamageable {
 
 	[SerializeField] float maxHealthPoints = 100f;
-
+	[SerializeField] Image healthBar = null;
 	[SerializeField] AudioClip[] damageSounds;
 	[SerializeField] AudioClip[] deathSounds;
 
 	const string DEATH_TRIGGER = "Death";
 
-	float currentHealthPoints; // todo provide link to health bar
+	float currentHealthPoints;
     Animator animator;
     AudioSource audioSource;
 
@@ -29,7 +30,15 @@ public class DamageSystem : MonoBehaviour, IDamageable {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        UpdateHealthBar();
+	}
+
+	void UpdateHealthBar()
+	{
+        if (healthBar) // Enemies may not have energy bars to update
+		{
+            healthBar.fillAmount = healthAsPercentage;
+		}
 	}
 
 	public void AdjustHealth(float changePoints)

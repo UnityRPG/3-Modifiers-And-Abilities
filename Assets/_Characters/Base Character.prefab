@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 114456288513175502}
   - component: {fileID: 114676537064849780}
   - component: {fileID: 114421202246709778}
-  - component: {fileID: 114114603396453252}
+  - component: {fileID: 114106379509719030}
   m_Layer: 0
   m_Name: Base Character
   m_TagString: Untagged
@@ -2070,7 +2070,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114114603396453252
+--- !u!114 &114106379509719030
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -2078,10 +2078,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1503430242081246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1489722db6934ccca30e559510d53e9, type: 3}
+  m_Script: {fileID: 11500000, guid: d2ea3ea23057c4ec8b8c9f94409dd710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealthPoints: 100
+  healthBar: {fileID: 0}
   damageSounds:
   - {fileID: 8300000, guid: 22818e08f6642497f9843a1054f57dc6, type: 3}
   - {fileID: 8300000, guid: 83187cd1d87724988a9ba4b6750d7059, type: 3}

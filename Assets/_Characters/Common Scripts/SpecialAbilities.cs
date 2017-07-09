@@ -15,6 +15,8 @@ namespace RPG.Characters
         CameraUI.CameraRaycaster cameraRaycaster;
         MainWeapon weapon;
 
+		public float energyAsPercent { get { return currentEnergyPoints / maxEnergyPoints; } }
+
         // Use this for initialization
         void Start()
         {
@@ -41,14 +43,13 @@ namespace RPG.Characters
 			}
 		}
 
-        public void AttemptSpecialAbility(int abilityIndex, DamageSystem target = null)
+        public void AttemptSpecialAbility(int abilityIndex, HealthSystem target = null)
 		{
-			var energyComponent = GetComponent<SpecialAbilities>();
 			var energyCost = abilities[abilityIndex].GetEnergyCost();
 
-			if (energyComponent.IsEnergyAvailable(energyCost))
+            if (energyCost <= currentEnergyPoints)
 			{
-				energyComponent.ConsumeEnergy(energyCost);
+				ConsumeEnergy(energyCost);
 				var abilityParams = new AbilityUseParams(target, weapon.GetTotalDamagePerHit());
 				abilities[abilityIndex].Use(abilityParams);
 			}
@@ -65,11 +66,6 @@ namespace RPG.Characters
             currentEnergyPoints = Mathf.Clamp(currentEnergyPoints + pointsToAdd, 0, maxEnergyPoints);
         }
 
-        bool IsEnergyAvailable(float amount)
-        {
-            return amount <= currentEnergyPoints;
-        }
-
         void ConsumeEnergy(float amount)
         {
             float newEnergyPoints = currentEnergyPoints - amount;
@@ -81,13 +77,8 @@ namespace RPG.Characters
         {
             if (energyBar) // Enemies may not have energy bars to update
             {
-                energyBar.fillAmount = EnergyAsPercent();
+                energyBar.fillAmount = energyAsPercent;
             }
-        }
-
-        float EnergyAsPercent()
-        {
-            return currentEnergyPoints / maxEnergyPoints;
         }
     }
 }

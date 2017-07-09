@@ -6,11 +6,11 @@ namespace RPG.Characters
 {
     public class SelfHealBehaviour : AbilityBehaviour
     {
-        DamageSystem damageSystem;
+        HealthSystem damageSystem;
 
         void Start()
         {
-            damageSystem = GetComponent<DamageSystem>();
+            damageSystem = GetComponent<HealthSystem>();
         }
 
 		public override void Use(AbilityUseParams useParams)
