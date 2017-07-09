@@ -5,35 +5,29 @@ using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.SceneManagement;
 
-// TODO consider re-wire...
-using RPG.CameraUI;
-using RPG.Core;
-using RPG.Weapons;
+using RPG.CameraUI; // for mouse events
 
 namespace RPG.Characters
 {
-    public class Player : MonoBehaviour, IDamageable
+    public class PlayerControl : MonoBehaviour
     {
         [SerializeField] float maxHealthPoints = 100f;
         [SerializeField] float baseDamage = 10f;
-        [SerializeField] Weapon weaponConfig = null;
-        [SerializeField] AnimatorOverrideController animatorOverrideController = null;
+
         [SerializeField] AudioClip[] damageSounds;
         [SerializeField] AudioClip[] deathSounds;
-
-        // Temporarily serialized for dubbing
-        [SerializeField] AbilityConfig[] abilities;
 
         const string DEATH_TRIGGER = "Death";
         const string ATTACK_TRIGGER = "Attack";
 
-        GameObject weapon;
         AudioSource audioSource;
         Animator animator;
         float currentHealthPoints;
         CameraRaycaster cameraRaycaster;
         float lastHitTime = 0f;
         CharacterMovement characterMovement = null;
+        SpecialAbilities abilities = null;
+        Weapons weapons;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
@@ -41,32 +35,31 @@ namespace RPG.Characters
         {
             audioSource = GetComponent<AudioSource>();
             characterMovement = GetComponent<CharacterMovement>();
+            abilities = GetComponent<SpecialAbilities>();
+            animator = GetComponent<Animator>();
 
             RegisterForMouseEvents();
             SetCurrentMaxHealth();
-            PutWeaponInHand(weaponConfig);
-            SetupRuntimeAnimator();
-            AttachInitialAbilities();
         }
 
-		public void PutWeaponInHand(Weapon weaponToUse)
+		void Update()
 		{
-			this.weaponConfig = weaponToUse;
-			var weaponPrefab = weaponConfig.GetWeaponPrefab();
-			GameObject dominantHand = RequestDominantHand();
-            Destroy(weapon);
-			weapon = Instantiate(weaponPrefab, dominantHand.transform);
-			weapon.transform.localPosition = weaponConfig.gripTransform.localPosition;
-			weapon.transform.localRotation = weaponConfig.gripTransform.localRotation;
+			if (healthAsPercentage > Mathf.Epsilon)
+			{
+				ScanForAbilityKeyDown();
+			}
 		}
 
-        private void AttachInitialAbilities()
-        {
-            for (int abilityIndex = 0; abilityIndex < abilities.Length; abilityIndex++)
-            {
-                abilities[abilityIndex].AttachAbilityTo(gameObject);
-            }
-        }
+		private void ScanForAbilityKeyDown()
+		{
+            for (int keyIndex = 1; keyIndex < abilities.GetNumberOfAbilities(); keyIndex++)
+			{
+				if (Input.GetKeyDown(keyIndex.ToString()))
+				{
+                    abilities.AttemptSpecialAbility(keyIndex);
+				}
+			}
+		}
 
         public void AdjustHealth(float changePoints)
         {
@@ -101,22 +94,6 @@ namespace RPG.Characters
             currentHealthPoints = maxHealthPoints;
         }
 
-        private void SetupRuntimeAnimator()
-        {
-            animator = GetComponent<Animator>();
-            animator.runtimeAnimatorController = animatorOverrideController;
-            animatorOverrideController["DEFAULT ATTACK"] = weaponConfig.GetAttackAnimClip(); // remove const
-        }
-
-        private GameObject RequestDominantHand()
-        {
-            var dominantHands = GetComponentsInChildren<DominantHand>();
-            int numberOfDominantHands = dominantHands.Length;
-            Assert.IsFalse(numberOfDominantHands <= 0, "No DominantHand found on Player, please add one");
-            Assert.IsFalse(numberOfDominantHands > 1, "Multiple DominantHand scripts on Player, please remove one");
-            return dominantHands[0].gameObject;
-        }
-
         private void RegisterForMouseEvents()
         {
             cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
@@ -132,7 +109,7 @@ namespace RPG.Characters
 			}
 		}
 
-        void OnMouseOverEnemy(Enemy enemy)
+        void OnMouseOverEnemy(EnemyAI enemy)
         {
             if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
             {
@@ -140,26 +117,13 @@ namespace RPG.Characters
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                AttemptSpecialAbility(0, enemy);
+                abilities.AttemptSpecialAbility(0, enemy);
             }
         }
 
-        private void AttemptSpecialAbility(int abilityIndex, Enemy enemy)
+        private void AttackTarget(EnemyAI enemy)
         {
-            var energyComponent = GetComponent<Energy>();
-            var energyCost = abilities[abilityIndex].GetEnergyCost();
-
-            if (energyComponent.IsEnergyAvailable(energyCost))
-            {
-                energyComponent.ConsumeEnergy(energyCost);
-                var abilityParams = new AbilityUseParams(enemy, baseDamage);
-                abilities[abilityIndex].Use(abilityParams);
-            }
-        }
-
-        private void AttackTarget(Enemy enemy)
-        {
-            if (Time.time - lastHitTime > weaponConfig.GetMinTimeBetweenHits())
+            if (Time.time - lastHitTime > weapons.GetCurrentWeapon().GetMinTimeBetweenHits())
             {
                 animator.SetTrigger(ATTACK_TRIGGER);
                 enemy.AdjustHealth(baseDamage);
@@ -170,7 +134,7 @@ namespace RPG.Characters
         private bool IsTargetInRange(GameObject target)
         {
             float distanceToTarget = (target.transform.position - transform.position).magnitude;
-            return distanceToTarget <= weaponConfig.GetMaxAttackRange();
+            return distanceToTarget <= weapons.GetCurrentWeapon().GetMaxAttackRange();
         }
     }
 }

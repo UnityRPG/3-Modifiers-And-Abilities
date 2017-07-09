@@ -6,6 +6,7 @@ namespace RPG.Characters
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
 	[RequireComponent(typeof(Animator))]
+    [SelectionBase]
 	public class CharacterMovement : MonoBehaviour
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;

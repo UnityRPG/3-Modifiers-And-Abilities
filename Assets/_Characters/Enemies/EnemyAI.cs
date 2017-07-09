@@ -4,11 +4,10 @@ using UnityEngine;
 
 // TODO consider re-wire
 using RPG.Core;
-using RPG.Weapons;
 
 namespace RPG.Characters
 {
-    public class Enemy : MonoBehaviour, IDamageable
+    public class EnemyAI : MonoBehaviour, IDamageable
     {
 
         [SerializeField] float maxHealthPoints = 100f;
@@ -24,7 +23,7 @@ namespace RPG.Characters
 
         bool isAttacking = false;
         float currentHealthPoints;
-        Player player = null;
+        PlayerControl player = null;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
@@ -36,7 +35,7 @@ namespace RPG.Characters
 
         void Start()
         {
-            player = FindObjectOfType<Player>();
+            player = FindObjectOfType<PlayerControl>();
             currentHealthPoints = maxHealthPoints;
         }
 
@@ -70,20 +69,7 @@ namespace RPG.Characters
             {
                 //aiCharacterControl.SetTarget(transform);
             }
-        }
-
-        // TODO separate out Character firing logic
-        void FireProjectile()
-        {
-            GameObject newProjectile = Instantiate(projectileToUse, projectileSocket.transform.position, Quaternion.identity);
-            Projectile projectileComponent = newProjectile.GetComponent<Projectile>();
-            projectileComponent.SetDamage(damagePerShot);
-            projectileComponent.SetShooter(gameObject);
-
-            Vector3 unitVectorToPlayer = (player.transform.position + aimOffset - projectileSocket.transform.position).normalized;
-            float projectileSpeed = projectileComponent.GetDefaultLaunchSpeed();
-            newProjectile.GetComponent<Rigidbody>().velocity = unitVectorToPlayer * projectileSpeed;
-        }
+        }   
 
         void OnDrawGizmos()
         {

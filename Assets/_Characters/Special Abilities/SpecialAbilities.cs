@@ -4,9 +4,10 @@ using UnityEngine.UI;
 
 namespace RPG.Characters
 {
-    public class Energy : MonoBehaviour
+    public class SpecialAbilities : MonoBehaviour
     {
-        [SerializeField] Image energyOrb = null;
+		[SerializeField] AbilityConfig[] abilities;
+        [SerializeField] Image energyBar = null;
         [SerializeField] float maxEnergyPoints = 100f;
         [SerializeField] float regenPointsPerSecond = 1f;
 
@@ -17,6 +18,7 @@ namespace RPG.Characters
         void Start()
         {
             currentEnergyPoints = maxEnergyPoints;
+            AttachInitialAbilities();
             UpdateEnergyBar();
         }
 
@@ -29,29 +31,56 @@ namespace RPG.Characters
             }
         }
 
-        private void AddEnergyPoints()
+		void AttachInitialAbilities()
+		{
+			for (int abilityIndex = 0; abilityIndex < abilities.Length; abilityIndex++)
+			{
+				abilities[abilityIndex].AttachAbilityTo(gameObject);
+			}
+		}
+
+        public void AttemptSpecialAbility(int abilityIndex, EnemyAI target = null)
+		{
+            print("Attempting ability " + abilityIndex); 
+			var energyComponent = GetComponent<SpecialAbilities>();
+			var energyCost = abilities[abilityIndex].GetEnergyCost();
+
+			if (energyComponent.IsEnergyAvailable(energyCost))
+			{
+				energyComponent.ConsumeEnergy(energyCost);
+				var abilityParams = new AbilityUseParams(target, 5f); //todo change back to , baseDamage
+				abilities[abilityIndex].Use(abilityParams);
+			}
+		}
+
+        public int GetNumberOfAbilities()
+        {
+            return abilities.Length;
+        }
+
+        void AddEnergyPoints()
         {
             var pointsToAdd = regenPointsPerSecond * Time.deltaTime;
             currentEnergyPoints = Mathf.Clamp(currentEnergyPoints + pointsToAdd, 0, maxEnergyPoints);
         }
 
-        public bool IsEnergyAvailable(float amount)
+        bool IsEnergyAvailable(float amount)
         {
             return amount <= currentEnergyPoints;
         }
 
-        public void ConsumeEnergy(float amount)
+        void ConsumeEnergy(float amount)
         {
             float newEnergyPoints = currentEnergyPoints - amount;
             currentEnergyPoints = Mathf.Clamp(newEnergyPoints, 0, maxEnergyPoints);
             UpdateEnergyBar();
         }
 
-        private void UpdateEnergyBar()
+        void UpdateEnergyBar()
         {
-            if (energyOrb) // Enemies may not have energy bars to update
+            if (energyBar) // Enemies may not have energy bars to update
             {
-                energyOrb.fillAmount = EnergyAsPercent();
+                energyBar.fillAmount = EnergyAsPercent();
             }
         }
 

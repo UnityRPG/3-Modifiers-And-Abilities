@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Characters;
 
-namespace RPG.Weapons
+namespace RPG.Characters
 {
     [ExecuteInEditMode] [SelectionBase]
     public class WeaponPickupPoint : MonoBehaviour
@@ -43,7 +43,7 @@ namespace RPG.Weapons
 
         private void OnTriggerEnter()
         {
-            FindObjectOfType<Player>().PutWeaponInHand(weaponConfig);
+            FindObjectOfType<PlayerControl>().GetComponent<Weapons>().PutWeaponInHand(weaponConfig);
             // TODO consider if enemies should be able to pick-up too
         }
     }
