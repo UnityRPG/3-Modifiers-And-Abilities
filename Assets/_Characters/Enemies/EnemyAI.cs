@@ -10,17 +10,39 @@ namespace RPG.Characters
         [SerializeField] float chaseRadius = 6f;
         [SerializeField] float attackRadius = 4f;
 
+		// todo push these down from here and Player to Character
+		const string ATTACK_TRIGGER = "Attack";
+		float lastHitTime = 0f;
         bool isAttacking = false;
+        Animator animator;
+        MainWeapon mainWeapon;
+        PlayerControl player;
 
         void Start()
         {
-            
+            animator = GetComponent<Animator>();
+			mainWeapon = GetComponent<MainWeapon>();
+            player = FindObjectOfType<PlayerControl>();
         }
 
         void Update()
         {
-            
-        }   
+            if (Vector3.Distance(transform.position, player.transform.position) < mainWeapon.GetCurrentWeapon().GetMaxAttackRange())
+            {
+                AttackPlayer();   
+            }
+        }
+
+        private void AttackPlayer()
+		{
+			if (Time.time - lastHitTime > mainWeapon.GetCurrentWeapon().GetMinTimeBetweenHits())
+			{
+				animator.SetTrigger(ATTACK_TRIGGER);
+				HealthSystem enemyDamageSystem = player.GetComponent<HealthSystem>();
+				enemyDamageSystem.AdjustHealth(mainWeapon.GetTotalDamagePerHit());
+				lastHitTime = Time.time;
+			}
+		}
 
         void OnDrawGizmos()
         {

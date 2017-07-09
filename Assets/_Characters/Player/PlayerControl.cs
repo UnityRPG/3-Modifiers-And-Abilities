@@ -11,7 +11,6 @@ namespace RPG.Characters
 {
     public class PlayerControl : MonoBehaviour
     {
-      
         const string ATTACK_TRIGGER = "Attack";
 
         AudioSource audioSource;
@@ -31,6 +30,7 @@ namespace RPG.Characters
             abilities = GetComponent<SpecialAbilities>();
             animator = GetComponent<Animator>();
             damageSystem = GetComponent<HealthSystem>();
+            // todo set main weapon?
 
             RegisterForMouseEvents();
         }
