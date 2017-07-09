@@ -18,7 +18,6 @@ namespace RPG.Characters
 		Animator m_Animator;
 		float m_TurnAmount;
 		float m_ForwardAmount;
-		Vector3 m_GroundNormal;
 
 		void Start()
 		{
@@ -27,25 +26,28 @@ namespace RPG.Characters
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 		}
 
-		public void Move(Vector3 move)
-		{
-			// convert the world relative moveInput vector into a local-relative
-			// turn amount and forward amount required to head in the desired direction
-            if (move.magnitude > moveThreshold) {
-                move.Normalize();   
+        public void Move(Vector3 movement)
+        {
+            SetForwardAndTurn(movement);
+            ApplyExtraTurnRotation();
+            UpdateAnimator(); // send input and other state parameters to the animator
+        }
+
+        private void SetForwardAndTurn(Vector3 movement)
+        {
+            // convert the world relative moveInput vector into a local-relative
+            // turn amount and forward amount required to head in the desired direction
+            if (movement.magnitude > moveThreshold)
+            {
+                movement.Normalize();
             }
-			move = transform.InverseTransformDirection(move);
-			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
-			m_TurnAmount = Mathf.Atan2(move.x, move.z);
-			m_ForwardAmount = move.z;
+            var localMove = transform.InverseTransformDirection(movement);
+            m_TurnAmount = Mathf.Atan2(localMove.x, localMove.z);
+            m_ForwardAmount = localMove.z;
+        }
 
-			ApplyExtraTurnRotation();
-			UpdateAnimator(move); // send input and other state parameters to the animator
-		}
-
-		void UpdateAnimator(Vector3 move)
+        void UpdateAnimator()
 		{
-			// update the animator parameters
 			m_Animator.SetFloat("Forward", m_ForwardAmount, animatorDampingTime, Time.deltaTime);
 			m_Animator.SetFloat("Turn", m_TurnAmount, animatorDampingTime, Time.deltaTime); 
 			m_Animator.speed = m_AnimSpeedMultiplier;

@@ -29,6 +29,7 @@ namespace RPG.Characters
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
+        // todo move to ThirdPersonCharacter then rename CharacterMovement
         void Update()
         {
             if (agent.remainingDistance > agent.stoppingDistance)
@@ -41,7 +42,8 @@ namespace RPG.Characters
             }
         }
 
-        void OnMouseOverPotentiallyWalkable(Vector3 destination)
+		// todo move to player movement
+		void OnMouseOverPotentiallyWalkable(Vector3 destination)
         {
             if (Input.GetMouseButton(0))
             {
@@ -49,7 +51,8 @@ namespace RPG.Characters
             }    
         }
 
-        void OnMouseOverEnemy(Enemy enemy)
+		// todo move to player movement
+		void OnMouseOverEnemy(Enemy enemy)
         {
             if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(1))
             {
