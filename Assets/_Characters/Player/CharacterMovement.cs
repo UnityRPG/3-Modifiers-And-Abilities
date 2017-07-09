@@ -12,7 +12,6 @@ namespace RPG.Characters
         [SerializeField] float stoppingDistance = 1f;
 
         ThirdPersonCharacter character = null;   // A reference to the ThirdPersonCharacter on the object
-        Vector3 clickPoint;
         NavMeshAgent agent = null;
 
         void Start()
@@ -25,7 +24,6 @@ namespace RPG.Characters
 			agent.updatePosition = true;
             agent.stoppingDistance = stoppingDistance;
 
-            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
         }
 
@@ -42,13 +40,9 @@ namespace RPG.Characters
             }
         }
 
-		// todo move to player movement
-		void OnMouseOverPotentiallyWalkable(Vector3 destination)
+        public void SetDestination(Vector3 worldPos)
         {
-            if (Input.GetMouseButton(0))
-            {
-                agent.SetDestination(destination);
-            }    
+            agent.destination = worldPos;
         }
 
 		// todo move to player movement
@@ -58,19 +52,6 @@ namespace RPG.Characters
             {
                 agent.SetDestination(enemy.transform.position);
             }
-        }
-
-        // TODO make this get called again
-        void ProcessDirectMovement()
-        {
-            float h = Input.GetAxis("Horizontal");
-            float v = Input.GetAxis("Vertical");
-
-            // calculate camera relative direction to move:
-            Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-            Vector3 movement = v * cameraForward + h * Camera.main.transform.right;
-
-            character.Move(movement);
         }
     }
 }

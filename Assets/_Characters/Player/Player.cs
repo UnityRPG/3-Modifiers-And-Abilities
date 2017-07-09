@@ -27,6 +27,7 @@ namespace RPG.Characters
         const string DEATH_TRIGGER = "Death";
         const string ATTACK_TRIGGER = "Attack";
 
+        CharacterMovement characterMovement;
         GameObject weapon;
         AudioSource audioSource;
         Animator animator;
@@ -39,8 +40,9 @@ namespace RPG.Characters
         void Start()
         {
             audioSource = GetComponent<AudioSource>();
+            characterMovement = GetComponent<CharacterMovement>();
 
-            RegisterForMouseClick();
+            RegisterForMouseEvents();
             SetCurrentMaxHealth();
             PutWeaponInHand(weaponConfig);
             SetupRuntimeAnimator();
@@ -115,11 +117,20 @@ namespace RPG.Characters
             return dominantHands[0].gameObject;
         }
 
-        private void RegisterForMouseClick()
+        private void RegisterForMouseEvents()
         {
             cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
+			cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
         }
+
+		void OnMouseOverPotentiallyWalkable(Vector3 destination)
+		{
+			if (Input.GetMouseButton(0))
+			{
+                characterMovement.SetDestination(destination);
+			}
+		}
 
         void OnMouseOverEnemy(Enemy enemy)
         {
