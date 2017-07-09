@@ -11,7 +11,8 @@ namespace RPG.Characters
 		[SerializeField] float m_StationaryTurnSpeed = 180;
 		[SerializeField] float m_MoveSpeedMultiplier = 1f;
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
-		[SerializeField] float m_GroundCheckDistance = 0.1f;
+        [SerializeField] float moveThreshold = 1f;
+        [SerializeField] float animatorDampingTime = 0.1f;
 
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
@@ -30,7 +31,7 @@ namespace RPG.Characters
 		{
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired direction
-            if (move.magnitude > 1f) {
+            if (move.magnitude > moveThreshold) {
                 move.Normalize();   
             }
 			move = transform.InverseTransformDirection(move);
@@ -45,20 +46,9 @@ namespace RPG.Characters
 		void UpdateAnimator(Vector3 move)
 		{
 			// update the animator parameters
-			m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
-			m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime); 
-
-			// the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,
-			// which affects the movement speed because of the root motion.
-			if (move.magnitude > 0)
-			{
-				m_Animator.speed = m_AnimSpeedMultiplier;
-			}
-			else
-			{
-				// don't use that while airborne
-				m_Animator.speed = 1;
-			}
+			m_Animator.SetFloat("Forward", m_ForwardAmount, animatorDampingTime, Time.deltaTime);
+			m_Animator.SetFloat("Turn", m_TurnAmount, animatorDampingTime, Time.deltaTime); 
+			m_Animator.speed = m_AnimSpeedMultiplier;
 		}
 
 		void ApplyExtraTurnRotation()
@@ -67,7 +57,6 @@ namespace RPG.Characters
 			float turnSpeed = Mathf.Lerp(m_StationaryTurnSpeed, m_MovingTurnSpeed, m_ForwardAmount);
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
 		}
-
 
 		public void OnAnimatorMove()
 		{
