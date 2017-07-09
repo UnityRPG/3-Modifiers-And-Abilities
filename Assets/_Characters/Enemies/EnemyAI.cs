@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace RPG.Characters
 {
+    [SelectionBase]
     public class EnemyAI : MonoBehaviour
     {
         [SerializeField] float chaseRadius = 6f;
