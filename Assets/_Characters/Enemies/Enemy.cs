@@ -24,7 +24,6 @@ namespace RPG.Characters
 
         bool isAttacking = false;
         float currentHealthPoints;
-        AICharacterControl aiCharacterControl = null;
         Player player = null;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
@@ -38,7 +37,6 @@ namespace RPG.Characters
         void Start()
         {
             player = FindObjectOfType<Player>();
-            aiCharacterControl = GetComponent<AICharacterControl>();
             currentHealthPoints = maxHealthPoints;
         }
 
@@ -66,11 +64,11 @@ namespace RPG.Characters
 
             if (distanceToPlayer <= chaseRadius)
             {
-                aiCharacterControl.SetTarget(player.transform);
+                // aiCharacterControl.SetTarget(player.transform);
             }
             else
             {
-                aiCharacterControl.SetTarget(transform);
+                //aiCharacterControl.SetTarget(transform);
             }
         }
 
