@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RPG.Characters
 {
 	[RequireComponent(typeof(Rigidbody))]
 	[RequireComponent(typeof(CapsuleCollider))]
 	[RequireComponent(typeof(Animator))]
-	public class ThirdPersonCharacter : MonoBehaviour
+	public class CharacterMovement : MonoBehaviour
 	{
 		[SerializeField] float m_MovingTurnSpeed = 360;
 		[SerializeField] float m_StationaryTurnSpeed = 180;
@@ -13,20 +14,44 @@ namespace RPG.Characters
 		[SerializeField] float m_AnimSpeedMultiplier = 1f;
         [SerializeField] float moveThreshold = 1f;
         [SerializeField] float animatorDampingTime = 0.1f;
+		[SerializeField] float stoppingDistance = 1f;
 
 		Rigidbody m_Rigidbody;
 		Animator m_Animator;
 		float m_TurnAmount;
 		float m_ForwardAmount;
+		NavMeshAgent agent = null;
 
 		void Start()
 		{
 			m_Animator = GetComponent<Animator>();
 			m_Rigidbody = GetComponent<Rigidbody>();
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+
+			agent = GetComponentInChildren<NavMeshAgent>();
+			agent.updateRotation = false;
+			agent.updatePosition = true;
+			agent.stoppingDistance = stoppingDistance;
+        }
+
+		void Update()
+		{
+			if (agent.remainingDistance > agent.stoppingDistance)
+			{
+				Move(agent.desiredVelocity);
+			}
+			else
+			{
+				Move(Vector3.zero);
+			}
 		}
 
-        public void Move(Vector3 movement)
+		public void SetDestination(Vector3 worldPos)
+		{
+			agent.destination = worldPos;
+		}
+            
+        private void Move(Vector3 movement)
         {
             SetForwardAndTurn(movement);
             ApplyExtraTurnRotation();

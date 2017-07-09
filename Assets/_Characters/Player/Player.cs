@@ -27,13 +27,13 @@ namespace RPG.Characters
         const string DEATH_TRIGGER = "Death";
         const string ATTACK_TRIGGER = "Attack";
 
-        CharacterMovement characterMovement;
         GameObject weapon;
         AudioSource audioSource;
         Animator animator;
         float currentHealthPoints;
         CameraRaycaster cameraRaycaster;
         float lastHitTime = 0f;
+        CharacterMovement characterMovement = null;
 
         public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
