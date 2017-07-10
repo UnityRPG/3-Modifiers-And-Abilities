@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,11 +7,11 @@ namespace RPG.Characters
     [SelectionBase]
 	public class CharacterControl : MonoBehaviour
 	{
-        [SerializeField] float MovingTurnSpeed = 1000;
-        [SerializeField] float StationaryTurnSpeed = 800;
+        [SerializeField] float movingTurnSpeed = 1000;
+        [SerializeField] float stationaryTurnSpeed = 800;
         [SerializeField] float rotationSpeed = 300f;
-		[SerializeField] float MoveSpeedMultiplier = .7f;
-		[SerializeField] float AnimSpeedMultiplier = 1.5f;
+        [SerializeField] float moveSpeedMultiplier = .7f;
+        [SerializeField] float animSpeedMultiplier = 1.5f;
         [SerializeField] float moveThreshold = 1f;
         [SerializeField] float animatorDampingTime = 0.1f;
 		[SerializeField] float stoppingDistance = 1f;
@@ -54,13 +55,25 @@ namespace RPG.Characters
 			agent.destination = worldPos;
 		}
 
+        public float GetAnimSpeedMultiplier()
+        {
+            return animSpeedMultiplier;
+        }
+
 		public void AttackTarget(GameObject target)
 		{
             transform.LookAt(target.transform);
 			animator.SetTrigger(ATTACK_TRIGGER);
+            float hitTime = weaponSystem.GetCurrentWeapon().GetAnimHitTime();
+            StartCoroutine(DamageTargetAfterSeconds(target, hitTime));
+		}
+
+        IEnumerator DamageTargetAfterSeconds(GameObject target, float seconds)
+        {
+			yield return new WaitForSecondsRealtime(seconds);
 			HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
 			enemyDamageSystem.AdjustHealth(weaponSystem.GetTotalDamagePerHit());
-		}
+        }
 
         private void Move(Vector3 movement)
         {
@@ -86,13 +99,13 @@ namespace RPG.Characters
 		{
 			animator.SetFloat("Forward", forwardAmount, animatorDampingTime, Time.deltaTime);
 			animator.SetFloat("Turn", turnAmount, animatorDampingTime, Time.deltaTime); 
-			animator.speed = AnimSpeedMultiplier;
+			animator.speed = animSpeedMultiplier;
 		}
 
 		void ApplyExtraTurnRotation()
 		{
 			// help the character turn faster (this is in addition to root rotation in the animation)
-			float turnSpeed = Mathf.Lerp(StationaryTurnSpeed, MovingTurnSpeed, forwardAmount);
+			float turnSpeed = Mathf.Lerp(stationaryTurnSpeed, movingTurnSpeed, forwardAmount);
 			transform.Rotate(0, turnAmount * turnSpeed * Time.deltaTime, 0);
 		}
 
@@ -102,7 +115,7 @@ namespace RPG.Characters
 			// this allows us to modify the positional speed before it's applied.
 			if (Time.deltaTime > 0)
 			{
-				Vector3 v = (animator.deltaPosition * MoveSpeedMultiplier) / Time.deltaTime;
+				Vector3 v = (animator.deltaPosition * moveSpeedMultiplier) / Time.deltaTime;
 
 				// we preserve the existing y part of the current velocity.
 				v.y = myRigidbody.velocity.y;

@@ -2191,9 +2191,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d3068cb76bc4c4688be2311be4c664db, type: 3}
   - {fileID: 8300000, guid: 7395d3d62e8e34af1beda2def5890620, type: 3}
   - {fileID: 8300000, guid: ce6a5898b24ca4d4a95d6cb0a5cdd7be, type: 3}
-  deathSounds:
-  - {fileID: 8300000, guid: 05830414ee39c488b98fcbaed6b3bc74, type: 3}
-  - {fileID: 8300000, guid: 2f541dbcdbefd40bf8cf99f78a4ed0ae, type: 3}
+  deathSounds: []
 --- !u!114 &114499285220199152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2218,6 +2216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseRadius: 6
   attackRadius: 4
+  deathVanishSeconds: 2
 --- !u!114 &114547377542558208
 MonoBehaviour:
   m_ObjectHideFlags: 1

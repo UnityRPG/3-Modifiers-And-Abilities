@@ -6,7 +6,6 @@ namespace RPG.Characters
     {
         public override void Use(AbilityUseParams useParams)
         {
-            print("Power attack used by: " + gameObject.name);
             DealDamage(useParams);
             PlayParticleInWorldSpace();
         }

@@ -16,13 +16,13 @@ namespace RPG.Characters
         Animator animator;
         WeaponSystem weaponSystem;
         PlayerControl player;
-        CharacterControl characterMovement = null;
+        CharacterControl characterControl = null;
 
         void Start()
         {
             animator = GetComponent<Animator>();
 			weaponSystem = GetComponent<WeaponSystem>();
-            characterMovement = GetComponent<CharacterControl>();
+            characterControl = GetComponent<CharacterControl>();
             player = FindObjectOfType<PlayerControl>();
         }
 
@@ -37,11 +37,12 @@ namespace RPG.Characters
             float currentWeaponRange = weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
 
 			float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
-			bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
+            float timeToWait = weaponHitPeriod * characterControl.GetAnimSpeedMultiplier();
+            bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
 
-            if (distanceToPlayer < currentWeaponRange && timeToHitAgain)
+            if (distanceToPlayer < currentWeaponRange && isTimeToHitAgain)
             {
-                characterMovement.AttackTarget(player.gameObject);
+                characterControl.AttackTarget(player.gameObject);
                 lastHitTime = Time.time;
             }
         }
