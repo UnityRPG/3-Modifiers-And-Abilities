@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-using RPG.Characters;
-using RPG.Core;
-
 namespace RPG.Characters
 {
     public class WeaponSystem : MonoBehaviour
     {
-
         [SerializeField] AnimatorOverrideController animatorOverrideController = null;
         [SerializeField] WeaponConfig startingWeapon = null;
         [SerializeField] float characterBaseDamage = 10f;

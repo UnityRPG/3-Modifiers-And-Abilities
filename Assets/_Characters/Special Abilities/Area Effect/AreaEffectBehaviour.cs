@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using RPG.Characters;
-using RPG.Core;
 using System;
 
 namespace RPG.Characters

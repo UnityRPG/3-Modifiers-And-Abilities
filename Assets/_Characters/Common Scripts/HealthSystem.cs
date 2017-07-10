@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-using RPG.Core;
 using RPG.Characters; // to identify player for scene reload
 
 public class HealthSystem : MonoBehaviour{
