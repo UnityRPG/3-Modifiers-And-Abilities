@@ -6,10 +6,11 @@ namespace RPG.Characters
     [SelectionBase]
 	public class CharacterControl : MonoBehaviour
 	{
-        [SerializeField] float MovingTurnSpeed = 360;
-        [SerializeField] float StationaryTurnSpeed = 180;
-		[SerializeField] float MoveSpeedMultiplier = 1f;
-		[SerializeField] float AnimSpeedMultiplier = 1f;
+        [SerializeField] float MovingTurnSpeed = 1000;
+        [SerializeField] float StationaryTurnSpeed = 800;
+        [SerializeField] float rotationSpeed = 300f;
+		[SerializeField] float MoveSpeedMultiplier = .7f;
+		[SerializeField] float AnimSpeedMultiplier = 1.5f;
         [SerializeField] float moveThreshold = 1f;
         [SerializeField] float animatorDampingTime = 0.1f;
 		[SerializeField] float stoppingDistance = 1f;
@@ -55,6 +56,8 @@ namespace RPG.Characters
 
 		public void AttackTarget(GameObject target)
 		{
+            // var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 			animator.SetTrigger(ATTACK_TRIGGER);
 			HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
 			enemyDamageSystem.AdjustHealth(weaponSystem.GetTotalDamagePerHit());

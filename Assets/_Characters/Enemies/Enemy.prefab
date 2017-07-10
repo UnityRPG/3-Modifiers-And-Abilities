@@ -430,7 +430,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4366132565214230}
-  - component: {fileID: 95508711561625534}
   m_Layer: 0
   m_Name: Character_Knights_Soldier_01
   m_TagString: Untagged
@@ -2108,23 +2107,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95508711561625534
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1422763460162262}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114226313886257162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2318,10 +2300,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce6f70651b41b4dd4b6a4e5f778f9141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovingTurnSpeed: 360
-  StationaryTurnSpeed: 180
+  MovingTurnSpeed: 1000
+  StationaryTurnSpeed: 800
+  rotationSpeed: 0.5
   MoveSpeedMultiplier: 1
-  AnimSpeedMultiplier: 1
+  AnimSpeedMultiplier: 0.5
   moveThreshold: 1
   animatorDampingTime: 0.1
   stoppingDistance: 1
