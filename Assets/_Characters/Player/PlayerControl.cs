@@ -12,7 +12,7 @@ namespace RPG.Characters
         CameraRaycaster cameraRaycaster;
 
 		float lastHitTime = 0f;
-        CharacterMovement characterMovement = null;
+        CharacterControl characterMovement = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
         HealthSystem damageSystem;
@@ -20,7 +20,7 @@ namespace RPG.Characters
         void Start()
         {
             audioSource = GetComponent<AudioSource>();
-            characterMovement = GetComponent<CharacterMovement>();
+            characterMovement = GetComponent<CharacterControl>();
             abilities = GetComponent<SpecialAbilities>();
             animator = GetComponent<Animator>();
             damageSystem = GetComponent<HealthSystem>();

@@ -15,13 +15,13 @@ namespace RPG.Characters
         Animator animator;
         WeaponSystem weaponSystem;
         PlayerControl player;
-        CharacterMovement characterMovement = null;
+        CharacterControl characterMovement = null;
 
         void Start()
         {
             animator = GetComponent<Animator>();
 			weaponSystem = GetComponent<WeaponSystem>();
-            characterMovement = GetComponent<CharacterMovement>();
+            characterMovement = GetComponent<CharacterControl>();
             player = FindObjectOfType<PlayerControl>();
         }
 

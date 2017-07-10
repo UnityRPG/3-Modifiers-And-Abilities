@@ -4,7 +4,7 @@ using UnityEngine.AI;
 namespace RPG.Characters
 {
     [SelectionBase]
-	public class CharacterMovement : MonoBehaviour
+	public class CharacterControl : MonoBehaviour
 	{
         [SerializeField] float MovingTurnSpeed = 360;
         [SerializeField] float StationaryTurnSpeed = 180;
