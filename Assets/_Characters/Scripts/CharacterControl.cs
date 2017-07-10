@@ -56,8 +56,7 @@ namespace RPG.Characters
 
 		public void AttackTarget(GameObject target)
 		{
-            // var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
-            //transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.LookAt(target.transform);
 			animator.SetTrigger(ATTACK_TRIGGER);
 			HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
 			enemyDamageSystem.AdjustHealth(weaponSystem.GetTotalDamagePerHit());
