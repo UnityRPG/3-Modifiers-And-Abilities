@@ -7,10 +7,10 @@ namespace RPG.Characters
 {
     public struct AbilityUseParams
     {
-        public IDamageable target;
+        public HealthSystem target;
         public float baseDamage;
 
-        public AbilityUseParams(IDamageable target, float baseDamage)
+        public AbilityUseParams(HealthSystem target, float baseDamage)
         {
             this.target = target;
             this.baseDamage = baseDamage;
