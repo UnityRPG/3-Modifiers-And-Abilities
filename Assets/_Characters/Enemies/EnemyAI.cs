@@ -10,39 +10,35 @@ namespace RPG.Characters
         [SerializeField] float chaseRadius = 6f;
         [SerializeField] float attackRadius = 4f;
 
-		// todo push these down from here and Player to Character
-		const string ATTACK_TRIGGER = "Attack";
 		float lastHitTime = 0f;
         bool isAttacking = false;
         Animator animator;
-        WeaponSystem mainWeapon;
+        WeaponSystem weaponSystem;
         PlayerControl player;
+        CharacterMovement characterMovement = null;
 
         void Start()
         {
             animator = GetComponent<Animator>();
-			mainWeapon = GetComponent<WeaponSystem>();
+			weaponSystem = GetComponent<WeaponSystem>();
+            characterMovement = GetComponent<CharacterMovement>();
             player = FindObjectOfType<PlayerControl>();
         }
 
         void Update()
         {
-            if (Vector3.Distance(transform.position, player.transform.position) < mainWeapon.GetCurrentWeapon().GetMaxAttackRange())
+            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            float currentWeaponRange = weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
+
+			float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
+			bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
+
+            if (distanceToPlayer < currentWeaponRange && timeToHitAgain)
             {
-                AttackPlayer();   
+                characterMovement.AttackTarget(player.gameObject);
+                lastHitTime = Time.time;
             }
         }
-
-        private void AttackPlayer()
-		{
-			if (Time.time - lastHitTime > mainWeapon.GetCurrentWeapon().GetMinTimeBetweenHits())
-			{
-				animator.SetTrigger(ATTACK_TRIGGER);
-				HealthSystem enemyDamageSystem = player.GetComponent<HealthSystem>();
-				enemyDamageSystem.AdjustHealth(mainWeapon.GetTotalDamagePerHit());
-				lastHitTime = Time.time;
-			}
-		}
 
         void OnDrawGizmos()
         {

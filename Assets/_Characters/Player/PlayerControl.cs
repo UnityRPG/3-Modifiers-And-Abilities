@@ -6,13 +6,12 @@ namespace RPG.Characters
 {
     public class PlayerControl : MonoBehaviour
     {
-        const string ATTACK_TRIGGER = "Attack";
-
         AudioSource audioSource;
         Animator animator;
         float currentHealthPoints;
         CameraRaycaster cameraRaycaster;
-        float lastHitTime = 0f;
+
+		float lastHitTime = 0f;
         CharacterMovement characterMovement = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
@@ -66,9 +65,12 @@ namespace RPG.Characters
 
         void OnMouseOverEnemy(EnemyAI enemy)
         {
-            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
+            float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
+            bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
+            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject) && timeToHitAgain)
             {
-                AttackTarget(enemy);
+                characterMovement.AttackTarget(enemy.gameObject);
+                lastHitTime = Time.time;
             }
             else if (Input.GetMouseButton(0) && !IsTargetInRange(enemy.gameObject))
             {
@@ -77,17 +79,6 @@ namespace RPG.Characters
             else if (Input.GetMouseButtonDown(1))
             {
                 abilities.AttemptSpecialAbility(0, enemy.GetComponent<HealthSystem>()); // todo consdier moving to start
-            }
-        }
-
-        private void AttackTarget(EnemyAI enemy)
-        {
-            if (Time.time - lastHitTime > weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits())
-            {
-                animator.SetTrigger(ATTACK_TRIGGER);
-                HealthSystem enemyDamageSystem = enemy.GetComponent<HealthSystem>();
-                enemyDamageSystem.AdjustHealth(weaponSystem.GetTotalDamagePerHit());
-                lastHitTime = Time.time;
             }
         }
 

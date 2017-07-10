@@ -19,12 +19,16 @@ namespace RPG.Characters
         float turnAmount;
         float forwardAmount;
 		NavMeshAgent agent = null;
+        WeaponSystem weaponSystem;
+
+		const string ATTACK_TRIGGER = "Attack";
 
 		void Start()
 		{
 			animator = GetComponent<Animator>();
 			myRigidbody = GetComponent<Rigidbody>();
 			myRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+            weaponSystem = GetComponent<WeaponSystem>();
 
 			agent = GetComponentInChildren<NavMeshAgent>();
 			agent.updateRotation = false;
@@ -48,7 +52,14 @@ namespace RPG.Characters
 		{
 			agent.destination = worldPos;
 		}
-            
+
+		public void AttackTarget(GameObject target)
+		{
+			animator.SetTrigger(ATTACK_TRIGGER);
+			HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
+			enemyDamageSystem.AdjustHealth(weaponSystem.GetTotalDamagePerHit());
+		}
+
         private void Move(Vector3 movement)
         {
             SetForwardAndTurn(movement);
