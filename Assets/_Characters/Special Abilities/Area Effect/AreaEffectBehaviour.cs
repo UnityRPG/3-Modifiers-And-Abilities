@@ -1,14 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using RPG.Characters;
-using System;
+﻿using UnityEngine;
 
 namespace RPG.Characters
 {
     class AreaEffectBehaviour : AbilityBehaviour
     {
-
         public override void Use(AbilityUseParams useParams)
         {
             DealRadialDamage(useParams);

@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ben Do We Need?
-  - Collide
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -16,9 +14,9 @@ TagManager:
   - 
   - 
   - Potentially Walkable
-  - Enemy
-  - Stiff
-  - Player
+  - 
+  - 
+  - 
   - 
   - 
   - 

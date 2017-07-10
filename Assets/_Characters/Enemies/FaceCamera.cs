@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
 
-// Add a UI Socket transform to your enemy
-// Attach this script to the socket
-// Link to a canvas prefab
 namespace RPG.Characters
 {
     public class FaceCamera : MonoBehaviour

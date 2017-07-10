@@ -1,9 +1,4 @@
-﻿﻿﻿﻿﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Assertions;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 using RPG.CameraUI; // for mouse events
 

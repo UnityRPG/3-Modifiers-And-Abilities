@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RPG.Characters
 {
@@ -12,7 +10,7 @@ namespace RPG.Characters
 
         public void SetConfig(AbilityConfig configToSet)
 		{
-			this.config = configToSet;
+			config = configToSet;
 		}
 
 		protected void PlayParticleInWorldSpace()

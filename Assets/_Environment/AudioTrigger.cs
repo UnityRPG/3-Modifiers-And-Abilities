@@ -1,9 +1,10 @@
 ﻿﻿using UnityEngine;
+using RPG.Characters;
 
 public class AudioTrigger : MonoBehaviour
 {
     [SerializeField] AudioClip clip;
-    [SerializeField] int layerFilter = 11;
+    [SerializeField] bool triggerOnPlayerOnly = true;
     [SerializeField] float triggerRadius = 0f;
     [SerializeField] bool isOneTimeOnly = true;
 
@@ -24,7 +25,7 @@ public class AudioTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == layerFilter)
+        if (triggerOnPlayerOnly && other.GetComponent<PlayerControl>())
         {
             RequestPlayAudioClip();
         }
