@@ -9,6 +9,7 @@ namespace RPG.Characters
     {
         [SerializeField] float chaseRadius = 6f;
         [SerializeField] float attackRadius = 4f;
+        [SerializeField] float deathVanishSeconds = 2f;
 
 		float lastHitTime = 0f;
         bool isAttacking = false;
@@ -23,6 +24,11 @@ namespace RPG.Characters
 			weaponSystem = GetComponent<WeaponSystem>();
             characterMovement = GetComponent<CharacterControl>();
             player = FindObjectOfType<PlayerControl>();
+        }
+
+        public float GetDeathVanishDelay()
+        {
+            return deathVanishSeconds;
         }
 
         void Update()

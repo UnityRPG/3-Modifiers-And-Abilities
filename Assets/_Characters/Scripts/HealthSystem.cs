@@ -44,9 +44,9 @@ public class HealthSystem : MonoBehaviour{
 
 	public void AdjustHealth(float changePoints)
 	{
-		bool playerDies = (currentHealthPoints - changePoints <= 0); // must ask before reducing health
+        bool charaterDies = (currentHealthPoints - changePoints <= 0); // must ask before reducing health
 		ReduceHealth(changePoints);
-		if (playerDies)
+		if (charaterDies)
 		{
 			StartCoroutine(KillCharacter());
 		}
@@ -56,14 +56,18 @@ public class HealthSystem : MonoBehaviour{
     {
         animator.SetTrigger(DEATH_TRIGGER);
 
-        audioSource.clip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Length)];
-        audioSource.Play();
-        yield return new WaitForSecondsRealtime(audioSource.clip.length);
-
         var playerComponent = GetComponent<PlayerControl>();
         if (playerComponent && playerComponent.isActiveAndEnabled)
-        { 
-            SceneManager.LoadScene(0);
+        {
+			audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
+			audioSource.Play();
+			yield return new WaitForSecondsRealtime(audioSource.clip.length);
+			SceneManager.LoadScene(0);
+        }
+        else // assume is enemy for now, reconsider on other NPCs
+        {
+            var enemyAI = GetComponent<EnemyAI>();
+            DestroyObject(gameObject, enemyAI.GetDeathVanishDelay()); 
         }
 	}
 
