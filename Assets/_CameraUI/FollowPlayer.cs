@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using RPG.Characters;
+
 namespace RPG.CameraUI
 {
-    public class CameraFollow : MonoBehaviour
+    public class FollowPlayer : MonoBehaviour
     {
-        GameObject player;
+        PlayerControl player;
 
         // Use this for initialization
         void Start()
         {
-            player = GameObject.FindGameObjectWithTag("Player");
+            player = FindObjectOfType<PlayerControl>();
         }
 
         // Update is called once per frame

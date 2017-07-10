@@ -31,7 +31,7 @@ namespace RPG.Characters
                 var gameObjectHit = hit.collider.gameObject;
                 var damageable = gameObjectHit.GetComponent<HealthSystem>();
 
-                if (damageable != null && gameObjectHit.tag != "Player")
+                if (damageable != null && !gameObjectHit.GetComponent<PlayerControl>())
                 {
                     float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget();
                     damageable.AdjustHealth(damageToDeal);

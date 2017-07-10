@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 using RPG.Core;
+using RPG.Characters; // to identify player for scene reload
 
 public class HealthSystem : MonoBehaviour, IDamageable {
 
@@ -59,7 +61,8 @@ public class HealthSystem : MonoBehaviour, IDamageable {
         audioSource.Play();
         yield return new WaitForSecondsRealtime(audioSource.clip.length);
 
-        if (gameObject.tag == "Player")
+        var playerComponent = GetComponent<PlayerControl>();
+        if (playerComponent && playerComponent.isActiveAndEnabled)
         { 
             SceneManager.LoadScene(0);
         }
