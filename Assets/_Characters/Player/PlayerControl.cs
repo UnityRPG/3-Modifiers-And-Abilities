@@ -4,7 +4,7 @@ using RPG.CameraUI; // for mouse events
 
 namespace RPG.Characters
 {
-	[RequireComponent(typeof(CharacterMovement))]
+	[RequireComponent(typeof(Character))]
     [RequireComponent(typeof(SpecialAbilities))]
 	[RequireComponent(typeof(WeaponSystem))]
     public class PlayerControl : MonoBehaviour
@@ -13,14 +13,14 @@ namespace RPG.Characters
         CameraRaycaster cameraRaycaster;
 
 		float lastHitTime = 0f;
-        CharacterMovement characterMovement = null;
+        Character characterMovement = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
         HealthSystem damageSystem;
 
         void Start()
         {
-            characterMovement = GetComponent<CharacterMovement>();
+            characterMovement = GetComponent<Character>();
             abilities = GetComponent<SpecialAbilities>();
             weaponSystem = GetComponent<WeaponSystem>();
 

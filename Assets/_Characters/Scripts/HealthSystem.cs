@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 using RPG.Characters; // to identify player for scene reload
 
-[RequireComponent(typeof(CharacterMovement))]
+[RequireComponent(typeof(Character))]
 public class HealthSystem : MonoBehaviour{
 
 	[SerializeField] float maxHealthPoints = 100f;

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace RPG.Characters
 {
-    [RequireComponent(typeof(CharacterMovement))]
+    [RequireComponent(typeof(Character))]
     public class SpecialAbilities : MonoBehaviour
     {
 		[SerializeField] AbilityConfig[] abilities;

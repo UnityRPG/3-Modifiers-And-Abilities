@@ -5,7 +5,7 @@ using UnityEngine.Assertions;
 
 namespace RPG.Characters
 {
-    [RequireComponent(typeof(CharacterMovement))]
+    [RequireComponent(typeof(Character))]
     public class WeaponSystem : MonoBehaviour
     {
         [SerializeField] AnimatorOverrideController animatorOverrideController = null;

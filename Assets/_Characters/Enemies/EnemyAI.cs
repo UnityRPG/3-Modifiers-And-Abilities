@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace RPG.Characters
 {
-    [RequireComponent(typeof(CharacterMovement))]
+    [RequireComponent(typeof(Character))]
     [RequireComponent(typeof(WeaponSystem))]
     public class EnemyAI : MonoBehaviour
     {
@@ -15,12 +15,12 @@ namespace RPG.Characters
 		float lastHitTime = 0f;
         WeaponSystem weaponSystem;
         PlayerControl player;
-        CharacterMovement characterControl = null;
+        Character characterControl = null;
 
         void Start()
         {
 			weaponSystem = GetComponent<WeaponSystem>();
-            characterControl = GetComponent<CharacterMovement>();
+            characterControl = GetComponent<Character>();
             player = FindObjectOfType<PlayerControl>();
         }
 

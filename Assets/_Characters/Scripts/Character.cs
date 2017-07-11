@@ -5,12 +5,15 @@ using UnityEngine.AI;
 namespace RPG.Characters
 {
     [SelectionBase]
-	public class CharacterMovement : MonoBehaviour
+	public class Character : MonoBehaviour
 	{
         [Header("Capsule Collider Settings")]
         [SerializeField] Vector3 colliderCenter = new Vector3(0, 1.03f, 0);
         [SerializeField] float colliderRadius = 0.2f;
         [SerializeField] float colliderHeight = 2.03f;
+
+        [Header("Audio Source Settings")]
+        [SerializeField] float spatialBlend = 0.5f;
 
         [Header("Movement Properties")]
         [SerializeField] float movingTurnSpeed = 1000;
@@ -27,10 +30,13 @@ namespace RPG.Characters
         float forwardAmount;
 		NavMeshAgent agent = null;
 
+        void Awake()
+        {
+            AddRequiredComponents();
+        }
+
 		void Start()
 		{
-            AddRequiredComponents();
-
 			animator = GetComponent<Animator>();
 			myRigidbody = GetComponent<Rigidbody>();
 			myRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
@@ -50,6 +56,9 @@ namespace RPG.Characters
 
             var rigidBody = gameObject.AddComponent<Rigidbody>();
             // todo consider adding mass = 70 default if required
+
+            var myAudioSource = gameObject.AddComponent<AudioSource>();
+            myAudioSource.spatialBlend = spatialBlend;
         }
 
 		void Update()
