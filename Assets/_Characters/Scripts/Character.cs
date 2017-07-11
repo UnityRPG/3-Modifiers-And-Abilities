@@ -12,17 +12,22 @@ namespace RPG.Characters
         [SerializeField] float colliderRadius = 0.2f;
         [SerializeField] float colliderHeight = 2.03f;
 
-        [Header("Audio Source Settings")]
-        [SerializeField] float spatialBlend = 0.5f;
+        [Header("Other Setup Settings")]
+        [SerializeField] float audioSourceSpatialBlend = 0.5f;
+        [SerializeField] RuntimeAnimatorController animatorController = null;
+        [SerializeField] Avatar characterAvatar;
 
         [Header("Movement Properties")]
         [SerializeField] float movingTurnSpeed = 1000;
         [SerializeField] float stationaryTurnSpeed = 800;
         [SerializeField] float moveSpeedMultiplier = .7f;
         [SerializeField] float animSpeedMultiplier = 1.5f;
-        [SerializeField] float moveThreshold = 1f;
+        [SerializeField] float moveThreshold = 1.0f;
         [SerializeField] float animatorDampingTime = 0.1f;
-		[SerializeField] float stoppingDistance = 1f;
+        [SerializeField] float navMeshAgentSteeringSpeed = 1.0f;
+        [SerializeField] float navMeshAgentStoppingDistance = 1.3f;
+        [SerializeField] float stoppingDistance = 1f;
+
 
         Rigidbody myRigidbody;
         Animator animator;
@@ -58,7 +63,16 @@ namespace RPG.Characters
             // todo consider adding mass = 70 default if required
 
             var myAudioSource = gameObject.AddComponent<AudioSource>();
-            myAudioSource.spatialBlend = spatialBlend;
+            myAudioSource.spatialBlend = audioSourceSpatialBlend;
+
+            var myAnimator = gameObject.AddComponent<Animator>();
+            myAnimator.runtimeAnimatorController = animatorController;
+            myAnimator.avatar = characterAvatar;
+
+            var navMeshAgent = gameObject.AddComponent<NavMeshAgent>();
+            navMeshAgent.speed = navMeshAgentSteeringSpeed;
+            navMeshAgent.stoppingDistance = navMeshAgentStoppingDistance;
+            navMeshAgent.autoBraking = false; // note parameter not exposed
         }
 
 		void Update()
