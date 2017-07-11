@@ -47,6 +47,9 @@ namespace RPG.Characters
             capsuleCollider.center = colliderCenter;
             capsuleCollider.radius = colliderRadius;
             capsuleCollider.height = colliderHeight;
+
+            var rigidBody = gameObject.AddComponent<Rigidbody>();
+            // todo consider adding mass = 70 default if required
         }
 
 		void Update()
