@@ -13,14 +13,12 @@ namespace RPG.Characters
 
         float currentEnergyPoints;
         CameraUI.CameraRaycaster cameraRaycaster;
-        WeaponSystem weapon;
 
 		public float energyAsPercent { get { return currentEnergyPoints / maxEnergyPoints; } }
 
         // Use this for initialization
         void Start()
         {
-            weapon = GetComponentInParent<WeaponSystem>();
             currentEnergyPoints = maxEnergyPoints;
             AttachInitialAbilities();
             UpdateEnergyBar();
@@ -43,15 +41,14 @@ namespace RPG.Characters
 			}
 		}
 
-        public void AttemptSpecialAbility(int abilityIndex, HealthSystem target = null)
+        public void AttemptSpecialAbility(int abilityIndex, GameObject target = null)
 		{
 			var energyCost = abilities[abilityIndex].GetEnergyCost();
 
             if (energyCost <= currentEnergyPoints)
 			{
 				ConsumeEnergy(energyCost);
-				var abilityParams = new AbilityUseParams(target, weapon.GetTotalDamagePerHit());
-				abilities[abilityIndex].Use(abilityParams);
+				abilities[abilityIndex].Use(target);
 			}
 		}
 

@@ -2,18 +2,6 @@
 
 namespace RPG.Characters
 {
-    public struct AbilityUseParams
-    {
-        public HealthSystem target;
-        public float baseDamage;
-
-        public AbilityUseParams(HealthSystem target, float baseDamage)
-        {
-            this.target = target;
-            this.baseDamage = baseDamage;
-        }
-    }
-
     public abstract class AbilityConfig : ScriptableObject
     {
         [Header("Spcial Ability General")]
@@ -31,9 +19,9 @@ namespace RPG.Characters
             behaviour = behaviourComponent;
         }
 
-        public void Use(AbilityUseParams useParams)
+        public void Use(GameObject target)
         {
-            behaviour.Use(useParams);
+            behaviour.Use(target);
         }
 
         public float GetEnergyCost()

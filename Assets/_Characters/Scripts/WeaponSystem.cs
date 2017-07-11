@@ -19,6 +19,8 @@ namespace RPG.Characters
         // Use this for initialization
         void Start()
         {
+			animator = GetComponent<Animator>();
+
             currentWeaponConfig = startingWeapon;
             PutWeaponInHand(currentWeaponConfig);
             SetupRuntimeAnimator();
@@ -47,7 +49,6 @@ namespace RPG.Characters
 
         private void SetupRuntimeAnimator()
         {
-            animator = GetComponent<Animator>();
             if (!animatorOverrideController)
             {
                 Debug.LogAssertion("Please provide " + gameObject + " with an animator override controller.");

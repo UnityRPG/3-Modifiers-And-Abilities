@@ -11,7 +11,7 @@ namespace RPG.Characters
             healthSystem = GetComponent<HealthSystem>();
         }
 
-		public override void Use(AbilityUseParams useParams)
+		public override void Use(GameObject target)
 		{
 			print("Self heal used by: " + gameObject.name);
             PlayParticleInPlayerSpace();

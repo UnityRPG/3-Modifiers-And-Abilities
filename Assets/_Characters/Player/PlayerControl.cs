@@ -6,8 +6,6 @@ namespace RPG.Characters
 {
     public class PlayerControl : MonoBehaviour
     {
-        AudioSource audioSource;
-        Animator animator;
         float currentHealthPoints;
         CameraRaycaster cameraRaycaster;
 
@@ -19,10 +17,8 @@ namespace RPG.Characters
 
         void Start()
         {
-            audioSource = GetComponent<AudioSource>();
             characterMovement = GetComponent<CharacterControl>();
             abilities = GetComponent<SpecialAbilities>();
-            animator = GetComponent<Animator>();
             damageSystem = GetComponent<HealthSystem>();
             weaponSystem = GetComponent<WeaponSystem>();
 
@@ -78,7 +74,7 @@ namespace RPG.Characters
             }
             else if (Input.GetMouseButtonDown(1))
             {
-                abilities.AttemptSpecialAbility(0, enemy.GetComponent<HealthSystem>()); // todo consdier moving to start
+                abilities.AttemptSpecialAbility(0, enemy.gameObject);
             }
         }
 

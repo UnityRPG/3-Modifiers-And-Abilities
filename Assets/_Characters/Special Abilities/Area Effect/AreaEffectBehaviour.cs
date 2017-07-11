@@ -4,13 +4,13 @@ namespace RPG.Characters
 {
     class AreaEffectBehaviour : AbilityBehaviour
     {
-        public override void Use(AbilityUseParams useParams)
+        public override void Use(GameObject target)
         {
-            DealRadialDamage(useParams);
+            DealRadialDamage();
             PlayParticleInWorldSpace();
         }
 
-        private void DealRadialDamage(AbilityUseParams useParams)
+        private void DealRadialDamage()
         {
             // Static sphere cast for targets
             RaycastHit[] hits = Physics.SphereCastAll(
@@ -27,7 +27,7 @@ namespace RPG.Characters
 
                 if (damageable != null && !gameObjectHit.GetComponent<PlayerControl>())
                 {
-                    float damageToDeal = useParams.baseDamage + (config as AreaEffectConfig).GetDamageToEachTarget();
+                    float damageToDeal = (config as AreaEffectConfig).GetDamageToEachTarget();
                     damageable.AdjustHealth(damageToDeal);
                 }
             }
