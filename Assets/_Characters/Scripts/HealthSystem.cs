@@ -55,6 +55,7 @@ public class HealthSystem : MonoBehaviour{
     IEnumerator KillCharacter()
     {
         animator.SetTrigger(DEATH_TRIGGER);
+        //todo prevent character performing attack (or special) while dying
 
         var playerComponent = GetComponent<PlayerControl>();
         if (playerComponent && playerComponent.isActiveAndEnabled)

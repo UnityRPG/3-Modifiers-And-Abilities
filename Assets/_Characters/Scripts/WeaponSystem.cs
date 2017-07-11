@@ -16,6 +16,8 @@ namespace RPG.Characters
         GameObject weaponObject;
         Animator animator;
 
+		const string ATTACK_TRIGGER = "Attack";
+
         // Use this for initialization
         void Start()
         {
@@ -24,17 +26,6 @@ namespace RPG.Characters
             currentWeaponConfig = startingWeapon;
             PutWeaponInHand(currentWeaponConfig);
             SetupRuntimeAnimator();
-        }
-
-        public void PutWeaponInHand(WeaponConfig weaponToUse)
-        {
-            this.startingWeapon = weaponToUse;
-            var weaponPrefab = startingWeapon.GetWeaponPrefab();
-            GameObject dominantHand = RequestDominantHand();
-            Destroy(weaponObject);
-            weaponObject = Instantiate(weaponPrefab, dominantHand.transform);
-            weaponObject.transform.localPosition = startingWeapon.gripTransform.localPosition;
-            weaponObject.transform.localRotation = startingWeapon.gripTransform.localRotation;
         }
 
         public WeaponConfig GetCurrentWeapon()
@@ -46,6 +37,33 @@ namespace RPG.Characters
         {
             return characterBaseDamage + weaponDamageBonus;
         }
+
+
+		public void AttackTarget(GameObject target)
+		{
+			transform.LookAt(target.transform);
+			animator.SetTrigger(ATTACK_TRIGGER);
+			float hitTime = GetCurrentWeapon().GetAnimHitTime();
+			StartCoroutine(DamageTargetAfterSeconds(target, hitTime));
+		}
+
+		IEnumerator DamageTargetAfterSeconds(GameObject target, float seconds)
+		{
+			yield return new WaitForSecondsRealtime(seconds);
+			HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
+			enemyDamageSystem.AdjustHealth(GetTotalDamagePerHit());
+		}
+
+		public void PutWeaponInHand(WeaponConfig weaponToUse)
+		{
+			this.startingWeapon = weaponToUse;
+			var weaponPrefab = startingWeapon.GetWeaponPrefab();
+			GameObject dominantHand = RequestDominantHand();
+			Destroy(weaponObject);
+			weaponObject = Instantiate(weaponPrefab, dominantHand.transform);
+			weaponObject.transform.localPosition = startingWeapon.gripTransform.localPosition;
+			weaponObject.transform.localRotation = startingWeapon.gripTransform.localRotation;
+		}
 
         private void SetupRuntimeAnimator()
         {

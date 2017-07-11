@@ -5,11 +5,10 @@ using UnityEngine.AI;
 namespace RPG.Characters
 {
     [SelectionBase]
-	public class CharacterControl : MonoBehaviour
+	public class CharacterMovement : MonoBehaviour
 	{
         [SerializeField] float movingTurnSpeed = 1000;
         [SerializeField] float stationaryTurnSpeed = 800;
-        [SerializeField] float rotationSpeed = 300f;
         [SerializeField] float moveSpeedMultiplier = .7f;
         [SerializeField] float animSpeedMultiplier = 1.5f;
         [SerializeField] float moveThreshold = 1f;
@@ -21,16 +20,12 @@ namespace RPG.Characters
         float turnAmount;
         float forwardAmount;
 		NavMeshAgent agent = null;
-        WeaponSystem weaponSystem;
-
-		const string ATTACK_TRIGGER = "Attack";
 
 		void Start()
 		{
 			animator = GetComponent<Animator>();
 			myRigidbody = GetComponent<Rigidbody>();
 			myRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-            weaponSystem = GetComponent<WeaponSystem>();
 
 			agent = GetComponentInChildren<NavMeshAgent>();
 			agent.updateRotation = false;
@@ -58,21 +53,6 @@ namespace RPG.Characters
         public float GetAnimSpeedMultiplier()
         {
             return animSpeedMultiplier;
-        }
-
-		public void AttackTarget(GameObject target)
-		{
-            transform.LookAt(target.transform);
-			animator.SetTrigger(ATTACK_TRIGGER);
-            float hitTime = weaponSystem.GetCurrentWeapon().GetAnimHitTime();
-            StartCoroutine(DamageTargetAfterSeconds(target, hitTime));
-		}
-
-        IEnumerator DamageTargetAfterSeconds(GameObject target, float seconds)
-        {
-			yield return new WaitForSecondsRealtime(seconds);
-			HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
-			enemyDamageSystem.AdjustHealth(weaponSystem.GetTotalDamagePerHit());
         }
 
         private void Move(Vector3 movement)

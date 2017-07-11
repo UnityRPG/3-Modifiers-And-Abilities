@@ -12,17 +12,14 @@ namespace RPG.Characters
         [SerializeField] float deathVanishSeconds = 2f;
 
 		float lastHitTime = 0f;
-        bool isAttacking = false;
-        Animator animator;
         WeaponSystem weaponSystem;
         PlayerControl player;
-        CharacterControl characterControl = null;
+        CharacterMovement characterControl = null;
 
         void Start()
         {
-            animator = GetComponent<Animator>();
 			weaponSystem = GetComponent<WeaponSystem>();
-            characterControl = GetComponent<CharacterControl>();
+            characterControl = GetComponent<CharacterMovement>();
             player = FindObjectOfType<PlayerControl>();
         }
 
@@ -42,7 +39,7 @@ namespace RPG.Characters
 
             if (distanceToPlayer < currentWeaponRange && isTimeToHitAgain)
             {
-                characterControl.AttackTarget(player.gameObject);
+                weaponSystem.AttackTarget(player.gameObject);
                 lastHitTime = Time.time;
             }
         }

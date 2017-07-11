@@ -10,16 +10,15 @@ namespace RPG.Characters
         CameraRaycaster cameraRaycaster;
 
 		float lastHitTime = 0f;
-        CharacterControl characterMovement = null;
+        CharacterMovement characterMovement = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
         HealthSystem damageSystem;
 
         void Start()
         {
-            characterMovement = GetComponent<CharacterControl>();
+            characterMovement = GetComponent<CharacterMovement>();
             abilities = GetComponent<SpecialAbilities>();
-            damageSystem = GetComponent<HealthSystem>();
             weaponSystem = GetComponent<WeaponSystem>();
 
             RegisterForMouseEvents();
@@ -27,10 +26,7 @@ namespace RPG.Characters
 
 		void Update()
 		{
-			if (damageSystem.healthAsPercentage > Mathf.Epsilon)
-			{
-				ScanForAbilityKeyDown();
-			}
+		    ScanForAbilityKeyDown();
 		}
 
 		private void ScanForAbilityKeyDown()
@@ -65,7 +61,7 @@ namespace RPG.Characters
             bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
             if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject) && timeToHitAgain)
             {
-                characterMovement.AttackTarget(enemy.gameObject);
+                weaponSystem.AttackTarget(enemy.gameObject);
                 lastHitTime = Time.time;
             }
             else if (Input.GetMouseButton(0) && !IsTargetInRange(enemy.gameObject))
