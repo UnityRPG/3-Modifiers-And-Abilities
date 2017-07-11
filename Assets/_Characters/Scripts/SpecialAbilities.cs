@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 namespace RPG.Characters
 {
+    [RequireComponent(typeof(CharacterMovement))]
     public class SpecialAbilities : MonoBehaviour
     {
 		[SerializeField] AbilityConfig[] abilities;

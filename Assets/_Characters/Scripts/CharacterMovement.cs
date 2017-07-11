@@ -7,6 +7,12 @@ namespace RPG.Characters
     [SelectionBase]
 	public class CharacterMovement : MonoBehaviour
 	{
+        [Header("Capsule Collider Settings")]
+        [SerializeField] Vector3 colliderCenter = new Vector3(0, 1.03f, 0);
+        [SerializeField] float colliderRadius = 0.2f;
+        [SerializeField] float colliderHeight = 2.03f;
+
+        [Header("Movement Properties")]
         [SerializeField] float movingTurnSpeed = 1000;
         [SerializeField] float stationaryTurnSpeed = 800;
         [SerializeField] float moveSpeedMultiplier = .7f;
@@ -23,14 +29,24 @@ namespace RPG.Characters
 
 		void Start()
 		{
+            AddRequiredComponents();
+
 			animator = GetComponent<Animator>();
 			myRigidbody = GetComponent<Rigidbody>();
 			myRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
-			agent = GetComponentInChildren<NavMeshAgent>();
+			agent = GetComponent<NavMeshAgent>();
 			agent.updateRotation = false;
 			agent.updatePosition = true;
 			agent.stoppingDistance = stoppingDistance;
+        }
+
+        void AddRequiredComponents()
+        {
+            var capsuleCollider = gameObject.AddComponent<CapsuleCollider>();
+            capsuleCollider.center = colliderCenter;
+            capsuleCollider.radius = colliderRadius;
+            capsuleCollider.height = colliderHeight;
         }
 
 		void Update()

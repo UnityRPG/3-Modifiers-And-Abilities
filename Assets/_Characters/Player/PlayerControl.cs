@@ -4,6 +4,9 @@ using RPG.CameraUI; // for mouse events
 
 namespace RPG.Characters
 {
+	[RequireComponent(typeof(CharacterMovement))]
+    [RequireComponent(typeof(SpecialAbilities))]
+	[RequireComponent(typeof(WeaponSystem))]
     public class PlayerControl : MonoBehaviour
     {
         float currentHealthPoints;
