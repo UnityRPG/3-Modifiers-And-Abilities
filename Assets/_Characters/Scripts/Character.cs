@@ -7,6 +7,8 @@ namespace RPG.Characters
     [SelectionBase]
 	public class Character : MonoBehaviour
 	{
+
+
         [Header("Capsule Collider Settings")]
         [SerializeField] Vector3 colliderCenter = new Vector3(0, 1.03f, 0);
         [SerializeField] float colliderRadius = 0.2f;
@@ -26,30 +28,17 @@ namespace RPG.Characters
         [SerializeField] float animatorDampingTime = 0.1f;
         [SerializeField] float navMeshAgentSteeringSpeed = 1.0f;
         [SerializeField] float navMeshAgentStoppingDistance = 1.3f;
-        [SerializeField] float stoppingDistance = 1f;
 
-
-        Rigidbody myRigidbody;
+        AudioSource audioSource;
+        Rigidbody rigidBody;
         Animator animator;
         float turnAmount;
         float forwardAmount;
-		NavMeshAgent agent = null;
+        NavMeshAgent navMeshAgent;
 
         void Awake()
         {
             AddRequiredComponents();
-        }
-
-		void Start()
-		{
-			animator = GetComponent<Animator>();
-			myRigidbody = GetComponent<Rigidbody>();
-			myRigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-
-			agent = GetComponent<NavMeshAgent>();
-			agent.updateRotation = false;
-			agent.updatePosition = true;
-			agent.stoppingDistance = stoppingDistance;
         }
 
         void AddRequiredComponents()
@@ -59,27 +48,29 @@ namespace RPG.Characters
             capsuleCollider.radius = colliderRadius;
             capsuleCollider.height = colliderHeight;
 
-            var rigidBody = gameObject.AddComponent<Rigidbody>();
-            // todo consider adding mass = 70 default if required
+            rigidBody = gameObject.AddComponent<Rigidbody>();
+			rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
 
-            var myAudioSource = gameObject.AddComponent<AudioSource>();
-            myAudioSource.spatialBlend = audioSourceSpatialBlend;
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.spatialBlend = audioSourceSpatialBlend;
 
-            var myAnimator = gameObject.AddComponent<Animator>();
-            myAnimator.runtimeAnimatorController = animatorController;
-            myAnimator.avatar = characterAvatar;
+            animator = gameObject.AddComponent<Animator>();
+            animator.runtimeAnimatorController = animatorController;
+            animator.avatar = characterAvatar;
 
-            var navMeshAgent = gameObject.AddComponent<NavMeshAgent>();
+            navMeshAgent = gameObject.AddComponent<NavMeshAgent>();
             navMeshAgent.speed = navMeshAgentSteeringSpeed;
             navMeshAgent.stoppingDistance = navMeshAgentStoppingDistance;
-            navMeshAgent.autoBraking = false; // note parameter not exposed
+            navMeshAgent.autoBraking = false;
+			navMeshAgent.updateRotation = false;
+			navMeshAgent.updatePosition = true;
         }
 
 		void Update()
 		{
-			if (agent.remainingDistance > agent.stoppingDistance)
+			if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
 			{
-				Move(agent.desiredVelocity);
+				Move(navMeshAgent.desiredVelocity);
 			}
 			else
 			{
@@ -89,7 +80,7 @@ namespace RPG.Characters
 
 		public void SetDestination(Vector3 worldPos)
 		{
-			agent.destination = worldPos;
+			navMeshAgent.destination = worldPos;
 		}
 
         public float GetAnimSpeedMultiplier()
@@ -140,8 +131,8 @@ namespace RPG.Characters
 				Vector3 v = (animator.deltaPosition * moveSpeedMultiplier) / Time.deltaTime;
 
 				// we preserve the existing y part of the current velocity.
-				v.y = myRigidbody.velocity.y;
-				myRigidbody.velocity = v;
+				v.y = rigidBody.velocity.y;
+				rigidBody.velocity = v;
 			}
 		}
 	}
