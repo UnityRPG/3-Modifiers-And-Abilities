@@ -22,6 +22,7 @@ namespace RPG.Characters
 
             foreach (RaycastHit hit in hits)
             {
+                print("hitting " + gameObject); 
                 var gameObjectHit = hit.collider.gameObject;
                 var damageable = gameObjectHit.GetComponent<HealthSystem>();
 
