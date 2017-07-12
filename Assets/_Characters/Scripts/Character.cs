@@ -7,8 +7,6 @@ namespace RPG.Characters
     [SelectionBase]
 	public class Character : MonoBehaviour
 	{
-
-
         [Header("Capsule Collider Settings")]
         [SerializeField] Vector3 colliderCenter = new Vector3(0, 1.03f, 0);
         [SerializeField] float colliderRadius = 0.2f;
@@ -128,11 +126,11 @@ namespace RPG.Characters
 			// this allows us to modify the positional speed before it's applied.
 			if (Time.deltaTime > 0)
 			{
-				Vector3 v = (animator.deltaPosition * moveSpeedMultiplier) / Time.deltaTime;
+                Vector3 velocity = (animator.deltaPosition * moveSpeedMultiplier) / Time.deltaTime;
 
 				// we preserve the existing y part of the current velocity.
-				v.y = rigidBody.velocity.y;
-				rigidBody.velocity = v;
+				velocity.y = rigidBody.velocity.y;
+				rigidBody.velocity = velocity;
 			}
 		}
 	}
