@@ -7,6 +7,7 @@ namespace RPG.Characters
         protected AbilityConfig config;
 
 		Animator animator;
+        const string ATTACK_TRIGGER = "Attack";
 		const string DEFAULT_ATTACK_STATE = "DEFAULT ATTACK";
 
 		void Start()
@@ -46,6 +47,7 @@ namespace RPG.Characters
             var animatorOverrideController = GetComponent<Character>().GetOverrideController();
 			animator.runtimeAnimatorController = animatorOverrideController;
             animatorOverrideController[DEFAULT_ATTACK_STATE] = config.GetAbilityAnimation();
+            animator.SetTrigger(ATTACK_TRIGGER);
 		}
     }
 }

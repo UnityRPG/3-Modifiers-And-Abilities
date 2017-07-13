@@ -16,6 +16,7 @@ namespace RPG.Characters
             var damageableTarget = target.GetComponent<HealthSystem>();
             if (damageableTarget)
             {
+                PlayAbilityAnimation();
                 damageableTarget.AdjustHealth(damageToDeal);
             }
         }
