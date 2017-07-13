@@ -4,9 +4,8 @@ using UnityEngine;
 
 namespace RPG.Characters
 {
-    public class PatrolPath : MonoBehaviour
+    public class WaypointContainer : MonoBehaviour
     {
-
         void OnDrawGizmos()
         {
             Vector3 firstPosition = transform.GetChild(0).position;

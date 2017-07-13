@@ -44,7 +44,6 @@ namespace RPG.Characters
         private void OnTriggerEnter()
         {
             FindObjectOfType<PlayerControl>().GetComponent<WeaponSystem>().PutWeaponInHand(weaponConfig);
-            // TODO consider if enemies should be able to pick-up too
         }
     }
 }

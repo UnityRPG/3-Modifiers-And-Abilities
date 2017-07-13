@@ -8,10 +8,10 @@ namespace RPG.Characters
     [RequireComponent(typeof(WeaponSystem))]
     public class EnemyAI : MonoBehaviour
     {
-        [SerializeField] float chaseRadius = 6f;
+        [SerializeField] float chaseRadius = 6f; // todo impliment?
         [SerializeField] float attackRadius = 4f;
         [SerializeField] float deathVanishSeconds = 2.0f;
-        [SerializeField] PatrolPath patrolPath;
+        [SerializeField] WaypointContainer patrolPath;
         [SerializeField] float waypointTolerance = 2.0f;
         [SerializeField] [Range(0f, 20f)] float minWaitTime = 0f;
         [SerializeField] [Range(0f, 60f)] float maxWaitTime = 2.0f;
@@ -20,17 +20,17 @@ namespace RPG.Characters
         WeaponSystem weaponSystem;
         PlayerControl player;
         Character character = null;
+        int nextWaypoint = 0;
+
+        enum State  {idle, patrolling, attacking, chasing }
+        State state = State.idle;
 
         void Start()
         {
 			weaponSystem = GetComponent<WeaponSystem>();
             character = GetComponent<Character>();
             player = FindObjectOfType<PlayerControl>();
-
-            if (patrolPath != null)
-            {
-                StartCoroutine(Patrol(patrolPath));
-            }
+            AttemptToPatrol();
         }
 
         void Update()
@@ -42,11 +42,32 @@ namespace RPG.Characters
             float timeToWait = weaponHitPeriod * character.GetAnimSpeedMultiplier();
             bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
 
-            if (distanceToPlayer < currentWeaponRange && isTimeToHitAgain)
+            if (distanceToPlayer < currentWeaponRange)
             {
+                StopAllCoroutines(); // consider getting handle and being specific
+                state = State.attacking;
+            }
+
+            if (isTimeToHitAgain && state == State.attacking)
+            {
+                StopAllCoroutines();
                 weaponSystem.AttackTarget(player.gameObject);
                 lastHitTime = Time.time;
             }
+
+            if (distanceToPlayer > currentWeaponRange)
+            {
+                AttemptToPatrol();
+            }
+        }
+
+        void AttemptToPatrol()
+		{
+            if (patrolPath != null && state != State.patrolling)
+			{
+				state = State.patrolling;
+				StartCoroutine(Patrol(patrolPath));
+			}  
         }
 
         public float GetDeathVanishDelay()
@@ -66,15 +87,14 @@ namespace RPG.Characters
         }
 
 
-        IEnumerator Patrol(PatrolPath path)
+        IEnumerator Patrol(WaypointContainer path)
         {
-            int childIndex = 0;
-            while (true)
+            while (true) // patrol forever, or at least until childIndex overflows!
             {
-                character.SetDestination(path.transform.GetChild(childIndex).position);
-                if (Vector3.Distance(transform.position, path.transform.GetChild(childIndex).transform.position) <= waypointTolerance)
+                character.SetDestination(path.transform.GetChild(nextWaypoint).position);
+                if (Vector3.Distance(transform.position, path.transform.GetChild(nextWaypoint).transform.position) <= waypointTolerance)
                 {
-                    childIndex = (childIndex + 1) % path.transform.childCount;
+                    nextWaypoint = (nextWaypoint + 1) % path.transform.childCount;
                 }
                 yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
             }
