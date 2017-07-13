@@ -10,23 +10,27 @@ namespace RPG.Characters
     {
         [SerializeField] float chaseRadius = 6f;
         [SerializeField] float attackRadius = 4f;
-        [SerializeField] float deathVanishSeconds = 2f;
+        [SerializeField] float deathVanishSeconds = 2.0f;
+        [SerializeField] PatrolPath patrolPath;
+        [SerializeField] float waypointTolerance = 2.0f;
+        [SerializeField] [Range(0f, 20f)] float minWaitTime = 0f;
+        [SerializeField] [Range(0f, 60f)] float maxWaitTime = 2.0f;
 
 		float lastHitTime = 0f;
         WeaponSystem weaponSystem;
         PlayerControl player;
-        Character characterControl = null;
+        Character character = null;
 
         void Start()
         {
 			weaponSystem = GetComponent<WeaponSystem>();
-            characterControl = GetComponent<Character>();
+            character = GetComponent<Character>();
             player = FindObjectOfType<PlayerControl>();
-        }
 
-        public float GetDeathVanishDelay()
-        {
-            return deathVanishSeconds;
+            if (patrolPath != null)
+            {
+                StartCoroutine(Patrol(patrolPath));
+            }
         }
 
         void Update()
@@ -35,7 +39,7 @@ namespace RPG.Characters
             float currentWeaponRange = weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
 
 			float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
-            float timeToWait = weaponHitPeriod * characterControl.GetAnimSpeedMultiplier();
+            float timeToWait = weaponHitPeriod * character.GetAnimSpeedMultiplier();
             bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
 
             if (distanceToPlayer < currentWeaponRange && isTimeToHitAgain)
@@ -45,7 +49,12 @@ namespace RPG.Characters
             }
         }
 
-        void OnDrawGizmos()
+        public float GetDeathVanishDelay()
+        {
+            return deathVanishSeconds;
+        }
+
+	    void OnDrawGizmos()
         {
             // Draw attack sphere 
             Gizmos.color = new Color(255f, 0, 0, .5f);
@@ -55,5 +64,20 @@ namespace RPG.Characters
             Gizmos.color = new Color(0, 0, 255, .5f);
             Gizmos.DrawWireSphere(transform.position, chaseRadius);
         }
-    }
+
+
+        IEnumerator Patrol(PatrolPath path)
+        {
+            int childIndex = 0;
+            while (true)
+            {
+                character.SetDestination(path.transform.GetChild(childIndex).position);
+                if (Vector3.Distance(transform.position, path.transform.GetChild(childIndex).transform.position) <= waypointTolerance)
+                {
+                    childIndex = (childIndex + 1) % path.transform.childCount;
+                }
+                yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
+            }
+        }
+	}
 }

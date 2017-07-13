@@ -13,14 +13,14 @@ namespace RPG.Characters
         CameraRaycaster cameraRaycaster;
 
 		float lastHitTime = 0f;
-        Character characterMovement = null;
+        Character character = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
         HealthSystem damageSystem;
 
         void Start()
         {
-            characterMovement = GetComponent<Character>();
+            character = GetComponent<Character>();
             abilities = GetComponent<SpecialAbilities>();
             weaponSystem = GetComponent<WeaponSystem>();
 
@@ -54,7 +54,7 @@ namespace RPG.Characters
 		{
 			if (Input.GetMouseButton(0))
 			{
-                characterMovement.SetDestination(destination);
+                character.SetDestination(destination);
 			}
 		}
 
@@ -69,7 +69,7 @@ namespace RPG.Characters
             }
             else if (Input.GetMouseButton(0) && !IsTargetInRange(enemy.gameObject))
             {
-                characterMovement.SetDestination(enemy.transform.position);
+                character.SetDestination(enemy.transform.position);
             }
             else if (Input.GetMouseButtonDown(1))
             {
