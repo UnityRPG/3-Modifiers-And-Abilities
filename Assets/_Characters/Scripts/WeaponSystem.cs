@@ -13,7 +13,7 @@ namespace RPG.Characters
         [SerializeField] float characterBaseDamage = 10f;
         [SerializeField] float weaponDamageBonus = 5f;
 
-        WeaponConfig currentWeaponConfig;
+        public WeaponConfig currentWeaponConfig;
         GameObject weaponObject;
         Animator animator;
 

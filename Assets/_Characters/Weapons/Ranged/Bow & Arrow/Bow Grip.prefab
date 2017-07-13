@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4219815134937942}
   m_Layer: 0
-  m_Name: Sword Grip
+  m_Name: Bow Grip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,10 +32,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246042005740542}
-  m_LocalRotation: {x: 0.53165734, y: -0.34428057, z: -0.45859793, w: 0.62329715}
-  m_LocalPosition: {x: 0.09, y: 0.118, z: 0.079}
-  m_LocalScale: {x: 2, y: 1.25, z: 3}
+  m_LocalRotation: {x: -0.5849092, y: -0.00000014156096, z: -0.000000005587933, w: 0.81109875}
+  m_LocalPosition: {x: -0.269, y: -0.193, z: 0.762}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20.303001, y: -77.836006, z: -89.14101}
+  m_LocalEulerAnglesHint: {x: -71.593, y: 0, z: 0}
