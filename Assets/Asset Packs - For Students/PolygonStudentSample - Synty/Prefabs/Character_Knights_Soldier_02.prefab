@@ -646,6 +646,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 461188}
+  - component: {fileID: 114732186778658432}
   m_Layer: 0
   m_Name: Hand_R
   m_TagString: Untagged
@@ -2056,3 +2057,14 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 191330}
   m_IsPrefabParent: 1
+--- !u!114 &114732186778658432
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 183634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 610f816287df94a478980beb4ea34d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
