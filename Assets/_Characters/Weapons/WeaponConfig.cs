@@ -13,7 +13,6 @@ namespace RPG.Characters
         [SerializeField] AnimationClip attackAnimation;
 		[SerializeField] float weaponDamageBonus = 5f;
         [SerializeField] float maxAttackRange = 2.0f;
-        [SerializeField] bool isRanged = false;
         [SerializeField] float hitOrFireTime = 0.5f;
 
         public float GetMinTimeBetweenHits()
@@ -46,11 +45,6 @@ namespace RPG.Characters
 		public float GetWeaponDamageBonus()
 		{
 			return weaponDamageBonus;
-		}
-
-		public bool IsRanged()
-		{
-			return isRanged;
 		}
 
         // So that asset packs cannot cause crashes

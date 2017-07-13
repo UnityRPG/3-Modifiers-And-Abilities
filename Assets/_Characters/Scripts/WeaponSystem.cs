@@ -44,14 +44,7 @@ namespace RPG.Characters
 			transform.LookAt(target.transform);
 			animator.SetTrigger(ATTACK_TRIGGER);
 			float hitTime = GetCurrentWeapon().GetAnimHitTime();
-            if (currentWeaponConfig.IsRanged())
-            {
-                print("Ranged attack");
-            }
-            else
-            {
-                StartCoroutine(DamageTargetAfterSeconds(target, hitTime));
-            }
+            StartCoroutine(DamageTargetAfterSeconds(target, hitTime));
 		}
 
 		IEnumerator DamageTargetAfterSeconds(GameObject target, float seconds)
