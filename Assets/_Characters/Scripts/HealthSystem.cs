@@ -45,7 +45,6 @@ public class HealthSystem : MonoBehaviour{
 
 	public void AdjustHealth(float changePoints)
 	{
-        print(gameObject + "adj");
         bool charaterDies = (currentHealthPoints - changePoints <= 0); // must ask before reducing health
 		ReduceHealth(changePoints);
 		if (charaterDies)

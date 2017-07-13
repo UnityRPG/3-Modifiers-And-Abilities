@@ -11,9 +11,8 @@ namespace RPG.Characters
         [SerializeField] AnimatorOverrideController animatorOverrideController = null;
         [SerializeField] WeaponConfig startingWeapon = null;
         [SerializeField] float characterBaseDamage = 10f;
-        [SerializeField] float weaponDamageBonus = 5f;
 
-        public WeaponConfig currentWeaponConfig;
+        WeaponConfig currentWeaponConfig;
         GameObject weaponObject;
         Animator animator;
 
@@ -36,7 +35,7 @@ namespace RPG.Characters
 
         public float GetTotalDamagePerHit()
         {
-            return characterBaseDamage + weaponDamageBonus;
+            return characterBaseDamage + currentWeaponConfig.GetWeaponDamageBonus();
         }
 
 

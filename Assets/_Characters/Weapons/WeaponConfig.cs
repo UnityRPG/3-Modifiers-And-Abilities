@@ -11,8 +11,9 @@ namespace RPG.Characters
 
         [SerializeField] GameObject weaponPrefab;
         [SerializeField] AnimationClip attackAnimation;
-        [SerializeField] float maxAttackRange = 2f;
-        [SerializeField] float animationHitTime = 0.5f;
+		[SerializeField] float weaponDamageBonus = 5f;
+        [SerializeField] float maxAttackRange = 2.0f;
+        [SerializeField] float hitOrFireTime = 0.5f;
 
         public float GetMinTimeBetweenHits()
         {
@@ -22,7 +23,7 @@ namespace RPG.Characters
         public float GetAnimHitTime()
         {
             // consider routing from animator event for more precision
-            return animationHitTime;
+            return hitOrFireTime;
         }
 
         public float GetMaxAttackRange()
@@ -40,6 +41,11 @@ namespace RPG.Characters
             RemoveAnimationEvents();
             return attackAnimation;
         }
+
+		public float GetWeaponDamageBonus()
+		{
+			return weaponDamageBonus;
+		}
 
         // So that asset packs cannot cause crashes
         private void RemoveAnimationEvents()
