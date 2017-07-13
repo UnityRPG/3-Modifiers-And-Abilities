@@ -6,6 +6,14 @@ namespace RPG.Characters
     {
         protected AbilityConfig config;
 
+		Animator animator;
+		const string DEFAULT_ATTACK_STATE = "DEFAULT ATTACK";
+
+		void Start()
+        {
+            animator = GetComponent<Animator>();
+        }
+
         public abstract void Use(GameObject target = null);
 
         public void SetConfig(AbilityConfig configToSet)
@@ -32,5 +40,12 @@ namespace RPG.Characters
             Destroy(prefab, myParticleSystem.main.duration);
             return prefab;
         }
+
+        protected void PlayAbilityAnimation()
+        {
+            var animatorOverrideController = GetComponent<Character>().GetOverrideController();
+			animator.runtimeAnimatorController = animatorOverrideController;
+            animatorOverrideController[DEFAULT_ATTACK_STATE] = config.GetAbilityAnimation();
+		}
     }
 }

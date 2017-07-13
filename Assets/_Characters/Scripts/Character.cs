@@ -15,6 +15,7 @@ namespace RPG.Characters
         [Header("Other Setup Settings")]
         [SerializeField] float audioSourceSpatialBlend = 0.5f;
         [SerializeField] RuntimeAnimatorController animatorController = null;
+		[SerializeField] AnimatorOverrideController animatorOverrideController = null;
         [SerializeField] Avatar characterAvatar;
 
         [Header("Movement Properties")]
@@ -85,6 +86,11 @@ namespace RPG.Characters
         {
             return animSpeedMultiplier;
         }
+
+		public AnimatorOverrideController GetOverrideController()
+		{
+			return animatorOverrideController;
+		}
 
         private void Move(Vector3 movement)
         {

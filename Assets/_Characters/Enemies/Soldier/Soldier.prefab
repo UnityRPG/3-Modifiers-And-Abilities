@@ -230,7 +230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1299906739195522
 GameObject:
   m_ObjectHideFlags: 1
@@ -1915,12 +1915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0726ab4a7eedf4e8dae3865ae191aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatorOverrideController: {fileID: 22100000, guid: ecfdee0de7b7846969a6222986c0c82a,
-    type: 2}
   startingWeapon: {fileID: 11400000, guid: 935ba9ee4c30142e3a016fc87a0cf28e, type: 2}
   characterBaseDamage: 10
-  weaponDamageBonus: 5
-  currentWeaponConfig: {fileID: 0}
 --- !u!114 &114481537056662174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1948,6 +1944,8 @@ MonoBehaviour:
   colliderHeight: 2.03
   audioSourceSpatialBlend: 0.5
   animatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  animatorOverrideController: {fileID: 22100000, guid: ecfdee0de7b7846969a6222986c0c82a,
+    type: 2}
   characterAvatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
   movingTurnSpeed: 1000
   stationaryTurnSpeed: 800

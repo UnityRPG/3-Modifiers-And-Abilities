@@ -1950,8 +1950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0726ab4a7eedf4e8dae3865ae191aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animatorOverrideController: {fileID: 22100000, guid: 4d84c2d5aa8324c168a7d8fcbd085206,
-    type: 2}
   startingWeapon: {fileID: 11400000, guid: aeb13dfdcc60c43f1825664d404e36e6, type: 2}
   characterBaseDamage: 10
 --- !u!114 &114806440046680222
@@ -1981,6 +1979,8 @@ MonoBehaviour:
   colliderHeight: 2.03
   audioSourceSpatialBlend: 0.5
   animatorController: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  animatorOverrideController: {fileID: 22100000, guid: 4d84c2d5aa8324c168a7d8fcbd085206,
+    type: 2}
   characterAvatar: {fileID: 9000000, guid: d288a0e4a2d923b46898986e979da643, type: 3}
   movingTurnSpeed: 1000
   stationaryTurnSpeed: 800
