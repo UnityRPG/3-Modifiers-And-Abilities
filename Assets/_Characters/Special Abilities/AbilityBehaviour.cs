@@ -7,12 +7,14 @@ namespace RPG.Characters
         protected AbilityConfig config;
 
 		Animator animator;
+        AudioSource audioSource;
         const string ATTACK_TRIGGER = "Attack";
 		const string DEFAULT_ATTACK_STATE = "DEFAULT ATTACK";
 
 		void Start()
         {
             animator = GetComponent<Animator>();
+            audioSource = GetComponent<AudioSource>();
         }
 
         public abstract void Use(GameObject target = null);
@@ -49,5 +51,12 @@ namespace RPG.Characters
             animatorOverrideController[DEFAULT_ATTACK_STATE] = config.GetAbilityAnimation();
             animator.SetTrigger(ATTACK_TRIGGER);
 		}
+
+        protected void PlayAbilitySound()
+        {
+            audioSource.clip = config.GetRandomAbilitySound();
+            print(audioSource.clip); 
+			audioSource.Play();
+        }
     }
 }

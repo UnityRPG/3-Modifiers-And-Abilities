@@ -13,7 +13,6 @@ public class HealthSystem : MonoBehaviour{
 	[SerializeField] Image healthBar = null;
 	[SerializeField] AudioClip[] damageSounds;
 	[SerializeField] AudioClip[] deathSounds;
-    [SerializeField] AudioClip[] healSounds;
 
 	const string DEATH_TRIGGER = "Death";
 
@@ -59,8 +58,6 @@ public class HealthSystem : MonoBehaviour{
     public void Heal(float amount)
     {
         currentHealthPoints = Mathf.Clamp(currentHealthPoints + amount, 0f, maxHealthPoints);
-		audioSource.clip = healSounds[Random.Range(0, healSounds.Length)];
-		audioSource.Play();
     }
 
     IEnumerator KillCharacter()

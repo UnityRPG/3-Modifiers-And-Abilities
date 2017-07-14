@@ -7,7 +7,8 @@ namespace RPG.Characters
         public override void Use(GameObject target)
         {
             DealDamage(target);
-            PlayParticleInWorldSpace();
+            PlayParticleInPlayerSpace();
+            PlayAbilitySound();
         }
 
         private void DealDamage(GameObject target)

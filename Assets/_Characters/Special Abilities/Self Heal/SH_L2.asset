@@ -9,12 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8938686f2fec74834b463303abe56c16, type: 3}
-  m_Name: SH_L1
+  m_Name: SH_L2
   m_EditorClassIdentifier: 
   energyCost: 10
-  particlePrefab: {fileID: 1029023599607184, guid: 59224fe9271c540758241f019aead244,
-    type: 2}
+  particlePrefab: {fileID: 0}
   abilityAnimation: {fileID: 0}
-  abilitySounds:
-  - {fileID: 8300000, guid: 0e53924daedce427ba480683c4bd039f, type: 3}
+  abilitySounds: []
   extraHealth: 50

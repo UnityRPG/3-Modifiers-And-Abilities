@@ -15,4 +15,6 @@ MonoBehaviour:
   particlePrefab: {fileID: 1284332763793570, guid: fd75585bca3014dd8aa6b4212b2bdd4d,
     type: 2}
   abilityAnimation: {fileID: 7400000, guid: 166b0c1eb92bef242afb8b58b4769773, type: 3}
+  abilitySounds:
+  - {fileID: 8300000, guid: 3053bdd3758a04baf8907312cf216aec, type: 3}
   damage: 10
