@@ -7,8 +7,8 @@ namespace RPG.Characters
         [Header("Spcial Ability General")]
         [SerializeField] float energyCost = 10f;
         [SerializeField] GameObject particlePrefab = null;
-        [SerializeField] AnimationClip abilityAnimation;
-        [SerializeField] AudioClip[] abilitySounds;
+        [SerializeField] AnimationClip abilityAnimation = null;
+        [SerializeField] AudioClip[] abilitySounds = null;
 
         protected AbilityBehaviour behaviour;
 
@@ -41,10 +41,9 @@ namespace RPG.Characters
             return abilityAnimation;
 		}
 
-        public AudioClip GetRandomAbilitySound()
+        public AudioClip[] GetAbilitySounds()
         {
-            Debug.Log(abilitySounds.Length);
-			return abilitySounds[Random.Range(0, abilitySounds.Length)];
+            return abilitySounds;
         }
     }
 }

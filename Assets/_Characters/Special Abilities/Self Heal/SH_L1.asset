@@ -17,5 +17,4 @@ MonoBehaviour:
   abilityAnimation: {fileID: 0}
   abilitySounds:
   - {fileID: 8300000, guid: 0e53924daedce427ba480683c4bd039f, type: 3}
-  - {fileID: 8300000, guid: 0e53924daedce427ba480683c4bd039f, type: 3}
   extraHealth: 50

@@ -54,8 +54,10 @@ namespace RPG.Characters
 
         protected void PlayAbilitySound()
         {
-            audioSource.clip = config.GetRandomAbilitySound();
-            print(audioSource.clip); 
+            var abilitySounds = config.GetAbilitySounds();
+            int randomIndex = Random.Range(0, abilitySounds.Length);
+            print(randomIndex);
+            audioSource.clip = abilitySounds[randomIndex];
 			audioSource.Play();
         }
     }
