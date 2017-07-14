@@ -17,7 +17,7 @@ namespace RPG.Characters
             if (damageableTarget)
             {
                 PlayAbilityAnimation();
-                damageableTarget.AdjustHealth(damageToDeal);
+                damageableTarget.TakeDamage(damageToDeal);
             }
         }
     }

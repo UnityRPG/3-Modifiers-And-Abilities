@@ -52,7 +52,7 @@ namespace RPG.Characters
 		{
 			yield return new WaitForSecondsRealtime(seconds);
 			HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
-			enemyDamageSystem.AdjustHealth(GetTotalDamagePerHit());
+			enemyDamageSystem.TakeDamage(GetTotalDamagePerHit());
 		}
 
 		public void PutWeaponInHand(WeaponConfig weaponToUse)

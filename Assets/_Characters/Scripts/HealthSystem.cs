@@ -13,6 +13,7 @@ public class HealthSystem : MonoBehaviour{
 	[SerializeField] Image healthBar = null;
 	[SerializeField] AudioClip[] damageSounds;
 	[SerializeField] AudioClip[] deathSounds;
+    [SerializeField] AudioClip[] healSounds;
 
 	const string DEATH_TRIGGER = "Death";
 
@@ -43,15 +44,24 @@ public class HealthSystem : MonoBehaviour{
 		}
 	}
 
-	public void AdjustHealth(float changePoints)
+    public void TakeDamage(float damage)
 	{
-        bool charaterDies = (currentHealthPoints - changePoints <= 0); // must ask before reducing health
-		ReduceHealth(changePoints);
+        bool charaterDies = (currentHealthPoints - damage <= 0); // must ask before reducing health
+		currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
+		audioSource.clip = damageSounds[Random.Range(0, damageSounds.Length)];
+		audioSource.Play();
 		if (charaterDies)
 		{
 			StartCoroutine(KillCharacter());
 		}
 	}
+
+    public void Heal(float amount)
+    {
+        currentHealthPoints = Mathf.Clamp(currentHealthPoints + amount, 0f, maxHealthPoints);
+		audioSource.clip = healSounds[Random.Range(0, healSounds.Length)];
+		audioSource.Play();
+    }
 
     IEnumerator KillCharacter()
     {
@@ -71,12 +81,5 @@ public class HealthSystem : MonoBehaviour{
             var enemyAI = GetComponent<EnemyAI>();
             DestroyObject(gameObject, enemyAI.GetDeathVanishDelay()); 
         }
-	}
-
-	private void ReduceHealth(float damage)
-	{
-		currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
-		audioSource.clip = damageSounds[UnityEngine.Random.Range(0, damageSounds.Length)];
-		audioSource.Play();
 	}
 }

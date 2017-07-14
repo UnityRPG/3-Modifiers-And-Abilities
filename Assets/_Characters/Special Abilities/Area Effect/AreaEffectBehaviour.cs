@@ -28,7 +28,7 @@ namespace RPG.Characters
                 if (damageable != null && !gameObjectHit.GetComponent<PlayerControl>())
                 {
                     float damageToDeal = (config as AreaEffectConfig).GetDamageToEachTarget();
-                    damageable.AdjustHealth(damageToDeal);
+                    damageable.TakeDamage(damageToDeal);
                 }
             }
         }

@@ -9,14 +9,10 @@ namespace RPG.Characters
 	[RequireComponent(typeof(WeaponSystem))]
     public class PlayerControl : MonoBehaviour
     {
-        float currentHealthPoints;
-        CameraRaycaster cameraRaycaster;
-
 		float lastHitTime = 0f;
         Character character = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
-        HealthSystem damageSystem;
 
         void Start()
         {
@@ -45,7 +41,7 @@ namespace RPG.Characters
 
         private void RegisterForMouseEvents()
         {
-            cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
+            var cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
 			cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
         }
