@@ -17,5 +17,5 @@ MonoBehaviour:
     type: 2}
   attackAnimation: {fileID: 7400000, guid: 668a0a7efc4b25146ba9de24b466a642, type: 3}
   weaponDamageBonus: 5
-  maxAttackRange: 10
-  hitOrFireTime: 0.5
+  maxAttackRange: 15.97
+  hitOrFireTime: 3
