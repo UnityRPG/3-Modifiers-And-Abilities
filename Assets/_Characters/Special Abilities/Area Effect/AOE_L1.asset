@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: AOE_L1
   m_EditorClassIdentifier: 
   energyCost: 20
-  particlePrefab: {fileID: 1029023599607184, guid: 248505e8adf9c493396fa9ee6da6089c,
+  particlePrefab: {fileID: 1514804159012140, guid: b0a2ab0e51182e847a1b007b5ba03911,
     type: 2}
   abilityAnimation: {fileID: 0}
   abilitySounds:

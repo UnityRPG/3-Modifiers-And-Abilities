@@ -29,7 +29,6 @@ namespace RPG.Characters
         void Start()
         {
 			character = GetComponent<Character>();
-            print(character);
 			player = FindObjectOfType<PlayerControl>();
         }
 
@@ -58,7 +57,6 @@ namespace RPG.Characters
             if (distanceToPlayer <= currentWeaponRange && state != State.attacking)
             {
                 StopAllCoroutines();
-				print(gameObject + " Starting attack");
 				StartCoroutine(AttackPlayer());
             }
         }

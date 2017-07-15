@@ -1,4 +1,5 @@
-﻿    ﻿using UnityEngine;
+﻿using System.Collections;
+﻿using UnityEngine;
 
 namespace RPG.Characters
 {
@@ -23,24 +24,27 @@ namespace RPG.Characters
 			config = configToSet;
 		}
 
-		protected void PlayParticleInWorldSpace()
-        {
-            SetupParticleEffect();
-        }
-
-		protected void PlayParticleInPlayerSpace()
+		protected void PlayParticleEffect()
 		{
-            var effect = SetupParticleEffect();
-            effect.transform.parent = transform.parent;
+            var particlePrefab = config.GetParticlePrefab();
+            var particleParent = Instantiate(
+                particlePrefab,
+                transform.position,
+                particlePrefab.transform.rotation
+            );
+            particleParent.transform.parent = transform; // set world space in preab if required
+            particleParent.GetComponent<ParticleSystem>().Play();
+			StartCoroutine(DestroyParticleWhenFinished(particleParent));
 		}
 
-        private GameObject SetupParticleEffect()
+        IEnumerator DestroyParticleWhenFinished(GameObject particlePrefab)
         {
-            var prefab = Instantiate(config.GetParticlePrefab(), transform.position, Quaternion.identity);
-            ParticleSystem myParticleSystem = prefab.GetComponent<ParticleSystem>();
-            myParticleSystem.Play();
-            Destroy(prefab, myParticleSystem.main.duration);
-            return prefab;
+            while (particlePrefab.GetComponent<ParticleSystem>().isPlaying)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            Destroy(particlePrefab);
+            yield return null;
         }
 
         protected void PlayAbilityAnimation()

@@ -14,7 +14,7 @@ namespace RPG.Characters
 		public override void Use(GameObject target)
 		{
 			PlayAbilitySound();
-            PlayParticleInPlayerSpace();
+            PlayParticleEffect();
             healthSystem.Heal((config as SelfHealConfig).GetExtraHealth());
 		}
     }
