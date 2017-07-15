@@ -14,7 +14,6 @@ namespace RPG.Characters
 		void Start()
         {
             animator = GetComponent<Animator>();
-            audioSource = GetComponent<AudioSource>();
         }
 
         public abstract void Use(GameObject target = null);
@@ -56,7 +55,7 @@ namespace RPG.Characters
         {
             var abilitySounds = config.GetAbilitySounds();
             int randomIndex = Random.Range(0, abilitySounds.Length);
-            print(randomIndex);
+			audioSource = GetComponent<AudioSource>();
             audioSource.clip = abilitySounds[randomIndex];
 			audioSource.Play();
         }

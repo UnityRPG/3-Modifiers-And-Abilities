@@ -9,7 +9,6 @@ namespace RPG.Characters
     public class EnemyAI : MonoBehaviour
     {
         [SerializeField] float chaseRadius = 6f; // todo impliment?
-        [SerializeField] float attackRadius = 4f;
         [SerializeField] float deathVanishSeconds = 2.0f;
         [SerializeField] WaypointContainer patrolPath;
         [SerializeField] float waypointTolerance = 2.0f;
@@ -42,6 +41,11 @@ namespace RPG.Characters
             float timeToWait = weaponHitPeriod * character.GetAnimSpeedMultiplier();
             bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
 
+			if (distanceToPlayer > currentWeaponRange)
+			{
+				AttemptToPatrol();
+			}
+
             if (distanceToPlayer < currentWeaponRange)
             {
                 StopAllCoroutines(); // consider getting handle and being specific
@@ -53,11 +57,6 @@ namespace RPG.Characters
                 StopAllCoroutines();
                 weaponSystem.AttackTarget(player.gameObject);
                 lastHitTime = Time.time;
-            }
-
-            if (distanceToPlayer > currentWeaponRange)
-            {
-                AttemptToPatrol();
             }
         }
 
@@ -77,9 +76,7 @@ namespace RPG.Characters
 
 	    void OnDrawGizmos()
         {
-            // Draw attack sphere 
-            Gizmos.color = new Color(255f, 0, 0, .5f);
-            Gizmos.DrawWireSphere(transform.position, attackRadius);
+            // todo show current weapon range
 
             // Draw chase sphere 
             Gizmos.color = new Color(0, 0, 255, .5f);

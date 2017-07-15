@@ -13,7 +13,7 @@ namespace RPG.Characters
         [SerializeField] float colliderHeight = 2.03f;
 
         [Header("Other Setup Settings")]
-        [SerializeField] float audioSourceSpatialBlend = 0.5f;
+        [SerializeField] [Range(0f, 1.0f)] float audioSourceSpatialBlend = 0.5f;
         [SerializeField] RuntimeAnimatorController animatorController = null;
 		[SerializeField] AnimatorOverrideController animatorOverrideController = null;
         [SerializeField] Avatar characterAvatar;
