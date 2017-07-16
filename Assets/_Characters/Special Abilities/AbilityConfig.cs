@@ -41,9 +41,9 @@ namespace RPG.Characters
             return abilityAnimation;
 		}
 
-        public AudioClip[] GetAbilitySounds()
+        public AudioClip GetRandomAbilitySound()
         {
-            return abilitySounds;
+            return abilitySounds[Random.Range(0, abilitySounds.Length)];
         }
     }
 }

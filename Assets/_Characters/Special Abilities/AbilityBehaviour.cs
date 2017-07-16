@@ -7,16 +7,9 @@ namespace RPG.Characters
     {
         protected AbilityConfig config;
 
-		Animator animator;
-        AudioSource audioSource;
         const string ATTACK_TRIGGER = "Attack";
 		const string DEFAULT_ATTACK_STATE = "DEFAULT ATTACK";
         const float PARTICLE_CLEAN_UP_DELAY = 20f;
-
-		void Start()
-        {
-            animator = GetComponent<Animator>();
-        }
 
         public abstract void Use(GameObject target = null);
 
@@ -51,17 +44,17 @@ namespace RPG.Characters
         protected void PlayAbilityAnimation()
         {
             var animatorOverrideController = GetComponent<Character>().GetOverrideController();
-			animator.runtimeAnimatorController = animatorOverrideController;
+            var animator = GetComponent<Animator>();
+            animator.runtimeAnimatorController = animatorOverrideController;
             animatorOverrideController[DEFAULT_ATTACK_STATE] = config.GetAbilityAnimation();
             animator.SetTrigger(ATTACK_TRIGGER);
 		}
 
         protected void PlayAbilitySound()
         {
-            var abilitySounds = config.GetAbilitySounds();
-            int randomIndex = Random.Range(0, abilitySounds.Length);
-			audioSource = GetComponent<AudioSource>();
-            audioSource.clip = abilitySounds[randomIndex];
+            var abilitySound = config.GetRandomAbilitySound();
+			var audioSource = GetComponent<AudioSource>();
+            audioSource.clip = abilitySound;
 			audioSource.Play();
         }
     }

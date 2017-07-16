@@ -60,8 +60,8 @@ namespace RPG.Characters
 			GameObject dominantHand = RequestDominantHand();
 			Destroy(weaponObject);
 			weaponObject = Instantiate(weaponPrefab, dominantHand.transform);
-			weaponObject.transform.localPosition = currentWeaponConfig.gripTransform.localPosition;
-			weaponObject.transform.localRotation = currentWeaponConfig.gripTransform.localRotation;
+            weaponObject.transform.localPosition = currentWeaponConfig.GetGripPosition();
+            weaponObject.transform.localRotation = currentWeaponConfig.GetGripRotation();
 		}
 
         private void SetupRuntimeAnimator()

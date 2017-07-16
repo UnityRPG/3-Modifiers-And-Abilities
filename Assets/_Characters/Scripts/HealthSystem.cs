@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System.Collections;
+﻿﻿﻿﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -78,7 +78,6 @@ public class HealthSystem : MonoBehaviour{
         }
         else // assume is enemy for now, reconsider on other NPCs
         {
-            var enemyAI = GetComponent<EnemyAI>();
             DestroyObject(gameObject, deathVanishSeconds);
         }
 	}

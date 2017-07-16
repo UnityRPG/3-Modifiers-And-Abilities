@@ -7,13 +7,22 @@ namespace RPG.Characters
     [CreateAssetMenu(menuName = ("RPG/Weapon"))]
     public class WeaponConfig : ScriptableObject
     {
-        public Transform gripTransform;
-
+        [SerializeField] Transform gripTransform;
         [SerializeField] GameObject weaponPrefab;
         [SerializeField] AnimationClip attackAnimation;
 		[SerializeField] float weaponDamageBonus = 5f;
         [SerializeField] float maxAttackRange = 2.0f;
         [SerializeField] float hitOrFireTime = 0.5f;
+
+		public Quaternion GetGripRotation()
+		{
+            return gripTransform.localRotation;
+		}
+
+        public Vector3 GetGripPosition()
+        {
+            return gripTransform.localPosition;
+        }
 
         public float GetMinTimeBetweenHits()
         {
