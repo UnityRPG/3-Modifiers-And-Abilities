@@ -11,6 +11,7 @@ namespace RPG.Characters
         AudioSource audioSource;
         const string ATTACK_TRIGGER = "Attack";
 		const string DEFAULT_ATTACK_STATE = "DEFAULT ATTACK";
+        const float PARTICLE_CLEAN_UP_DELAY = 20f;
 
 		void Start()
         {
@@ -27,21 +28,21 @@ namespace RPG.Characters
 		protected void PlayParticleEffect()
 		{
             var particlePrefab = config.GetParticlePrefab();
-            var particleParent = Instantiate(
+            var particleObject = Instantiate(
                 particlePrefab,
                 transform.position,
                 particlePrefab.transform.rotation
             );
-            particleParent.transform.parent = transform; // set world space in preab if required
-            particleParent.GetComponent<ParticleSystem>().Play();
-			StartCoroutine(DestroyParticleWhenFinished(particleParent));
+            particleObject.transform.parent = transform; // set world space in preab if required
+            particleObject.GetComponent<ParticleSystem>().Play();
+			StartCoroutine(DestroyParticleWhenFinished(particleObject));
 		}
 
         IEnumerator DestroyParticleWhenFinished(GameObject particlePrefab)
         {
             while (particlePrefab.GetComponent<ParticleSystem>().isPlaying)
             {
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForSeconds(PARTICLE_CLEAN_UP_DELAY);
             }
             Destroy(particlePrefab);
             yield return null;

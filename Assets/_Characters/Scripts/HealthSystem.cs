@@ -16,6 +16,7 @@ public class HealthSystem : MonoBehaviour{
 
 	const string DEATH_TRIGGER = "Death";
 
+    bool isInDeathThrows = false;
 	float currentHealthPoints;
     Animator animator;
     AudioSource audioSource;
@@ -45,6 +46,8 @@ public class HealthSystem : MonoBehaviour{
 
     public void TakeDamage(float damage)
 	{
+        if (isInDeathThrows) { return; }
+
         bool charaterDies = (currentHealthPoints - damage <= 0); // must ask before reducing health
 		currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
 		audioSource.clip = damageSounds[Random.Range(0, damageSounds.Length)];
@@ -62,9 +65,8 @@ public class HealthSystem : MonoBehaviour{
 
     IEnumerator KillCharacter()
     {
+		isInDeathThrows = true;
         animator.SetTrigger(DEATH_TRIGGER);
-        //todo prevent character performing attack (or special) while dying
-
         var playerComponent = GetComponent<PlayerControl>();
         if (playerComponent && playerComponent.isActiveAndEnabled)
         {
