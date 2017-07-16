@@ -11,7 +11,7 @@ namespace RPG.CameraUI
 		[SerializeField] Vector2 cursorHotspot = new Vector2(0, 0);
 
         const int POTENTIALLY_WALKABLE_LAYER = 8;
-        float maxRaycastDepth = 100f; // Hard coded value
+        float maxRaycastDepth = 100f;
 
         Rect currentScrenRect;
 

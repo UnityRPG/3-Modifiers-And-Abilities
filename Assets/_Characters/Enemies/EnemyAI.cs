@@ -9,33 +9,27 @@ namespace RPG.Characters
     public class EnemyAI : MonoBehaviour
     {
         [SerializeField] float chaseRadius = 6f;
-        [SerializeField] float deathVanishSeconds = 2.0f;
         [SerializeField] WaypointContainer patrolPath;
         [SerializeField] float waypointTolerance = 2.0f;
         [SerializeField] [Range(0f, 20f)] float minWaitTime = 0f;
         [SerializeField] [Range(0f, 60f)] float maxWaitTime = 2.0f;
 
-        float lastHitTime = 0f;
+        float lastHitTime;
         WeaponSystem weaponSystem;
         PlayerControl player;
-        Character character = null;
-        int nextWaypoint = 0;
+        Character character;
+        int nextWaypoint;
         float currentWeaponRange;
         float distanceToPlayer;
 
         enum State { idle, patrolling, attacking, chasing }
-        [SerializeField] State state = State.idle; //todo private
+        State state = State.idle;
 
         void Start()
         {
-			character = GetComponent<Character>();
-			player = FindObjectOfType<PlayerControl>();
+            character = GetComponent<Character>();
+            player = FindObjectOfType<PlayerControl>();
         }
-
-		public float GetDeathVanishDelay()
-		{
-			return deathVanishSeconds;
-		}
 
 		void Update()
         {

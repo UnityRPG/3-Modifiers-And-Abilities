@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -8,7 +7,7 @@ namespace RPG.Characters
     [RequireComponent(typeof(Character))]
     public class WeaponSystem : MonoBehaviour
     {
-        [SerializeField] WeaponConfig startingWeapon = null;
+        [SerializeField] WeaponConfig startingWeapon;
         [SerializeField] float characterBaseDamage = 10f;
 
         WeaponConfig currentWeaponConfig;
@@ -19,24 +18,23 @@ namespace RPG.Characters
 		const string ATTACK_TRIGGER = "Attack";
         const string DEFAULT_ATTACK_STATE = "DEFAULT ATTACK";
 
-        // Use this for initialization
         void Start()
         {
 			animator = GetComponent<Animator>();
             character = GetComponent<Character>();
 
-            currentWeaponConfig = startingWeapon;
-            PutWeaponInHand(currentWeaponConfig);
+            PutWeaponInHand(startingWeapon);
             SetupRuntimeAnimator();
         }
 
         public WeaponConfig GetCurrentWeapon()
         {
-            return startingWeapon;
+            return currentWeaponConfig;
         }
 
         public float GetTotalDamagePerHit()
         {
+
             return characterBaseDamage + currentWeaponConfig.GetWeaponDamageBonus();
         }
 
@@ -57,26 +55,27 @@ namespace RPG.Characters
 
 		public void PutWeaponInHand(WeaponConfig weaponToUse)
 		{
-			this.startingWeapon = weaponToUse;
-			var weaponPrefab = startingWeapon.GetWeaponPrefab();
+			currentWeaponConfig = weaponToUse;
+			var weaponPrefab = weaponToUse.GetWeaponPrefab();
 			GameObject dominantHand = RequestDominantHand();
 			Destroy(weaponObject);
 			weaponObject = Instantiate(weaponPrefab, dominantHand.transform);
-			weaponObject.transform.localPosition = startingWeapon.gripTransform.localPosition;
-			weaponObject.transform.localRotation = startingWeapon.gripTransform.localRotation;
+			weaponObject.transform.localPosition = currentWeaponConfig.gripTransform.localPosition;
+			weaponObject.transform.localRotation = currentWeaponConfig.gripTransform.localRotation;
 		}
 
         private void SetupRuntimeAnimator()
         {
             if (!character.GetOverrideController())
             {
+                Debug.Break(); // we don't want to carry-on until fixed
                 Debug.LogAssertion("Please provide " + gameObject + " with an animator override controller.");
             }
             else
             {
                 var animatorOverrideController = character.GetOverrideController();
                 animator.runtimeAnimatorController = animatorOverrideController;
-                animatorOverrideController[DEFAULT_ATTACK_STATE] = startingWeapon.GetAttackAnimClip(); // remove const
+                animatorOverrideController[DEFAULT_ATTACK_STATE] = startingWeapon.GetAttackAnimClip();
             }
         }
 

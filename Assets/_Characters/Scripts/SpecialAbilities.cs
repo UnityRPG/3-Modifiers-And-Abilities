@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +8,15 @@ namespace RPG.Characters
     public class SpecialAbilities : MonoBehaviour
     {
 		[SerializeField] AbilityConfig[] abilities;
-        [SerializeField] Image energyBar = null;
+        [SerializeField] Image energyBar;
         [SerializeField] float maxEnergyPoints = 100f;
         [SerializeField] float regenPointsPerSecond = 1f;
 
         float currentEnergyPoints;
-        CameraUI.CameraRaycaster cameraRaycaster;
 
 		public float energyAsPercent { get { return currentEnergyPoints / maxEnergyPoints; } }
 
-        // Use this for initialization
+         
         void Start()
         {
             currentEnergyPoints = maxEnergyPoints;

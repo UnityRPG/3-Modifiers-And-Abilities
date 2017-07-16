@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿﻿﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +13,7 @@ public class HealthSystem : MonoBehaviour{
 	[SerializeField] Image healthBar = null;
 	[SerializeField] AudioClip[] damageSounds;
 	[SerializeField] AudioClip[] deathSounds;
+	[SerializeField] float deathVanishSeconds = 2.0f;
 
 	const string DEATH_TRIGGER = "Death";
 
@@ -23,7 +24,7 @@ public class HealthSystem : MonoBehaviour{
 
 	public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
-	// Use this for initialization
+	 
 	void Start () {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
@@ -31,7 +32,7 @@ public class HealthSystem : MonoBehaviour{
         currentHealthPoints = maxHealthPoints;
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
         UpdateHealthBar();
 	}
@@ -78,7 +79,7 @@ public class HealthSystem : MonoBehaviour{
         else // assume is enemy for now, reconsider on other NPCs
         {
             var enemyAI = GetComponent<EnemyAI>();
-            DestroyObject(gameObject, enemyAI.GetDeathVanishDelay()); 
+            DestroyObject(gameObject, deathVanishSeconds);
         }
 	}
 }

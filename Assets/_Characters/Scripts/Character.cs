@@ -7,7 +7,7 @@ namespace RPG.Characters
     [SelectionBase]
 	public class Character : MonoBehaviour
 	{
-        [Header("Capsule Collider Settings")]
+        [Header("Capsule Collider Settings")] // a class is an alternative but hard with [SerializeField] paradigm
         [SerializeField] Vector3 colliderCenter = new Vector3(0, 1.03f, 0);
         [SerializeField] float colliderRadius = 0.2f;
         [SerializeField] float colliderHeight = 2.03f;

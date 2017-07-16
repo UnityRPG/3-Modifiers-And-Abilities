@@ -13,7 +13,6 @@ namespace RPG.Characters
 
         private void DealRadialDamage()
         {
-            // Static sphere cast for targets
             RaycastHit[] hits = Physics.SphereCastAll(
                 transform.position,
                 (config as AreaEffectConfig).GetRadius(),

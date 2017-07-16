@@ -22,7 +22,6 @@ namespace RPG.Characters
 
         public float GetAnimHitTime()
         {
-            // consider routing from animator event for more precision
             return hitOrFireTime;
         }
 

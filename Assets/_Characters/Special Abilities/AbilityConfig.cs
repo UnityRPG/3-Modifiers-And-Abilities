@@ -17,7 +17,7 @@ namespace RPG.Characters
         public void AttachAbilityTo(GameObject objectToAttachTo)
         {
             AbilityBehaviour behaviourComponent = GetBehaviourComponent(objectToAttachTo);
-            behaviourComponent.SetConfig(this); // ok or need to be child?
+            behaviourComponent.SetConfig(this);
             behaviour = behaviourComponent;
         }
 
