@@ -43,14 +43,14 @@ namespace RPG.Characters
             transform.LookAt(target.transform);
             animator.SetTrigger(ATTACK_TRIGGER);
             float hitTime = GetCurrentWeapon().GetAnimHitTime();
-            StartCoroutine(DamageTargetAfterSeconds(target, hitTime));
+            StartCoroutine(DamageAndWait(target, hitTime));
         }
 
-        IEnumerator DamageTargetAfterSeconds(GameObject target, float seconds)
+        IEnumerator DamageAndWait(GameObject target, float seconds)
         {
-            yield return new WaitForSecondsRealtime(seconds);
             HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
             enemyDamageSystem.TakeDamage(GetTotalDamagePerHit());
+			yield return new WaitForSecondsRealtime(seconds);
         }
 
         public void PutWeaponInHand(WeaponConfig weaponToUse)
