@@ -55,23 +55,52 @@ namespace RPG.Characters
             }
         }
 
-        void OnMouseOverEnemy(EnemyAI enemy)
+        void OnMouseOverEnemy(EnemyAI enemy) // note co-routine
         {
-            float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
-            bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
-            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject) && timeToHitAgain)
+            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
             {
-                weaponSystem.AttackTarget(enemy.gameObject);
-                lastHitTime = Time.time;
+                StartCoroutine(RepeatAttack(enemy));
             }
             else if (Input.GetMouseButton(0) && !IsTargetInRange(enemy.gameObject))
             {
-                character.SetDestination(enemy.transform.position);
+                StartCoroutine(MoveAndAttack(enemy));
             }
             else if (Input.GetMouseButtonDown(1))
             {
                 abilities.AttemptSpecialAbility(0, enemy.gameObject);
             }
+        }
+
+        IEnumerator MoveAndAttack(EnemyAI enemy)
+        {
+            yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
+            yield return StartCoroutine(RepeatAttack(enemy));
+        }
+
+        IEnumerator RepeatAttack(EnemyAI enemy)
+        {
+            var enemyHealth = enemy.GetComponent<HealthSystem>();
+
+			float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
+			bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
+
+            while (enemyHealth.healthAsPercentage > 0 && timeToHitAgain)
+            {
+                weaponSystem.AttackTarget(enemy.gameObject);
+                lastHitTime = Time.time;
+                yield return new WaitForEndOfFrame();
+            }
+            yield return null;
+        }
+
+        IEnumerator MoveToTarget(GameObject target)
+        {
+            character.SetDestination(target.transform.position);
+            while (!IsTargetInRange(target))
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            yield return null;
         }
 
         bool IsTargetInRange(GameObject target)
