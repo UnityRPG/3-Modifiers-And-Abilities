@@ -60,7 +60,7 @@ Material:
     - _DstBlend: 0
     - _EmissionScaleUI: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.2
+    - _Glossiness: 0.283
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -72,6 +72,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.6985294, g: 0.87525356, b: 1, a: 1}
+    - _EmissionColor: {r: 0.029195508, g: 0.03317026, b: 0.07352942, a: 0}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}

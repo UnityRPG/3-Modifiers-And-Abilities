@@ -16,6 +16,6 @@ MonoBehaviour:
     type: 2}
   abilityAnimation: {fileID: 0}
   abilitySounds:
-  - {fileID: 8300000, guid: 81cce7dfa8dac4d288a682e39c2f2aa2, type: 3}
+  - {fileID: 8300000, guid: a60dcea1d225fd249bc113b2d3237716, type: 3}
   radius: 5
   damageToEachTarget: 15

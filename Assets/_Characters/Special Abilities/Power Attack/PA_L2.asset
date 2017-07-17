@@ -16,5 +16,5 @@ MonoBehaviour:
     type: 2}
   abilityAnimation: {fileID: 0}
   abilitySounds:
-  - {fileID: 8300000, guid: 3053bdd3758a04baf8907312cf216aec, type: 3}
+  - {fileID: 8300000, guid: a1b071b120e5f4c4592dd3d5153a425e, type: 3}
   damage: 10
