@@ -27,6 +27,15 @@ namespace RPG.Characters
             SetupRuntimeAnimator();
         }
 
+        private void Update()
+        {
+            var characterHealth = GetComponent<HealthSystem>().healthAsPercentage;
+            if (characterHealth <= Mathf.Epsilon)
+            {
+                StopAllCoroutines();
+            }
+        }
+
         public WeaponConfig GetCurrentWeapon()
         {
             return currentWeaponConfig;
@@ -48,9 +57,12 @@ namespace RPG.Characters
 
         IEnumerator DamageAndWait(GameObject target, float seconds)
         {
-            HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
-            enemyDamageSystem.TakeDamage(GetTotalDamagePerHit());
-			yield return new WaitForSecondsRealtime(seconds);
+            if (GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon)
+            {
+                target.GetComponent<HealthSystem>().TakeDamage(GetTotalDamagePerHit());
+                yield return new WaitForSecondsRealtime(seconds);
+            }
+            yield return null;
         }
 
         public void PutWeaponInHand(WeaponConfig weaponToUse)

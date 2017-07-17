@@ -37,7 +37,6 @@ namespace RPG.Characters
             distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
             weaponSystem = GetComponent<WeaponSystem>();
             currentWeaponRange = weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
-
             if (distanceToPlayer > chaseRadius && state != State.patrolling)
             {
                 StopAllCoroutines();

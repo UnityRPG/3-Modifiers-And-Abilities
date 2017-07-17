@@ -33,7 +33,6 @@ public class HealthSystem : MonoBehaviour
         currentHealthPoints = maxHealthPoints;
     }
 
-
     void Update()
     {
         UpdateHealthBar();
@@ -68,6 +67,7 @@ public class HealthSystem : MonoBehaviour
 
     IEnumerator KillCharacter()
     {
+        StopAllCoroutines();
         isInDeathThrows = true;
         animator.SetTrigger(DEATH_TRIGGER);
         var playerComponent = GetComponent<PlayerControl>();
