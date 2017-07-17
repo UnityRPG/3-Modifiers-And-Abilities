@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 using RPG.CameraUI; // for mouse events
 
 namespace RPG.Characters
 {
-	[RequireComponent(typeof(Character))]
+    [RequireComponent(typeof(Character))]
     [RequireComponent(typeof(SpecialAbilities))]
-	[RequireComponent(typeof(WeaponSystem))]
+    [RequireComponent(typeof(WeaponSystem))]
     public class PlayerControl : MonoBehaviour
     {
-		float lastHitTime = 0f;
+        float lastHitTime = 0f;
         Character character = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
@@ -23,57 +24,101 @@ namespace RPG.Characters
             RegisterForMouseEvents();
         }
 
-		void Update()
-		{
-		    ScanForAbilityKeyDown();
-		}
+        void Update()
+        {
+            ScanForAbilityKeyDown();
+        }
 
-		private void ScanForAbilityKeyDown()
-		{
+        private void ScanForAbilityKeyDown()
+        {
             for (int keyIndex = 1; keyIndex < abilities.GetNumberOfAbilities(); keyIndex++)
-			{
-				if (Input.GetKeyDown(keyIndex.ToString()))
-				{
+            {
+                if (Input.GetKeyDown(keyIndex.ToString()))
+                {
                     abilities.AttemptSpecialAbility(keyIndex);
-				}
-			}
-		}
+                }
+            }
+        }
 
         private void RegisterForMouseEvents()
         {
             var cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
-			cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
+            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
         }
 
-		void OnMouseOverPotentiallyWalkable(Vector3 destination)
-		{
-			if (Input.GetMouseButton(0))
-			{
-                character.SetDestination(destination);
-			}
-		}
-
-        void OnMouseOverEnemy(EnemyAI enemy)
+        void OnMouseOverPotentiallyWalkable(Vector3 destination)
         {
-            float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
-            bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
-            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject) && timeToHitAgain)
+            if (Input.GetMouseButton(0))
             {
-                weaponSystem.AttackTarget(enemy.gameObject);
-                lastHitTime = Time.time;
+                character.SetDestination(destination);
+            }
+        }
+
+        void OnMouseOverEnemy(EnemyAI enemy) // note co-routine
+        {
+            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
+            {
+                StartCoroutine(RepeatAttack(enemy));
             }
             else if (Input.GetMouseButton(0) && !IsTargetInRange(enemy.gameObject))
             {
-                character.SetDestination(enemy.transform.position);
+                StartCoroutine(MoveAndAttack(enemy));
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetMouseButtonDown(1) && IsTargetInRange(enemy.gameObject))
             {
-                abilities.AttemptSpecialAbility(0, enemy.gameObject);
+                PowerAttack(enemy);
+            }
+            else if (Input.GetMouseButtonDown(1) && !IsTargetInRange(enemy.gameObject))
+            {
+                StartCoroutine(MoveAndPowerAttack(enemy));
             }
         }
 
-        private bool IsTargetInRange(GameObject target)
+        IEnumerator MoveAndAttack(EnemyAI enemy)
+        {
+            yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
+            yield return StartCoroutine(RepeatAttack(enemy));
+        }
+
+		IEnumerator MoveAndPowerAttack(EnemyAI enemy)
+		{
+			yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
+            PowerAttack(enemy);
+		}
+
+        void PowerAttack(EnemyAI enemy)
+        {
+			abilities.AttemptSpecialAbility(0, enemy.gameObject);
+        }
+
+        IEnumerator RepeatAttack(EnemyAI enemy)
+        {
+            var enemyHealth = enemy.GetComponent<HealthSystem>();
+
+			float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
+			bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
+
+            while (enemyHealth.healthAsPercentage > 0 && timeToHitAgain)
+            {
+                weaponSystem.AttackTarget(enemy.gameObject);
+                lastHitTime = Time.time;
+                yield return new WaitForEndOfFrame();
+            }
+            yield return null;
+        }
+
+        IEnumerator MoveToTarget(GameObject target)
+        {
+            character.SetDestination(target.transform.position);
+            while (!IsTargetInRange(target))
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            yield return null;
+        }
+
+        bool IsTargetInRange(GameObject target)
         {
             float distanceToTarget = (target.transform.position - transform.position).magnitude;
             return distanceToTarget <= weaponSystem.GetCurrentWeapon().GetMaxAttackRange();

@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,16 +7,16 @@ namespace RPG.Characters
     [RequireComponent(typeof(Character))]
     public class SpecialAbilities : MonoBehaviour
     {
-		[SerializeField] AbilityConfig[] abilities;
+        [SerializeField] AbilityConfig[] abilities;
         [SerializeField] Image energyBar;
         [SerializeField] float maxEnergyPoints = 100f;
         [SerializeField] float regenPointsPerSecond = 1f;
 
         float currentEnergyPoints;
 
-		public float energyAsPercent { get { return currentEnergyPoints / maxEnergyPoints; } }
+        public float energyAsPercent { get { return currentEnergyPoints / maxEnergyPoints; } }
 
-         
+
         void Start()
         {
             currentEnergyPoints = maxEnergyPoints;
@@ -33,24 +33,24 @@ namespace RPG.Characters
             }
         }
 
-		void AttachInitialAbilities()
-		{
-			for (int abilityIndex = 0; abilityIndex < abilities.Length; abilityIndex++)
-			{
-				abilities[abilityIndex].AttachAbilityTo(gameObject);
-			}
-		}
+        void AttachInitialAbilities()
+        {
+            for (int abilityIndex = 0; abilityIndex < abilities.Length; abilityIndex++)
+            {
+                abilities[abilityIndex].AttachAbilityTo(gameObject);
+            }
+        }
 
         public void AttemptSpecialAbility(int abilityIndex, GameObject target = null)
-		{
-			var energyCost = abilities[abilityIndex].GetEnergyCost();
+        {
+            var energyCost = abilities[abilityIndex].GetEnergyCost();
 
             if (energyCost <= currentEnergyPoints)
-			{
-				ConsumeEnergy(energyCost);
-				abilities[abilityIndex].Use(target);
-			}
-		}
+            {
+                ConsumeEnergy(energyCost);
+                abilities[abilityIndex].Use(target);
+            }
+        }
 
         public int GetNumberOfAbilities()
         {

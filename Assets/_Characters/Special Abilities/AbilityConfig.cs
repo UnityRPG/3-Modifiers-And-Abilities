@@ -5,7 +5,8 @@ namespace RPG.Characters
     public abstract class AbilityConfig : ScriptableObject
     {
         [Header("Spcial Ability General")]
-        [SerializeField] float energyCost = 10f;
+        [SerializeField]
+        float energyCost = 10f;
         [SerializeField] GameObject particlePrefab = null;
         [SerializeField] AnimationClip abilityAnimation = null;
         [SerializeField] AudioClip[] abilitySounds = null;
@@ -37,9 +38,9 @@ namespace RPG.Characters
         }
 
         public AnimationClip GetAbilityAnimation()
-		{
+        {
             return abilityAnimation;
-		}
+        }
 
         public AudioClip GetRandomAbilitySound()
         {
