@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using UnityEngine;
 
 using RPG.CameraUI; // for mouse events
@@ -6,8 +6,9 @@ using RPG.CameraUI; // for mouse events
 namespace RPG.Characters
 {
     [RequireComponent(typeof(Character))]
-    [RequireComponent(typeof(SpecialAbilities))]
     [RequireComponent(typeof(WeaponSystem))]
+    [RequireComponent(typeof(HealthSystem))]
+    [RequireComponent(typeof(SpecialAbilities))]
     public class PlayerControl : MonoBehaviour
     {
         float lastHitTime = 0f;
@@ -105,7 +106,7 @@ namespace RPG.Characters
                 lastHitTime = Time.time;
                 yield return new WaitForEndOfFrame();
             }
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
 
         IEnumerator MoveToTarget(GameObject target)
@@ -115,7 +116,7 @@ namespace RPG.Characters
             {
                 yield return new WaitForEndOfFrame();
             }
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
 
         bool IsTargetInRange(GameObject target)

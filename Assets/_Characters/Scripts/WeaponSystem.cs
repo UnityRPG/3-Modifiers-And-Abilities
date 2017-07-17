@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -62,7 +62,7 @@ namespace RPG.Characters
                 target.GetComponent<HealthSystem>().TakeDamage(GetTotalDamagePerHit());
                 yield return new WaitForSecondsRealtime(seconds);
             }
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
 
         public void PutWeaponInHand(WeaponConfig weaponToUse)

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,6 +6,8 @@ namespace RPG.Characters
 {
     [RequireComponent(typeof(Character))]
     [RequireComponent(typeof(WeaponSystem))]
+    [RequireComponent(typeof(HealthSystem))]
+    [RequireComponent(typeof(SpecialAbilities))]
     public class EnemyAI : MonoBehaviour
     {
         [SerializeField] float chaseRadius = 6f;

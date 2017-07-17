@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using UnityEngine;
 
 namespace RPG.Characters
@@ -38,7 +38,7 @@ namespace RPG.Characters
                 yield return new WaitForSeconds(PARTICLE_CLEAN_UP_DELAY);
             }
             Destroy(particlePrefab);
-            yield return null;
+            yield return new WaitForEndOfFrame();
         }
 
         protected void PlayAbilityAnimation()
