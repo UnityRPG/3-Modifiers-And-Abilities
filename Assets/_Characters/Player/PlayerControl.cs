@@ -65,9 +65,13 @@ namespace RPG.Characters
             {
                 StartCoroutine(MoveAndAttack(enemy));
             }
-            else if (Input.GetMouseButtonDown(1))
+            else if (Input.GetMouseButtonDown(1) && IsTargetInRange(enemy.gameObject))
             {
-                abilities.AttemptSpecialAbility(0, enemy.gameObject);
+                PowerAttack(enemy);
+            }
+            else if (Input.GetMouseButtonDown(1) && !IsTargetInRange(enemy.gameObject))
+            {
+                StartCoroutine(MoveAndPowerAttack(enemy));
             }
         }
 
@@ -75,6 +79,17 @@ namespace RPG.Characters
         {
             yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
             yield return StartCoroutine(RepeatAttack(enemy));
+        }
+
+		IEnumerator MoveAndPowerAttack(EnemyAI enemy)
+		{
+			yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
+            PowerAttack(enemy);
+		}
+
+        void PowerAttack(EnemyAI enemy)
+        {
+			abilities.AttemptSpecialAbility(0, enemy.gameObject);
         }
 
         IEnumerator RepeatAttack(EnemyAI enemy)
