@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,14 +23,14 @@ namespace UnityStandardAssets.Water
         public LayerMask refractLayers = -1;
 
 
-        private Dictionary<Camera, Camera> m_ReflectionCameras = new Dictionary<Camera, Camera>(); // Camera -> Camera table
-        private Dictionary<Camera, Camera> m_RefractionCameras = new Dictionary<Camera, Camera>(); // Camera -> Camera table
-        private RenderTexture m_ReflectionTexture;
-        private RenderTexture m_RefractionTexture;
-        private WaterMode m_HardwareWaterSupport = WaterMode.Refractive;
-        private int m_OldReflectionTextureSize;
-        private int m_OldRefractionTextureSize;
-        private static bool s_InsideWater;
+         Dictionary<Camera, Camera> m_ReflectionCameras = new Dictionary<Camera, Camera>(); // Camera -> Camera table
+         Dictionary<Camera, Camera> m_RefractionCameras = new Dictionary<Camera, Camera>(); // Camera -> Camera table
+         RenderTexture m_ReflectionTexture;
+         RenderTexture m_RefractionTexture;
+         WaterMode m_HardwareWaterSupport = WaterMode.Refractive;
+         int m_OldReflectionTextureSize;
+         int m_OldRefractionTextureSize;
+         static bool s_InsideWater;
 
 
         // This is called when it's known that the object will be rendered by some

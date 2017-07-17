@@ -1,4 +1,4 @@
-﻿﻿﻿using System.Collections;
+﻿﻿﻿﻿﻿using System.Collections;
 using UnityEngine;
 
 using RPG.CameraUI; // for mouse events
@@ -30,7 +30,7 @@ namespace RPG.Characters
             ScanForAbilityKeyDown();
         }
 
-        private void ScanForAbilityKeyDown()
+         void ScanForAbilityKeyDown()
         {
             for (int keyIndex = 1; keyIndex < abilities.GetNumberOfAbilities(); keyIndex++)
             {
@@ -41,7 +41,7 @@ namespace RPG.Characters
             }
         }
 
-        private void RegisterForMouseEvents()
+         void RegisterForMouseEvents()
         {
             var cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
@@ -78,9 +78,9 @@ namespace RPG.Characters
 
         IEnumerator MoveAndAttack(EnemyAI enemy)
         {
-            print("startin move");
+            print("Player moving to " + enemy.name);
             yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
-            print("starting attack");
+            print("Player starting attack on " + enemy.name);
             yield return StartCoroutine(RepeatAttack(enemy));
         }
 
@@ -95,6 +95,7 @@ namespace RPG.Characters
 			abilities.AttemptSpecialAbility(0, enemy.gameObject);
         }
 
+        // todo move logic down to Weapon System
         IEnumerator RepeatAttack(EnemyAI enemy)
         {
             var enemyHealth = enemy.GetComponent<HealthSystem>();
@@ -116,10 +117,8 @@ namespace RPG.Characters
             character.SetDestination(target.transform.position);
             while (!IsTargetInRange(target))
             {
-                print("in while");
                 yield return new WaitForEndOfFrame();
             }
-            print("dropped out");
             yield return new WaitForEndOfFrame();
         }
 

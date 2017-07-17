@@ -11,7 +11,7 @@ namespace RPG.Characters
             PlayAbilitySound();
         }
 
-        private void DealRadialDamage()
+         void DealRadialDamage()
         {
             RaycastHit[] hits = Physics.SphereCastAll(
                 transform.position,

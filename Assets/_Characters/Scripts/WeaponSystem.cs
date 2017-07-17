@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿﻿﻿﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -10,6 +10,7 @@ namespace RPG.Characters
         [SerializeField] WeaponConfig startingWeapon;
         [SerializeField] float characterBaseDamage = 10f;
 
+        float lastHitTime = 0;
         WeaponConfig currentWeaponConfig;
         GameObject weaponObject;
         Animator animator;
@@ -22,12 +23,12 @@ namespace RPG.Characters
         {
             animator = GetComponent<Animator>();
             character = GetComponent<Character>();
+            SetupRuntimeAnimator();
 
             PutWeaponInHand(startingWeapon);
-            SetupRuntimeAnimator();
         }
 
-        private void Update()
+         void Update()
         {
             var characterHealth = GetComponent<HealthSystem>().healthAsPercentage;
             if (characterHealth <= Mathf.Epsilon)
@@ -76,7 +77,7 @@ namespace RPG.Characters
             weaponObject.transform.localRotation = currentWeaponConfig.GetGripRotation();
         }
 
-        private void SetupRuntimeAnimator()
+         void SetupRuntimeAnimator()
         {
             if (!character.GetOverrideController())
             {
@@ -91,7 +92,7 @@ namespace RPG.Characters
             }
         }
 
-        private GameObject RequestDominantHand()
+         GameObject RequestDominantHand()
         {
             var dominantHands = GetComponentsInChildren<DominantHand>();
             int numberOfDominantHands = dominantHands.Length;

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using RPG.Characters; // So we can detectect by type
 
@@ -62,7 +62,7 @@ namespace RPG.CameraUI
             return false;
         }
 
-        private bool RaycastForPotentiallyWalkable(Ray ray)
+        bool RaycastForPotentiallyWalkable(Ray ray)
         {
             RaycastHit hitInfo;
             LayerMask potentiallyWalkableLayer = 1 << POTENTIALLY_WALKABLE_LAYER;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace UnityStandardAssets.Water
@@ -8,7 +8,7 @@ namespace UnityStandardAssets.Water
     public class SpecularLighting : MonoBehaviour
     {
         public Transform specularLight;
-        private WaterBase m_WaterBase;
+         WaterBase m_WaterBase;
 
 
         public void Start()

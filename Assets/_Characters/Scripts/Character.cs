@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -95,14 +95,14 @@ namespace RPG.Characters
             return animatorOverrideController;
         }
 
-        private void Move(Vector3 movement)
+         void Move(Vector3 movement)
         {
             SetForwardAndTurn(movement);
             ApplyExtraTurnRotation();
             UpdateAnimator(); // send input and other state parameters to the animator
         }
 
-        private void SetForwardAndTurn(Vector3 movement)
+         void SetForwardAndTurn(Vector3 movement)
         {
             // convert the world relative moveInput vector into a local-relative
             // turn amount and forward amount required to head in the desired direction

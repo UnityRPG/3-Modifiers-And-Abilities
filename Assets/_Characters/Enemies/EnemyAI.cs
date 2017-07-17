@@ -35,7 +35,6 @@ namespace RPG.Characters
 
         void Update()
         {
-
             distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
             weaponSystem = GetComponent<WeaponSystem>();
             currentWeaponRange = weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
@@ -80,6 +79,7 @@ namespace RPG.Characters
             }
         }
 
+        // todo move logic down to weapon system
         IEnumerator AttackPlayer()
         {
             state = State.attacking;

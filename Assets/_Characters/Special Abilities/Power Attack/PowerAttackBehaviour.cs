@@ -11,7 +11,7 @@ namespace RPG.Characters
             PlayAbilitySound();
         }
 
-        private void DealDamage(GameObject target)
+         void DealDamage(GameObject target)
         {
             float damageToDeal = (config as PowerAttackConfig).GetDamage();
             var damageableTarget = target.GetComponent<HealthSystem>();

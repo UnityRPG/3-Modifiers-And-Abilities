@@ -41,7 +41,7 @@ namespace RPG.Characters
 			Instantiate(weapon, gameObject.transform);
         }
 
-        private void OnTriggerEnter()
+         void OnTriggerEnter()
         {
             FindObjectOfType<PlayerControl>().GetComponent<WeaponSystem>().PutWeaponInHand(weaponConfig);
         }

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,7 +17,7 @@ public class HealthSystem : MonoBehaviour
 
     const string DEATH_TRIGGER = "Death";
 
-    bool isInDeathThrows = false;
+    bool isInDeathThrows = false; // todo move down to Charater
     float currentHealthPoints;
     Animator animator;
     AudioSource audioSource;
