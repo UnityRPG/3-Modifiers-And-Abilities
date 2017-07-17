@@ -15,12 +15,12 @@ namespace RPG.Characters
         Animator animator;
         Character character;
 
-		const string ATTACK_TRIGGER = "Attack";
+        const string ATTACK_TRIGGER = "Attack";
         const string DEFAULT_ATTACK_STATE = "DEFAULT ATTACK";
 
         void Start()
         {
-			animator = GetComponent<Animator>();
+            animator = GetComponent<Animator>();
             character = GetComponent<Character>();
 
             PutWeaponInHand(startingWeapon);
@@ -38,31 +38,31 @@ namespace RPG.Characters
             return characterBaseDamage + currentWeaponConfig.GetWeaponDamageBonus();
         }
 
-		public void AttackTarget(GameObject target)
-		{
-			transform.LookAt(target.transform);
-			animator.SetTrigger(ATTACK_TRIGGER);
-			float hitTime = GetCurrentWeapon().GetAnimHitTime();
+        public void AttackTarget(GameObject target)
+        {
+            transform.LookAt(target.transform);
+            animator.SetTrigger(ATTACK_TRIGGER);
+            float hitTime = GetCurrentWeapon().GetAnimHitTime();
             StartCoroutine(DamageTargetAfterSeconds(target, hitTime));
-		}
+        }
 
-		IEnumerator DamageTargetAfterSeconds(GameObject target, float seconds)
-		{
-			yield return new WaitForSecondsRealtime(seconds);
-			HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
-			enemyDamageSystem.TakeDamage(GetTotalDamagePerHit());
-		}
+        IEnumerator DamageTargetAfterSeconds(GameObject target, float seconds)
+        {
+            yield return new WaitForSecondsRealtime(seconds);
+            HealthSystem enemyDamageSystem = target.GetComponent<HealthSystem>();
+            enemyDamageSystem.TakeDamage(GetTotalDamagePerHit());
+        }
 
-		public void PutWeaponInHand(WeaponConfig weaponToUse)
-		{
-			currentWeaponConfig = weaponToUse;
-			var weaponPrefab = weaponToUse.GetWeaponPrefab();
-			GameObject dominantHand = RequestDominantHand();
-			Destroy(weaponObject);
-			weaponObject = Instantiate(weaponPrefab, dominantHand.transform);
+        public void PutWeaponInHand(WeaponConfig weaponToUse)
+        {
+            currentWeaponConfig = weaponToUse;
+            var weaponPrefab = weaponToUse.GetWeaponPrefab();
+            GameObject dominantHand = RequestDominantHand();
+            Destroy(weaponObject);
+            weaponObject = Instantiate(weaponPrefab, dominantHand.transform);
             weaponObject.transform.localPosition = currentWeaponConfig.GetGripPosition();
             weaponObject.transform.localRotation = currentWeaponConfig.GetGripRotation();
-		}
+        }
 
         private void SetupRuntimeAnimator()
         {

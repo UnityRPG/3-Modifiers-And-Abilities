@@ -1,15 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 using RPG.CameraUI; // for mouse events
 
 namespace RPG.Characters
 {
-	[RequireComponent(typeof(Character))]
+    [RequireComponent(typeof(Character))]
     [RequireComponent(typeof(SpecialAbilities))]
-	[RequireComponent(typeof(WeaponSystem))]
+    [RequireComponent(typeof(WeaponSystem))]
     public class PlayerControl : MonoBehaviour
     {
-		float lastHitTime = 0f;
+        float lastHitTime = 0f;
         Character character = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
@@ -23,36 +24,36 @@ namespace RPG.Characters
             RegisterForMouseEvents();
         }
 
-		void Update()
-		{
-		    ScanForAbilityKeyDown();
-		}
+        void Update()
+        {
+            ScanForAbilityKeyDown();
+        }
 
-		private void ScanForAbilityKeyDown()
-		{
+        private void ScanForAbilityKeyDown()
+        {
             for (int keyIndex = 1; keyIndex < abilities.GetNumberOfAbilities(); keyIndex++)
-			{
-				if (Input.GetKeyDown(keyIndex.ToString()))
-				{
+            {
+                if (Input.GetKeyDown(keyIndex.ToString()))
+                {
                     abilities.AttemptSpecialAbility(keyIndex);
-				}
-			}
-		}
+                }
+            }
+        }
 
         private void RegisterForMouseEvents()
         {
             var cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
             cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
-			cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
+            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
         }
 
-		void OnMouseOverPotentiallyWalkable(Vector3 destination)
-		{
-			if (Input.GetMouseButton(0))
-			{
+        void OnMouseOverPotentiallyWalkable(Vector3 destination)
+        {
+            if (Input.GetMouseButton(0))
+            {
                 character.SetDestination(destination);
-			}
-		}
+            }
+        }
 
         void OnMouseOverEnemy(EnemyAI enemy)
         {
@@ -73,7 +74,7 @@ namespace RPG.Characters
             }
         }
 
-        private bool IsTargetInRange(GameObject target)
+        bool IsTargetInRange(GameObject target)
         {
             float distanceToTarget = (target.transform.position - transform.position).magnitude;
             return distanceToTarget <= weaponSystem.GetCurrentWeapon().GetMaxAttackRange();

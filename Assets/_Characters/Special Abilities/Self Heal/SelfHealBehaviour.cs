@@ -11,11 +11,11 @@ namespace RPG.Characters
             healthSystem = GetComponent<HealthSystem>();
         }
 
-		public override void Use(GameObject target)
-		{
-			PlayAbilitySound();
+        public override void Use(GameObject target)
+        {
+            PlayAbilitySound();
             PlayParticleEffect();
             healthSystem.Heal((config as SelfHealConfig).GetExtraHealth());
-		}
+        }
     }
 }

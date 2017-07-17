@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,11 +31,11 @@ namespace RPG.Characters
             player = FindObjectOfType<PlayerControl>();
         }
 
-		void Update()
+        void Update()
         {
 
-           distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-			weaponSystem = GetComponent<WeaponSystem>();
+            distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            weaponSystem = GetComponent<WeaponSystem>();
             currentWeaponRange = weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
 
             if (distanceToPlayer > chaseRadius && state != State.patrolling)
@@ -51,29 +51,29 @@ namespace RPG.Characters
             if (distanceToPlayer <= currentWeaponRange && state != State.attacking)
             {
                 StopAllCoroutines();
-				StartCoroutine(AttackPlayer());
+                StartCoroutine(AttackPlayer());
             }
         }
 
-		IEnumerator Patrol()
-		{
-			state = State.patrolling;
-			while (patrolPath != null) // patrol forever, or at least until childIndex overflows!
-			{
-				character.SetDestination(patrolPath.transform.GetChild(nextWaypoint).position);
-				if (Vector3.Distance(transform.position, patrolPath.transform.GetChild(nextWaypoint).transform.position) <= waypointTolerance)
-				{
-					nextWaypoint = (nextWaypoint + 1) % patrolPath.transform.childCount;
-				}
-				yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
-			}
-		}
+        IEnumerator Patrol()
+        {
+            state = State.patrolling;
+            while (patrolPath != null) // patrol forever, or at least until childIndex overflows!
+            {
+                character.SetDestination(patrolPath.transform.GetChild(nextWaypoint).position);
+                if (Vector3.Distance(transform.position, patrolPath.transform.GetChild(nextWaypoint).transform.position) <= waypointTolerance)
+                {
+                    nextWaypoint = (nextWaypoint + 1) % patrolPath.transform.childCount;
+                }
+                yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
+            }
+        }
 
         IEnumerator ChasePlayer()
         {
             state = State.chasing;
             while (distanceToPlayer >= currentWeaponRange)
-            { 
+            {
                 character.SetDestination(player.transform.position);
                 yield return new WaitForEndOfFrame();
             }
@@ -81,18 +81,18 @@ namespace RPG.Characters
 
         IEnumerator AttackPlayer()
         {
-			state = State.attacking;
+            state = State.attacking;
             while (true)
             {
                 float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
                 float timeToWait = weaponHitPeriod * character.GetAnimSpeedMultiplier();
-				bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
+                bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
                 if (isTimeToHitAgain)
                 {
                     weaponSystem.AttackTarget(player.gameObject);
-					lastHitTime = Time.time;
+                    lastHitTime = Time.time;
                 }
-				yield return new WaitForSeconds(timeToWait);
+                yield return new WaitForSeconds(timeToWait);
             }
         }
 

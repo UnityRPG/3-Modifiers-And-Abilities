@@ -1,4 +1,4 @@
-﻿﻿using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using RPG.Characters; // So we can detectect by type
 
@@ -6,9 +6,9 @@ namespace RPG.CameraUI
 {
     public class CameraRaycaster : MonoBehaviour
     {
-		[SerializeField] Texture2D walkCursor = null;
+        [SerializeField] Texture2D walkCursor = null;
         [SerializeField] Texture2D enemyCursor = null;
-		[SerializeField] Vector2 cursorHotspot = new Vector2(0, 0);
+        [SerializeField] Vector2 cursorHotspot = new Vector2(0, 0);
 
         const int POTENTIALLY_WALKABLE_LAYER = 8;
         float maxRaycastDepth = 100f;
@@ -16,12 +16,12 @@ namespace RPG.CameraUI
         Rect currentScrenRect;
 
         public delegate void OnMouseOverEnemy(EnemyAI enemy);
-		public event OnMouseOverEnemy onMouseOverEnemy;
+        public event OnMouseOverEnemy onMouseOverEnemy;
 
-		public delegate void OnMouseOverTerrain(Vector3 destination);
+        public delegate void OnMouseOverTerrain(Vector3 destination);
         public event OnMouseOverTerrain onMouseOverPotentiallyWalkable;
 
-		void Update()
+        void Update()
         {
             currentScrenRect = new Rect(0, 0, Screen.width, Screen.height);
 
@@ -37,7 +37,7 @@ namespace RPG.CameraUI
         }
 
         void PerformRaycasts()
-		{
+        {
             if (currentScrenRect.Contains(Input.mousePosition))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,10 +45,10 @@ namespace RPG.CameraUI
                 if (RaycastForEnemy(ray)) { return; }
                 if (RaycastForPotentiallyWalkable(ray)) { return; }
             }
-		}
+        }
 
-	    bool RaycastForEnemy(Ray ray)
-		{
+        bool RaycastForEnemy(Ray ray)
+        {
             RaycastHit hitInfo;
             Physics.Raycast(ray, out hitInfo, maxRaycastDepth);
             var gameObjectHit = hitInfo.collider.gameObject;
@@ -60,7 +60,7 @@ namespace RPG.CameraUI
                 return true;
             }
             return false;
-		}
+        }
 
         private bool RaycastForPotentiallyWalkable(Ray ray)
         {
