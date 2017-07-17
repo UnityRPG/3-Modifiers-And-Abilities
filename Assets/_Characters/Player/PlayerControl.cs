@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿﻿﻿using System.Collections;
 using UnityEngine;
 
 using RPG.CameraUI; // for mouse events
@@ -58,11 +58,11 @@ namespace RPG.Characters
 
         void OnMouseOverEnemy(EnemyAI enemy) // note co-routine
         {
-            if (Input.GetMouseButton(0) && IsTargetInRange(enemy.gameObject))
+            if (Input.GetMouseButtonDown(0) && IsTargetInRange(enemy.gameObject))
             {
                 StartCoroutine(RepeatAttack(enemy));
             }
-            else if (Input.GetMouseButton(0) && !IsTargetInRange(enemy.gameObject))
+            else if (Input.GetMouseButtonDown(0) && !IsTargetInRange(enemy.gameObject))
             {
                 StartCoroutine(MoveAndAttack(enemy));
             }
@@ -78,7 +78,9 @@ namespace RPG.Characters
 
         IEnumerator MoveAndAttack(EnemyAI enemy)
         {
+            print("startin move");
             yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
+            print("starting attack");
             yield return StartCoroutine(RepeatAttack(enemy));
         }
 
@@ -114,8 +116,10 @@ namespace RPG.Characters
             character.SetDestination(target.transform.position);
             while (!IsTargetInRange(target))
             {
+                print("in while");
                 yield return new WaitForEndOfFrame();
             }
+            print("dropped out");
             yield return new WaitForEndOfFrame();
         }
 
