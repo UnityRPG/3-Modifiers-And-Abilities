@@ -9,9 +9,14 @@ namespace RPG.Characters
     public class WeaponPickupPoint : MonoBehaviour
     {
         [SerializeField] WeaponConfig weaponConfig;
+        [SerializeField] AudioClip pickUpSFX;
+
+        AudioSource audioSource;
 
         void Start()
         {
+            audioSource = gameObject.AddComponent<AudioSource>();
+
             DestroyChildren();
             InstantiateWeapon();
         }
@@ -44,6 +49,7 @@ namespace RPG.Characters
          void OnTriggerEnter()
         {
             FindObjectOfType<PlayerControl>().GetComponent<WeaponSystem>().PutWeaponInHand(weaponConfig);
+            audioSource.PlayOneShot(pickUpSFX);
         }
     }
 }

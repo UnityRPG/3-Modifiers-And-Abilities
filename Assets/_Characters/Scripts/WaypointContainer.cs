@@ -4,8 +4,6 @@ namespace RPG.Characters
 {
     public class WaypointContainer : MonoBehaviour
     {
-        // todo add pickup SFX and particles
-
         void OnDrawGizmos()
         {
             Vector3 firstPosition = transform.GetChild(0).position;

@@ -80,7 +80,6 @@ namespace RPG.Characters
 
         void ConsumeEnergy(float amount)
         {
-            print("consume");
             float newEnergyPoints = currentEnergyPoints - amount;
             currentEnergyPoints = Mathf.Clamp(newEnergyPoints, 0, maxEnergyPoints);
             UpdateEnergyBar();
