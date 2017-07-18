@@ -65,7 +65,7 @@ namespace RPG.Characters
         {
             if (Input.GetMouseButtonDown(0) && IsTargetInRange(enemy.gameObject))
             {
-                weaponSystem.RepeatAttack(enemy.gameObject);
+                weaponSystem.AttackTarget(enemy.gameObject);
             }
             else if (Input.GetMouseButtonDown(0) && !IsTargetInRange(enemy.gameObject))
             {
@@ -94,7 +94,7 @@ namespace RPG.Characters
         IEnumerator MoveAndAttack(EnemyAI enemy)
         {
             yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
-            weaponSystem.RepeatAttack(enemy.gameObject);
+            weaponSystem.AttackTarget(enemy.gameObject);
         }
 
 		IEnumerator MoveAndPowerAttack(EnemyAI enemy)

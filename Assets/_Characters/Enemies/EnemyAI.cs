@@ -39,19 +39,25 @@ namespace RPG.Characters
             currentWeaponRange = weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
             if (distanceToPlayer > chaseRadius && state != State.patrolling)
             {
-                StopAllCoroutines();
+                StopAttacking();
                 StartCoroutine(Patrol());
             }
             if (distanceToPlayer <= chaseRadius && state != State.chasing)
             {
-                StopAllCoroutines();
+                StopAttacking();
                 StartCoroutine(ChasePlayer());
             }
             if (distanceToPlayer <= currentWeaponRange && state != State.attacking)
             {
                 StopAllCoroutines();
-                weaponSystem.RepeatAttack(player.gameObject);
+                weaponSystem.AttackTarget(player.gameObject);
             }
+        }
+
+        void StopAttacking()
+        {
+            StopAllCoroutines();
+            weaponSystem.StopAttacking();
         }
 
         IEnumerator Patrol()

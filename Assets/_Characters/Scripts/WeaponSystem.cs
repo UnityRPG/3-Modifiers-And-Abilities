@@ -15,6 +15,7 @@ namespace RPG.Characters
         GameObject weaponObject;
         Animator animator;
         Character character;
+        GameObject target;
 
         const string ATTACK_TRIGGER = "Attack";
         const string DEFAULT_ATTACK_STATE = "DEFAULT ATTACK";
@@ -30,11 +31,33 @@ namespace RPG.Characters
 
         void Update()
         {
+            bool targetIsDead;
+            bool targetIsOutOfRange;
+            if (target == null)
+            {
+                targetIsDead = false;
+                targetIsOutOfRange = false;
+            }
+            else 
+            {
+                var targetHealth = target.GetComponent<HealthSystem>().healthAsPercentage;
+                targetIsDead = targetHealth <= Mathf.Epsilon;
+
+                var distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+                targetIsOutOfRange = distanceToTarget > currentWeaponConfig.GetMaxAttackRange();
+            }
+
             var characterHealth = GetComponent<HealthSystem>().healthAsPercentage;
-            if (characterHealth <= Mathf.Epsilon)
+            bool characterIsDead = characterHealth <= Mathf.Epsilon;
+            if (characterIsDead || targetIsOutOfRange || targetIsDead)
             {
                 StopAllCoroutines();
             }
+        }
+
+        public void StopAttacking() // so that can be stopped from other classes
+        {
+            StopAllCoroutines();
         }
 
         public WeaponConfig GetCurrentWeapon()
@@ -48,39 +71,40 @@ namespace RPG.Characters
             return characterBaseDamage + currentWeaponConfig.GetWeaponDamageBonus();
         }
 
-        public void RepeatAttack(GameObject target)
+        public void AttackTarget(GameObject targetToAtToAttack)
         {
-            StartCoroutine(AttackEverySoOften(target));
+            target = targetToAtToAttack;
+            StartCoroutine(AttackTargetRepeatedly());
         }
 
-        IEnumerator AttackEverySoOften(GameObject target)
+
+        IEnumerator AttackTargetRepeatedly()
         {
-            bool stillAlive = GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
-            while (stillAlive)
+            bool attackerStillAlive = GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
+            bool targetStillAlive = target.GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
+            while (attackerStillAlive && targetStillAlive)
             {
                 float weaponHitPeriod = currentWeaponConfig.GetMinTimeBetweenHits();
                 float timeToWait = weaponHitPeriod * character.GetAnimSpeedMultiplier();
                 bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
                 if (isTimeToHitAgain)
                 {
-                    AttackTarget(target);
+                    AttackTarget();
                     lastHitTime = Time.time;
                 }
                 yield return new WaitForSeconds(timeToWait);
             }
         }
 
-        void AttackTarget(GameObject target)
+        void AttackTarget()
         {
-            {
-                transform.LookAt(target.transform);
-                animator.SetTrigger(ATTACK_TRIGGER);
-                float damageDelay = GetCurrentWeapon().GetAnimHitTime();
-                StartCoroutine(DamageAfterDelay(target, damageDelay));
-            }
+            transform.LookAt(target.transform);
+            animator.SetTrigger(ATTACK_TRIGGER);
+            float damageDelay = GetCurrentWeapon().GetAnimHitTime();
+            StartCoroutine(DamageAfterDelay(damageDelay));
         }
 
-        IEnumerator DamageAfterDelay(GameObject target, float delay)
+        IEnumerator DamageAfterDelay(float delay)
         {
             yield return new WaitForSecondsRealtime(delay);
             target.GetComponent<HealthSystem>().TakeDamage(GetTotalDamagePerHit());
