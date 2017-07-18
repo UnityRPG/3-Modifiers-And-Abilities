@@ -11,14 +11,22 @@ namespace RPG.Characters
         [SerializeField] Image energyBar;
         [SerializeField] float maxEnergyPoints = 100f;
         [SerializeField] float regenPointsPerSecond = 1f;
+        [SerializeField] AudioClip outOfEnergy;
 
         float currentEnergyPoints;
+        AudioSource audioSource;
 
         public float energyAsPercent { get { return currentEnergyPoints / maxEnergyPoints; } }
 
+        void Awake()
+        {
+            
+        }
 
         void Start()
         {
+            audioSource = GetComponent<AudioSource>();
+
             currentEnergyPoints = maxEnergyPoints;
             AttachInitialAbilities();
             UpdateEnergyBar();
@@ -50,6 +58,13 @@ namespace RPG.Characters
                 ConsumeEnergy(energyCost);
                 abilities[abilityIndex].Use(target);
             }
+            else
+            {
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.PlayOneShot(outOfEnergy);
+                }
+            }
         }
 
         public int GetNumberOfAbilities()
@@ -65,6 +80,7 @@ namespace RPG.Characters
 
         void ConsumeEnergy(float amount)
         {
+            print("consume");
             float newEnergyPoints = currentEnergyPoints - amount;
             currentEnergyPoints = Mathf.Clamp(newEnergyPoints, 0, maxEnergyPoints);
             UpdateEnergyBar();
