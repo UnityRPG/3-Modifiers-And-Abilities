@@ -1,4 +1,4 @@
-﻿﻿﻿﻿using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -10,6 +10,7 @@ namespace RPG.Characters
         [SerializeField] WeaponConfig startingWeapon;
         [SerializeField] float characterBaseDamage = 10f;
 
+        float lastHitTime;
         WeaponConfig currentWeaponConfig;
         GameObject weaponObject;
         Animator animator;
@@ -27,7 +28,7 @@ namespace RPG.Characters
             PutWeaponInHand(startingWeapon);
         }
 
-         void Update()
+        void Update()
         {
             var characterHealth = GetComponent<HealthSystem>().healthAsPercentage;
             if (characterHealth <= Mathf.Epsilon)
@@ -47,19 +48,39 @@ namespace RPG.Characters
             return characterBaseDamage + currentWeaponConfig.GetWeaponDamageBonus();
         }
 
-        public void AttackTarget(GameObject target)
+        public void RepeatAttack(GameObject target)
+        {
+            StartCoroutine(AttackEverySoOften(target));
+        }
+
+        IEnumerator AttackEverySoOften(GameObject target)
         {
             bool stillAlive = GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
-            if (stillAlive)
+            while (stillAlive)
+            {
+                float weaponHitPeriod = currentWeaponConfig.GetMinTimeBetweenHits();
+                float timeToWait = weaponHitPeriod * character.GetAnimSpeedMultiplier();
+                bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
+                if (isTimeToHitAgain)
+                {
+                    AttackTarget(target);
+                    lastHitTime = Time.time;
+                }
+                yield return new WaitForSeconds(timeToWait);
+            }
+        }
+
+        void AttackTarget(GameObject target)
+        {
             {
                 transform.LookAt(target.transform);
                 animator.SetTrigger(ATTACK_TRIGGER);
                 float damageDelay = GetCurrentWeapon().GetAnimHitTime();
-                StartCoroutine(DamageAndWait(target, damageDelay));
+                StartCoroutine(DamageAfterDelay(target, damageDelay));
             }
         }
 
-        IEnumerator DamageAndWait(GameObject target, float delay)
+        IEnumerator DamageAfterDelay(GameObject target, float delay)
         {
             yield return new WaitForSecondsRealtime(delay);
             target.GetComponent<HealthSystem>().TakeDamage(GetTotalDamagePerHit());
@@ -76,7 +97,7 @@ namespace RPG.Characters
             weaponObject.transform.localRotation = currentWeaponConfig.GetGripRotation();
         }
 
-         void SetupRuntimeAnimator()
+        void SetupRuntimeAnimator()
         {
             if (!character.GetOverrideController())
             {
@@ -91,7 +112,7 @@ namespace RPG.Characters
             }
         }
 
-         GameObject RequestDominantHand()
+        GameObject RequestDominantHand()
         {
             var dominantHands = GetComponentsInChildren<DominantHand>();
             int numberOfDominantHands = dominantHands.Length;

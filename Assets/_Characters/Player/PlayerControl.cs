@@ -11,7 +11,6 @@ namespace RPG.Characters
     [RequireComponent(typeof(SpecialAbilities))]
     public class PlayerControl : MonoBehaviour
     {
-        float lastHitTime = 0;
         Character character = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
@@ -66,7 +65,7 @@ namespace RPG.Characters
         {
             if (Input.GetMouseButtonDown(0) && IsTargetInRange(enemy.gameObject))
             {
-                StartCoroutine(RepeatAttack(enemy));
+                weaponSystem.RepeatAttack(enemy.gameObject);
             }
             else if (Input.GetMouseButtonDown(0) && !IsTargetInRange(enemy.gameObject))
             {
@@ -74,28 +73,12 @@ namespace RPG.Characters
             }
             else if (Input.GetMouseButtonDown(1) && IsTargetInRange(enemy.gameObject))
             {
-                PowerAttackOnce(enemy);
+                abilities.AttemptSpecialAbility(0, enemy.gameObject);
             }
             else if (Input.GetMouseButtonDown(1) && !IsTargetInRange(enemy.gameObject))
             {
                 StartCoroutine(MoveAndPowerAttack(enemy));
             }
-        }
-
-        IEnumerator RepeatAttack(EnemyAI enemy)
-        {
-            var enemyHealth = enemy.GetComponent<HealthSystem>();
-
-            float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
-            bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
-
-            while (enemyHealth.healthAsPercentage > 0 && timeToHitAgain)
-            {
-                weaponSystem.AttackTarget(enemy.gameObject);
-                lastHitTime = Time.time;
-                yield return new WaitForEndOfFrame();
-            }
-            yield return new WaitForEndOfFrame();
         }
 
         IEnumerator MoveToTarget(GameObject target)
@@ -110,21 +93,14 @@ namespace RPG.Characters
 
         IEnumerator MoveAndAttack(EnemyAI enemy)
         {
-            print("Player moving to " + enemy.name);
             yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
-            print("Player starting attack on " + enemy.name);
-            yield return StartCoroutine(RepeatAttack(enemy));
+            weaponSystem.RepeatAttack(enemy.gameObject);
         }
 
 		IEnumerator MoveAndPowerAttack(EnemyAI enemy)
 		{
 			yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
-            PowerAttackOnce(enemy);
+            abilities.AttemptSpecialAbility(0, enemy.gameObject);
 		}
-
-        void PowerAttackOnce(EnemyAI enemy)
-        {
-			abilities.AttemptSpecialAbility(0, enemy.gameObject);
-        }
     }
 }

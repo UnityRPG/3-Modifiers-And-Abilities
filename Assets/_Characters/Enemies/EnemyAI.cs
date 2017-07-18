@@ -16,7 +16,6 @@ namespace RPG.Characters
         [SerializeField] [Range(0f, 20f)] float minWaitTime = 0f;
         [SerializeField] [Range(0f, 60f)] float maxWaitTime = 2.0f;
 
-        float lastHitTime;
         WeaponSystem weaponSystem;
         PlayerControl player;
         Character character;
@@ -51,7 +50,7 @@ namespace RPG.Characters
             if (distanceToPlayer <= currentWeaponRange && state != State.attacking)
             {
                 StopAllCoroutines();
-                StartCoroutine(AttackPlayer());
+                weaponSystem.RepeatAttack(player.gameObject);
             }
         }
 
@@ -76,24 +75,6 @@ namespace RPG.Characters
             {
                 character.SetDestination(player.transform.position);
                 yield return new WaitForEndOfFrame();
-            }
-        }
-
-        // todo move logic down to weapon system
-        IEnumerator AttackPlayer()
-        {
-            state = State.attacking;
-            while (true)
-            {
-                float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
-                float timeToWait = weaponHitPeriod * character.GetAnimSpeedMultiplier();
-                bool isTimeToHitAgain = Time.time - lastHitTime > timeToWait;
-                if (isTimeToHitAgain)
-                {
-                    weaponSystem.AttackTarget(player.gameObject);
-                    lastHitTime = Time.time;
-                }
-                yield return new WaitForSeconds(timeToWait);
             }
         }
 
