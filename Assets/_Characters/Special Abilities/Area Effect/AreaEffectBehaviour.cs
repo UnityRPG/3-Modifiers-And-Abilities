@@ -11,7 +11,7 @@ namespace RPG.Characters
             PlayAbilitySound();
         }
 
-         void DealRadialDamage()
+        void DealRadialDamage()
         {
             RaycastHit[] hits = Physics.SphereCastAll(
                 transform.position,
@@ -22,14 +22,19 @@ namespace RPG.Characters
 
             foreach (RaycastHit hit in hits)
             {
-                var gameObjectHit = hit.collider.gameObject;
-                var damageable = gameObjectHit.GetComponent<HealthSystem>();
+                DamageIfDamagable(hit);
+            }
+        }
 
-                if (damageable != null && !gameObjectHit.GetComponent<PlayerControl>())
-                {
-                    float damageToDeal = (config as AreaEffectConfig).GetDamageToEachTarget();
-                    damageable.TakeDamage(damageToDeal);
-                }
+        private void DamageIfDamagable(RaycastHit hit)
+        {
+            var gameObjectHit = hit.collider.gameObject;
+            var damageable = gameObjectHit.GetComponent<HealthSystem>();
+
+            if (damageable != null && !gameObjectHit.GetComponent<PlayerControl>())
+            {
+                float damageToDeal = (config as AreaEffectConfig).GetDamageToEachTarget();
+                damageable.TakeDamage(damageToDeal);
             }
         }
     }

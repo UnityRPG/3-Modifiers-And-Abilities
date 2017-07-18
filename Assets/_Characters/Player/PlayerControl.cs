@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 using RPG.CameraUI; // for mouse events
@@ -24,12 +24,19 @@ namespace RPG.Characters
             RegisterForMouseEvents();
         }
 
+        void RegisterForMouseEvents()
+        {
+            var cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
+            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
+            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
+        }
+
         void Update()
         {
             ScanForAbilityKeyDown();
         }
 
-         void ScanForAbilityKeyDown()
+        void ScanForAbilityKeyDown()
         {
             for (int keyIndex = 1; keyIndex < abilities.GetNumberOfAbilities(); keyIndex++)
             {
@@ -38,13 +45,6 @@ namespace RPG.Characters
                     abilities.AttemptSpecialAbility(keyIndex);
                 }
             }
-        }
-
-         void RegisterForMouseEvents()
-        {
-            var cameraRaycaster = FindObjectOfType<CameraUI.CameraRaycaster>();
-            cameraRaycaster.onMouseOverEnemy += OnMouseOverEnemy;
-            cameraRaycaster.onMouseOverPotentiallyWalkable += OnMouseOverPotentiallyWalkable;
         }
 
         void OnMouseOverPotentiallyWalkable(Vector3 destination)
@@ -97,10 +97,10 @@ namespace RPG.Characters
             weaponSystem.AttackTarget(enemy.gameObject);
         }
 
-		IEnumerator MoveAndPowerAttack(EnemyAI enemy)
-		{
-			yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
+        IEnumerator MoveAndPowerAttack(EnemyAI enemy)
+        {
+            yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
             abilities.AttemptSpecialAbility(0, enemy.gameObject);
-		}
+        }
     }
 }

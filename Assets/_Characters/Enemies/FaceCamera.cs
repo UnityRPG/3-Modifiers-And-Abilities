@@ -5,7 +5,6 @@ namespace RPG.Characters
     public class FaceCamera : MonoBehaviour
     {
         Camera cameraToLookAt;
-
           
         void Start()
         {

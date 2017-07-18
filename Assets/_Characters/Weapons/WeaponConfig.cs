@@ -10,14 +10,14 @@ namespace RPG.Characters
         [SerializeField] Transform gripTransform;
         [SerializeField] GameObject weaponPrefab;
         [SerializeField] AnimationClip attackAnimation;
-		[SerializeField] float weaponDamageBonus = 5f;
+        [SerializeField] float weaponDamageBonus = 5f;
         [SerializeField] float maxAttackRange = 2.0f;
         [SerializeField] float damageDelay = 0.5f;
 
-		public Quaternion GetGripRotation()
-		{
+        public Quaternion GetGripRotation()
+        {
             return gripTransform.localRotation;
-		}
+        }
 
         public Vector3 GetGripPosition()
         {
@@ -43,20 +43,20 @@ namespace RPG.Characters
         {
             return weaponPrefab;
         }
-        
+
+        public float GetWeaponDamageBonus()
+        {
+            return weaponDamageBonus;
+        }
+
         public AnimationClip GetAttackAnimClip()
         {
             RemoveAnimationEvents();
             return attackAnimation;
         }
 
-		public float GetWeaponDamageBonus()
-		{
-			return weaponDamageBonus;
-		}
-
         // So that asset packs cannot cause crashes
-         void RemoveAnimationEvents()
+        void RemoveAnimationEvents()
         {
             attackAnimation.events = new AnimationEvent[0];
         }

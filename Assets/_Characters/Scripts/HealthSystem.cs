@@ -17,14 +17,12 @@ public class HealthSystem : MonoBehaviour
 
     const string DEATH_TRIGGER = "Death";
 
-    bool isInDeathThrows = false; // todo move down to Charater
     float currentHealthPoints;
     Animator animator;
     AudioSource audioSource;
     Character character;
 
     public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
-
 
     void Start()
     {
@@ -50,8 +48,6 @@ public class HealthSystem : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (isInDeathThrows) { return; }
-
         bool charaterDies = (currentHealthPoints - damage <= 0); // must ask before reducing health
         currentHealthPoints = Mathf.Clamp(currentHealthPoints - damage, 0f, maxHealthPoints);
         var clip = damageSounds[Random.Range(0, damageSounds.Length)];
@@ -69,15 +65,14 @@ public class HealthSystem : MonoBehaviour
 
     IEnumerator KillCharacter()
     {
-        character.Kill();
         StopAllCoroutines();
-        isInDeathThrows = true;
+        character.Kill();
         animator.SetTrigger(DEATH_TRIGGER);
         var playerComponent = GetComponent<PlayerControl>();
-        if (playerComponent && playerComponent.isActiveAndEnabled)
+        if (playerComponent && playerComponent.isActiveAndEnabled) // relying on lazy evaluation
         {
             audioSource.clip = deathSounds[Random.Range(0, deathSounds.Length)];
-            audioSource.Play();
+            audioSource.Play(); // overriding any existing sounds
             yield return new WaitForSecondsRealtime(audioSource.clip.length);
             SceneManager.LoadScene(0);
         }

@@ -19,7 +19,7 @@ namespace RPG.Characters
         WeaponSystem weaponSystem;
         PlayerControl player;
         Character character;
-        int nextWaypoint;
+        int nextWaypointIndex;
         float currentWeaponRange;
         float distanceToPlayer;
 
@@ -65,10 +65,11 @@ namespace RPG.Characters
             state = State.patrolling;
             while (patrolPath != null) // patrol forever, or at least until childIndex overflows!
             {
-                character.SetDestination(patrolPath.transform.GetChild(nextWaypoint).position);
-                if (Vector3.Distance(transform.position, patrolPath.transform.GetChild(nextWaypoint).transform.position) <= waypointTolerance)
+                character.SetDestination(patrolPath.transform.GetChild(nextWaypointIndex).position);
+                var nextWaypointPos = patrolPath.transform.GetChild(nextWaypointIndex).transform.position; // Demeter would cry
+                if (Vector3.Distance(transform.position, nextWaypointPos) <= waypointTolerance)
                 {
-                    nextWaypoint = (nextWaypoint + 1) % patrolPath.transform.childCount;
+                    nextWaypointIndex = (nextWaypointIndex + 1) % patrolPath.transform.childCount;
                 }
                 yield return new WaitForSeconds(Random.Range(minWaitTime, maxWaitTime));
             }

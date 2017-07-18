@@ -23,7 +23,7 @@ namespace RPG.Characters
         {
             animator = GetComponent<Animator>();
             character = GetComponent<Character>();
-            SetupRuntimeAnimator();
+            SetAttackAnimation();
 
             PutWeaponInHand(currentWeaponConfig);
         }
@@ -101,7 +101,7 @@ namespace RPG.Characters
             transform.LookAt(target.transform);
             animator.SetTrigger(ATTACK_TRIGGER);
             float damageDelay = GetCurrentWeapon().GetAnimHitTime();
-            SetupRuntimeAnimator();
+            SetAttackAnimation();
             StartCoroutine(DamageAfterDelay(damageDelay));
         }
 
@@ -122,7 +122,7 @@ namespace RPG.Characters
             weaponObject.transform.localRotation = currentWeaponConfig.GetGripRotation();
         }
 
-        void SetupRuntimeAnimator()
+        void SetAttackAnimation()
         {
             if (!character.GetOverrideController())
             {
