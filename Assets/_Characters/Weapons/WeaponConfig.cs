@@ -12,7 +12,7 @@ namespace RPG.Characters
         [SerializeField] AnimationClip attackAnimation;
 		[SerializeField] float weaponDamageBonus = 5f;
         [SerializeField] float maxAttackRange = 2.0f;
-        [SerializeField] float hitOrFireTime = 0.5f;
+        [SerializeField] float damageDelay = 0.5f;
 
 		public Quaternion GetGripRotation()
 		{
@@ -31,7 +31,7 @@ namespace RPG.Characters
 
         public float GetAnimHitTime()
         {
-            return hitOrFireTime;
+            return damageDelay;
         }
 
         public float GetMaxAttackRange()

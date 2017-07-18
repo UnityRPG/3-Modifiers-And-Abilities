@@ -10,7 +10,6 @@ namespace RPG.Characters
         [SerializeField] WeaponConfig startingWeapon;
         [SerializeField] float characterBaseDamage = 10f;
 
-        float lastHitTime = 0;
         WeaponConfig currentWeaponConfig;
         GameObject weaponObject;
         Animator animator;
@@ -50,20 +49,20 @@ namespace RPG.Characters
 
         public void AttackTarget(GameObject target)
         {
-            transform.LookAt(target.transform);
-            animator.SetTrigger(ATTACK_TRIGGER);
-            float hitTime = GetCurrentWeapon().GetAnimHitTime();
-            StartCoroutine(DamageAndWait(target, hitTime));
+            bool stillAlive = GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon;
+            if (stillAlive)
+            {
+                transform.LookAt(target.transform);
+                animator.SetTrigger(ATTACK_TRIGGER);
+                float damageDelay = GetCurrentWeapon().GetAnimHitTime();
+                StartCoroutine(DamageAndWait(target, damageDelay));
+            }
         }
 
-        IEnumerator DamageAndWait(GameObject target, float seconds)
+        IEnumerator DamageAndWait(GameObject target, float delay)
         {
-            if (GetComponent<HealthSystem>().healthAsPercentage >= Mathf.Epsilon)
-            {
-                target.GetComponent<HealthSystem>().TakeDamage(GetTotalDamagePerHit());
-                yield return new WaitForSecondsRealtime(seconds);
-            }
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(delay);
+            target.GetComponent<HealthSystem>().TakeDamage(GetTotalDamagePerHit());
         }
 
         public void PutWeaponInHand(WeaponConfig weaponToUse)

@@ -11,7 +11,7 @@ namespace RPG.Characters
     [RequireComponent(typeof(SpecialAbilities))]
     public class PlayerControl : MonoBehaviour
     {
-        float lastHitTime = 0f;
+        float lastHitTime = 0;
         Character character = null;
         SpecialAbilities abilities = null;
         WeaponSystem weaponSystem;
@@ -56,6 +56,12 @@ namespace RPG.Characters
             }
         }
 
+        bool IsTargetInRange(GameObject target)
+        {
+            float distanceToTarget = (target.transform.position - transform.position).magnitude;
+            return distanceToTarget <= weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
+        }
+
         void OnMouseOverEnemy(EnemyAI enemy) // note co-routine
         {
             if (Input.GetMouseButtonDown(0) && IsTargetInRange(enemy.gameObject))
@@ -68,7 +74,7 @@ namespace RPG.Characters
             }
             else if (Input.GetMouseButtonDown(1) && IsTargetInRange(enemy.gameObject))
             {
-                PowerAttack(enemy);
+                PowerAttackOnce(enemy);
             }
             else if (Input.GetMouseButtonDown(1) && !IsTargetInRange(enemy.gameObject))
             {
@@ -76,32 +82,12 @@ namespace RPG.Characters
             }
         }
 
-        IEnumerator MoveAndAttack(EnemyAI enemy)
-        {
-            print("Player moving to " + enemy.name);
-            yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
-            print("Player starting attack on " + enemy.name);
-            yield return StartCoroutine(RepeatAttack(enemy));
-        }
-
-		IEnumerator MoveAndPowerAttack(EnemyAI enemy)
-		{
-			yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
-            PowerAttack(enemy);
-		}
-
-        void PowerAttack(EnemyAI enemy)
-        {
-			abilities.AttemptSpecialAbility(0, enemy.gameObject);
-        }
-
-        // todo move logic down to Weapon System
         IEnumerator RepeatAttack(EnemyAI enemy)
         {
             var enemyHealth = enemy.GetComponent<HealthSystem>();
 
-			float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
-			bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
+            float weaponHitPeriod = weaponSystem.GetCurrentWeapon().GetMinTimeBetweenHits();
+            bool timeToHitAgain = Time.time - lastHitTime > weaponHitPeriod;
 
             while (enemyHealth.healthAsPercentage > 0 && timeToHitAgain)
             {
@@ -122,10 +108,23 @@ namespace RPG.Characters
             yield return new WaitForEndOfFrame();
         }
 
-        bool IsTargetInRange(GameObject target)
+        IEnumerator MoveAndAttack(EnemyAI enemy)
         {
-            float distanceToTarget = (target.transform.position - transform.position).magnitude;
-            return distanceToTarget <= weaponSystem.GetCurrentWeapon().GetMaxAttackRange();
+            print("Player moving to " + enemy.name);
+            yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
+            print("Player starting attack on " + enemy.name);
+            yield return StartCoroutine(RepeatAttack(enemy));
+        }
+
+		IEnumerator MoveAndPowerAttack(EnemyAI enemy)
+		{
+			yield return StartCoroutine(MoveToTarget(enemy.gameObject)); // Execute in series
+            PowerAttackOnce(enemy);
+		}
+
+        void PowerAttackOnce(EnemyAI enemy)
+        {
+			abilities.AttemptSpecialAbility(0, enemy.gameObject);
         }
     }
 }
