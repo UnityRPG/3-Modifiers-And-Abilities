@@ -309,3 +309,10 @@ Here are the lectures of the course for this section...
 1. How to count lines of code added
 2. Adding additional weapon damage
 3. Adding critical hit calculation & particles.
+
+
+### 52 AOE Particle Effect
+1. Creating particle systems within particle system
+2. Alter rotation of emmission
+3. Use burst emmission
+4. Tune and tweak particles
