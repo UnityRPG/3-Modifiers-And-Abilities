@@ -7,11 +7,10 @@ namespace RPG.Characters
     [RequireComponent(typeof(Character))]
     public class WeaponSystem : MonoBehaviour
     {
-        [SerializeField] WeaponConfig startingWeapon;
+        [SerializeField] WeaponConfig currentWeaponConfig;
         [SerializeField] float characterBaseDamage = 10f;
 
         float lastHitTime;
-        WeaponConfig currentWeaponConfig;
         GameObject weaponObject;
         Animator animator;
         Character character;
@@ -26,7 +25,7 @@ namespace RPG.Characters
             character = GetComponent<Character>();
             SetupRuntimeAnimator();
 
-            PutWeaponInHand(startingWeapon);
+            PutWeaponInHand(currentWeaponConfig);
         }
 
         void Update()
@@ -73,6 +72,7 @@ namespace RPG.Characters
 
         public void AttackTarget(GameObject targetToAtToAttack)
         {
+            
             target = targetToAtToAttack;
             StartCoroutine(AttackTargetRepeatedly());
         }
@@ -101,6 +101,7 @@ namespace RPG.Characters
             transform.LookAt(target.transform);
             animator.SetTrigger(ATTACK_TRIGGER);
             float damageDelay = GetCurrentWeapon().GetAnimHitTime();
+            SetupRuntimeAnimator();
             StartCoroutine(DamageAfterDelay(damageDelay));
         }
 
@@ -132,7 +133,7 @@ namespace RPG.Characters
             {
                 var animatorOverrideController = character.GetOverrideController();
                 animator.runtimeAnimatorController = animatorOverrideController;
-                animatorOverrideController[DEFAULT_ATTACK_STATE] = startingWeapon.GetAttackAnimClip();
+                animatorOverrideController[DEFAULT_ATTACK_STATE] = currentWeaponConfig.GetAttackAnimClip();
             }
         }
 
