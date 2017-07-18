@@ -37,6 +37,7 @@ namespace RPG.Characters
         float turnAmount;
         float forwardAmount;
         NavMeshAgent navMeshAgent;
+        bool isAlive = true;
 
         void Awake()
         {
@@ -70,7 +71,7 @@ namespace RPG.Characters
 
         void Update()
         {
-            if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance)
+            if (navMeshAgent.remainingDistance > navMeshAgent.stoppingDistance && isAlive)
             {
                 Move(navMeshAgent.desiredVelocity);
             }
@@ -78,6 +79,11 @@ namespace RPG.Characters
             {
                 Move(Vector3.zero);
             }
+        }
+
+        public void Kill()
+        {
+            isAlive = false;
         }
 
         public void SetDestination(Vector3 worldPos)

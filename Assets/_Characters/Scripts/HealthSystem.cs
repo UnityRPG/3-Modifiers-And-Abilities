@@ -21,6 +21,7 @@ public class HealthSystem : MonoBehaviour
     float currentHealthPoints;
     Animator animator;
     AudioSource audioSource;
+    Character character;
 
     public float healthAsPercentage { get { return currentHealthPoints / maxHealthPoints; } }
 
@@ -29,6 +30,7 @@ public class HealthSystem : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        character = GetComponent<Character>();
 
         currentHealthPoints = maxHealthPoints;
     }
@@ -67,6 +69,7 @@ public class HealthSystem : MonoBehaviour
 
     IEnumerator KillCharacter()
     {
+        character.Kill();
         StopAllCoroutines();
         isInDeathThrows = true;
         animator.SetTrigger(DEATH_TRIGGER);
