@@ -316,3 +316,8 @@ Here are the lectures of the course for this section...
 2. Alter rotation of emmission
 3. Use burst emmission
 4. Tune and tweak particles
+
+
+### 53 Self Heal Particle Effect
+1. Create plus symbol texture for a different look
+2. Implement self heal particle system
