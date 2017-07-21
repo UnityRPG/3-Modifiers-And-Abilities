@@ -24,7 +24,7 @@ namespace RPG.Characters
 
         public void Use(GameObject target)
         {
-            behaviour.Use(target);
+            behaviour.Use(target); // Pass use request onto behaviour component
         }
 
         public float GetEnergyCost()
