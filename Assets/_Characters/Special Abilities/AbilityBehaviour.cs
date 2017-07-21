@@ -26,7 +26,7 @@ namespace RPG.Characters
                 transform.position,
                 particlePrefab.transform.rotation
             );
-            particleObject.transform.parent = transform; // set world space in preab if required
+            particleObject.transform.parent = transform; // set world space in prefab if required
             particleObject.GetComponent<ParticleSystem>().Play();
             StartCoroutine(DestroyParticleWhenFinished(particleObject));
         }
