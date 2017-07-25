@@ -321,3 +321,8 @@ Here are the lectures of the course for this section...
 ### 53 Self Heal Particle Effect
 1. Create plus symbol texture for a different look
 2. Implement self heal particle system
+
+
+### 54 Section 3 Wrap Up
+1. We now know what our game will be, so its time to shift gears.
+2. Well done on your great work so far!
