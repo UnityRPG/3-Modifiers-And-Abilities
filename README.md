@@ -313,8 +313,8 @@ Here are the lectures of the course for this section...
 
 ### 52 AOE Particle Effect
 1. Creating particle systems within particle system
-2. Alter rotation of emmission
-3. Use burst emmission
+2. Alter rotation of emission
+3. Use burst emission
 4. Tune and tweak particles
 
 
@@ -326,3 +326,5 @@ Here are the lectures of the course for this section...
 ### 54 Section 3 Wrap Up
 1. We now know what our game will be, so its time to shift gears.
 2. Well done on your great work so far!
+
+That's it, in the next section we will be adding the final features, refactoring and making our core combat fun.
