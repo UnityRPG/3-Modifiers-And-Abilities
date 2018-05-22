@@ -1,15 +1,19 @@
 ﻿# Unity RPG Course - Section 3 - Modifiers And Abilities
 
-Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. The full course is [on Udemy here](https://www.udemy.com/unityrpg).
+Welcome to Section 3 of the [Unity RPG](http://gdev.tv/rpggithub) course – the full course is part of a Kickstarter campaign which was over 200% funded. You will benefit from the fact we have already taught over 360,336 students game development, many shipping commercial games as a result.
 
-You're welcome to download, fork or do whatever else legal with all the files!
+Customise character abilities, weapons, characters and enemies. This includes multiple damage types, modifiers, sounds, animations. By the end you can create your core combat experience. 
 
-## How To Build / Compile
+You're welcome to download, fork or do whatever else legal with all the files! Please note that future sections contain assets with commercial use restrictions. The real value is in our huge, high-quality online tutorials that accompany this repo. You can check out the course here: [Unity RPG](http://gdev.tv/rpggithub)
+
+## In This Section 
+
+### How To Build / Compile
 This is a Unity project. If you're familiar with source control, then "clone this repo". Otherwise download the contents, and navigate to `Assets > Levels` then open any `.unity` file.
 
 This branch is the course branch, each commit corresponds to a lecture in the course. The current state is our latest progress.
 
-## Lecture List
+### Lecture List
 Here are the lectures of the course for this section...
 
 ### 1 Section 3 Introduction
